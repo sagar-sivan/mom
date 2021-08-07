@@ -254,25 +254,83 @@
             background: transparent;
         }
         &__content {
-            background: green;
+            .testimonial {
+                &__content {
+                    text-align: center;
+                    max-width: 600px;
+                    margin: 20px auto 40px;
+
+                    &__item {
+                        text-align: center; 
+                        font-size: 30px;
+                        font-weight: 300;
+                    }
+                }
+            } 
+        } 
+        
+        .testimonial {
+            &__nav {
+                display: flex;
+                align-items: center; 
+
+                .slick-arrow { 
+                    display: block; 
+                    padding: 0;
+                    min-width: 50px;
+                    height: 53px;
+                    opacity: 1;
+                    z-index: 5;
+                    border: 0;
+                    text-indent: -9999px;
+                    transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease;
+                    background: url(../images/icons/bg-arrow.png) no-repeat center center;
+                }
+
+                .slick-next { 
+                    transform: scalex(-1);
+                }
+
+                &__items { 
+                    text-align: center; 
+
+                    figure {
+                        display: block;
+                        margin: 20px auto;
+                        @include corners(100%);
+                        @include hoverAnim(500); 
+                        width: 70px;
+                        height: 70px;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    span {
+                        font-size: 20px;
+                        @include hoverAnim(500); 
+                        margin: 0 0 17px;
+                        display: block;
+                        line-height: 1.2;
+                    }
+                }
+
+                .slick-current .testimonial__nav__items {
+                    figure {
+                        width: 100px;
+                        height: 100px;
+                        margin: 5px auto 8px;
+                    }
+
+                    span { 
+                        font-size: 28px;
+                        margin: 0;
+                    }
+                }
+
+            } 
         }
-
-        // .testimonial {
-        //     &__content {
-        //         &__item {
-        //             border: 1px solid red;
-        //             text-align: center;
-        //             max-width: 600px;
-        //             margin: 0 auto 40px;
-        //         }
-        //     }
-        // } 
-
-        // &__content {
-        //     font-size: 30px;
-        //     font-weight: 300;
-        //     margin: 0 auto;
-        //     padding: 0 20px;
-        // }
     }
 }

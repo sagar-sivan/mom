@@ -162,35 +162,6 @@ a:hover {
           box-shadow: 0px 19px 28px rgba(255, 51, 51, 0.36);
 }
 
-.testimonial__nav .slick-arrow {
-  position: absolute;
-  display: block;
-  top: 70px;
-  padding: 0;
-  width: 28px;
-  height: 53px;
-  opacity: 1;
-  z-index: 5;
-  border: 0;
-  text-indent: -9999px;
-  -webkit-transition: opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease, -webkit-transform 0.4s ease;
-  transition: opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease, -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease;
-  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease, -webkit-transform 0.4s ease;
-}
-
-.testimonial__nav .slick-prev {
-  left: -90px;
-  background: red url(../images/key_arrow.png) no-repeat center center;
-}
-
-.testimonial__nav .slick-next {
-  right: -90px;
-  background: red url(../images/key_arrow.png) no-repeat center center;
-  -webkit-transform: scalex(-1);
-          transform: scalex(-1);
-}
-
 h1 {
   font-size: 32px;
   font-family: "Rage";
@@ -793,8 +764,75 @@ p {
 .home__testimonial__text {
   background: transparent;
 }
-.home__testimonial__content {
-  background: green;
+.home__testimonial__content .testimonial__content {
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto 40px;
+}
+.home__testimonial__content .testimonial__content__item {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
+}
+.home__testimonial .testimonial__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.home__testimonial .testimonial__nav .slick-arrow {
+  display: block;
+  padding: 0;
+  min-width: 50px;
+  height: 53px;
+  opacity: 1;
+  z-index: 5;
+  border: 0;
+  text-indent: -9999px;
+  -webkit-transition: opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease, -webkit-transform 0.4s ease;
+  transition: opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease, -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, padding 0.4s ease, -webkit-transform 0.4s ease;
+  background: url(../images/icons/bg-arrow.png) no-repeat center center;
+}
+.home__testimonial .testimonial__nav .slick-next {
+  -webkit-transform: scalex(-1);
+          transform: scalex(-1);
+}
+.home__testimonial .testimonial__nav__items {
+  text-align: center;
+}
+.home__testimonial .testimonial__nav__items figure {
+  display: block;
+  margin: 20px auto;
+  border-radius: 100%;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+}
+.home__testimonial .testimonial__nav__items figure img {
+  width: 100%;
+}
+.home__testimonial .testimonial__nav__items span {
+  font-size: 20px;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  margin: 0 0 17px;
+  display: block;
+  line-height: 1.2;
+}
+.home__testimonial .testimonial__nav .slick-current .testimonial__nav__items figure {
+  width: 100px;
+  height: 100px;
+  margin: 5px auto 8px;
+}
+.home__testimonial .testimonial__nav .slick-current .testimonial__nav__items span {
+  font-size: 28px;
+  margin: 0;
 }
 
 .food__select {
