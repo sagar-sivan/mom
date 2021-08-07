@@ -409,6 +409,11 @@ p {
 .banner__holder img {
   width: 100%;
   display: block;
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .banner__holder .slick-dots {
   position: absolute;
