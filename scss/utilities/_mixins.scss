@@ -1,0 +1,43 @@
+@mixin block-display {
+    display: inline-block;
+    content: "";
+}
+
+@function invertValues($top, $right, $bottom, $left) {
+    @if $dir == right {
+        @return $top $left $bottom $right;
+    }
+    @else {
+        @return $top $right $bottom $left;
+    }
+}
+
+@mixin corners($radius) {
+	border-radius: $radius;
+}
+
+@mixin redShadow($test-color) {
+    box-shadow: 0 16px 24px rgba($test-color, 0.23);
+}
+
+@mixin buttonShadow() {
+    box-shadow: 0 4px 8px rgba($black, 0.08);
+}
+
+@mixin lineclamp2() {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+@mixin hoverAnim($hoverAnim) {
+    transition: all $hoverAnim+ms;
+}
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}  
+}
