@@ -84,18 +84,7 @@ $(document).ready(function () {
 
 
 
-  //search click
-  $(".search-js").click(function(){
-    $("body").toggleClass("search-open");
-  });
-  $('.search-js').keypress(function (e) {
-  var key = e.which;
-  if(key == 13)
-  {
-    $('.search-js').click();
-    return false;
-  }
-  });
+   
 
 
 
@@ -105,7 +94,13 @@ $(document).ready(function () {
     dots: false,
     centerPadding: '0',
     centerMode: true,
-    focusOnSelect: true
+    focusOnSelect: true,
+    responsive: [{
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 1,
+        }
+    }]
   });
 
   $('.testimonial__content').slick({
@@ -180,7 +175,7 @@ $(document).ready(function () {
           dots: true
         }
   
-      }]
+    }]
   });  
 
   
