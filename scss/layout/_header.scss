@@ -1,11 +1,35 @@
 .header {
     padding: 50px 0 50px;
     border-bottom: 1px solid rgba($color: #e6bb8f, $alpha: .21);
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     z-index: 2;
+    @include hoverAnim(300); 
+
+    &.toTop {
+        padding: 15px 0 15px;
+        @include hoverAnim(500); 
+        background: rgba($color: $white-color, $alpha: 0.4);
+
+        & .header__logo {
+            display: block;
+            max-width: 140px;
+            @include hoverAnim(500); 
+        }
+
+        & .header__nav > ul li a {
+            font-size: 18px; 
+            padding: 0 6px;
+            @include hoverAnim(500);
+        }
+    }
+
+    &__logo {
+        @include hoverAnim(300); 
+        max-width: 200px;
+    }
 
     &__right {
         display: flex;
@@ -29,6 +53,7 @@
                     font-size: 21px;
                     color: $black-color;
                     padding: 0 10px;
+                    @include hoverAnim(300); 
 
                     &:hover {
                         text-decoration: none;

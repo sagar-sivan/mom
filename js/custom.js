@@ -41,6 +41,25 @@ $(".homebanner").slick({
   slidesToScroll: 1
 });
 
+// scroll top script
+$(document).ready(function () {
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+        $('.scrollup').show();
+    } else {
+        $('.scrollup').hide();
+    }
+
+    if ($(this).scrollTop() > 100) {
+      $('.header').addClass('toTop');
+    } else {
+      $('.header').removeClass('toTop');
+    }
+  });
+  
+});
+
  
 // scroll top script
 $(document).ready(function () {
