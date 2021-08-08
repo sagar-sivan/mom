@@ -60,6 +60,10 @@ $(document).ready(function () {
   
 });
 
+$(".nav__btn").click(function(){
+  $("body").toggleClass("nav-open");
+});
+
  
 // scroll top script
 $(document).ready(function () {
