@@ -15,7 +15,7 @@
     &.toTop {
         padding: 15px 0 15px;
         @include hoverAnim(500); 
-        background: rgba($color: $white-color, $alpha: 0.4);
+        background: rgba($color: $white-color, $alpha: 0.6);
 
         & .header__logo {
             display: block;

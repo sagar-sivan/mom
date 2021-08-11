@@ -182,3 +182,15 @@ p {
         display: none !important;            
     }
 }
+
+.common {
+	&__text {
+		p {
+			font-size: 25px;
+			line-height: 2;
+			font-weight: 500;
+			color: $black-color;
+			margin: 0 0 40px;		
+		}
+	}
+}
