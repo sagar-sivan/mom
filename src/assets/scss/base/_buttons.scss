@@ -1,0 +1,122 @@
+.btn {
+    font-weight: 600;
+
+    &__alert {
+        position: relative;
+        background: $primary-color url(../images/icons/alert.png) no-repeat center center;
+        background-size: 24px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50px; 
+        text-indent: -9999px;
+        margin: invertValues(0, 0, 0, 10px);
+
+        @media (max-width: 767px) {  
+            margin: invertValues(0, 0, 0, 5px);        
+        }
+
+        &:hover {
+            background-color: $black-color;
+        }
+    }
+
+    &__login {
+        color: $white-color;
+        background: $primary-color;
+        @include corners(30px);
+        //@include redShadow(rgba($color: #000000, $alpha: 1.0));
+        box-shadow: 0px 19px 28px rgba($color: #ff3333, $alpha: .36);
+        font-weight: 600;
+        font-size: 22px;
+        @include hoverAnim(600);
+        padding: invertValues(13px, 25px, 13px, 30px);
+        line-height: 1;
+        margin: invertValues(0, 0, 0, 15px);
+
+        @media (max-width: 767px) {  
+            margin: invertValues(0, 0, 0, 10px);   
+            padding: 12px 15px,;  
+            font-size: 20px;         
+        }
+
+        @media (max-width: 575px) { 
+            margin: invertValues(0, 0, 0, 10px);   
+            padding: 12px 10px,;  
+            font-size: 16px; 
+        }
+        
+        i {
+            font-size: 17px;
+            vertical-align: baseline;
+            padding: invertValues(0, 15px, 0, 0);
+            
+            @media (max-width: 767px) {  
+                padding: invertValues(0, 5px, 0, 0);       
+            }
+
+            @media (max-width: 575px) { 
+                display: none;
+            }
+        }
+
+        &:hover {
+            background: $black-color;
+            color: $white-color;
+        }
+    }
+
+    &__started {
+        color: $white-color;
+        background: $primary-color;
+        @include corners(30px);
+        box-shadow: 0px 19px 28px rgba($color: #ff3333, $alpha: .36);
+        font-weight: 600;
+        font-size: 20px;
+        @include hoverAnim(600);
+        padding: 12px 0;
+        line-height: 1;
+        margin: 0 auto;
+        display: block;
+        max-width: 180px;
+        position: relative;
+        z-index: 1;
+        
+        i {
+            font-size: 17px;
+            vertical-align: baseline;
+            padding: invertValues(0, 15px, 0, 0);
+        }
+
+        &:hover, &:focus {
+            background: $black-color;
+            color: $white-color;
+        }
+    }
+
+    &-primary {
+        @include corners(30px);
+        background: $primary-color;
+        border-color: $primary-color;
+
+        &:hover {
+            background: $black-color;
+            border-color: $black-color;
+            color: $white-color;
+        }
+
+        &:focus {
+            background: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+
+    &-lg {
+        padding: 1rem 1.6rem;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    &__shadow-red {
+        box-shadow: 0px 19px 28px rgba($color: #ff3333, $alpha: .36);
+    }
+}

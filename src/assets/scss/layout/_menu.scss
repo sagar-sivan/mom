@@ -1,0 +1,122 @@
+.header { 
+    &__nav {       
+        font-weight: bold;
+
+        .nav-open & {
+            display: block;
+        }
+
+        @media (max-width: 1199px) {  
+            position: absolute;
+            top: 100%;
+            background: #b0e2ed;
+            display: none;   
+            #{$end-direction}: 0;   
+            padding: 20px;
+        }
+
+        > ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+
+            @media (max-width: 1199px) { 
+                display: block;
+                text-align: #{$end-direction};
+            }
+
+            li {
+                padding: 0 5px;
+
+                @media (max-width: 1199px) {  
+                    padding: 10px 5px;
+                }
+
+                a {
+                    font-size: 21px;
+                    color: $black-color;
+                    padding: 0 10px;
+                    @include hoverAnim(300); 
+
+                    &:hover {
+                        text-decoration: none;
+                        color: $primary-color;
+                    }
+                }
+
+                @media (max-width: 1560px) {  
+                    a {
+                        font-size: 18px;
+                        padding: 0 8px;
+                    }           
+                }
+            }
+        }
+    }
+}
+
+.nav__btn {
+    display: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    border: 1px solid $primary-color; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+    transition: 0.4s; 
+    text-indent: -9999px;
+    background: rgba($color: $white-color, $alpha: 0.3);
+    margin: invertValues(0, 0, 0, 10px);
+
+    @media (max-width: 767px) {  
+        margin: invertValues(0, 0, 0, 5px);        
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 4px;
+        height: 4px;
+        border-radius: 50px;
+        background-color: $primary-color;
+        margin: 0 2px;
+        transition: 0.4s;
+        display: block;
+    }
+
+    .nav-open & {
+        flex-direction: column; 
+        transform: rotate(-180deg);
+
+        .bar1, .bar3 {
+            width: 20px;
+            height: 2px;
+            margin: 7px 0;
+            border-radius: 0;
+        }
+
+        .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-7px, 7px);
+            transform: rotate(-45deg) translate(-7px, 7px);
+        }
+
+        .bar2 {
+            opacity: 0;
+        }
+
+        .bar3 {
+            -webkit-transform: rotate(45deg) translate(-7px, -7px);
+            transform: rotate(45deg) translate(-7px, -7px);
+        }
+    } 
+
+    @media screen and (max-width: 1199px){
+        & {
+            display: flex;
+        }
+    }    
+}
