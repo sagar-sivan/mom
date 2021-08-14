@@ -1,6 +1,18 @@
 .btn {
     font-weight: 600;
 
+    &__add-plan {
+        color: $black-color;
+        background: url(../images/icons/profile-plus.png) no-repeat #{$start-direction} center;
+        padding: invertValues(0, 0, 0, 28px);
+        background-size: 20px;
+        font-size: 25px;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+
     &__alert {
         position: relative;
         background: $primary-color url(../images/icons/alert.png) no-repeat center center;
@@ -110,6 +122,13 @@
         }
     }
 
+    &__cm {
+        min-width: 120px;
+        font-size: 20px;
+        padding: 2px 10px;
+        line-height: 1.3;
+    }
+
     &-lg {
         padding: 1rem 1.6rem;
         font-size: 20px;
@@ -118,5 +137,82 @@
 
     &__shadow-red {
         box-shadow: 0px 19px 28px rgba($color: #ff3333, $alpha: .36);
+    }
+
+    &__menu { 
+        color: $black-color;
+        font-size: 22px;
+        line-height: 1.2;
+        font-weight: 500;
+        margin: invertValues(23px, 0, 0, 120px);;
+        position: relative;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+
+        & i {
+            content: "";
+            position: absolute;
+            #{$start-direction}: -110px;
+            top: -23px;
+            display: inline-block; 
+            width: 81px;
+            height: 81px;  
+            z-index: 2;        
+            background: url(../images/placeholder/btn-menu.png) no-repeat 0 0;
+            text-indent: -9999px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                right: 2px;
+                top: 2px;
+                width: 71px;
+                height: 71px;
+                border-radius: 100%;
+                z-index: 0;
+                animation: pulse 2s infinite;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: 2px;
+                top: 2px;
+                width: 71px;
+                height: 71px;
+                border-radius: 100%;
+                z-index: 0;
+                animation: pulse 4s infinite;
+            }
+        }
+
+        &__1 { 
+            background: $grey-color;
+            color: #000000;
+            font-size: 20px;
+            padding: 5px 15px;
+            line-height: 1.9; 
+            border-radius: 10px;
+
+            &:hover {
+                color: $white-color;
+                background: $primary-color;
+            }
+        }
+    }
+}
+ 
+@keyframes pulse {
+    0% { 
+        box-shadow: 0 0 0 0 rgba($color: $primary-color, $alpha: 1.0);
+    }
+    80% { 
+        box-shadow: 0 0 0 20px rgba(204,169,44, 0);
+    }
+    100% { 
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
     }
 }

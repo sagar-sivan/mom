@@ -1,4 +1,5 @@
 .banner {
+
     &__holder {
         position: relative;
 
@@ -8,7 +9,7 @@
             min-height: 100%;
             object-fit: cover;
             object-position: center;
-        }     
+        } 
                 
         .slick-dots {
             position: absolute;
@@ -179,4 +180,30 @@
             z-index: 2;         
         }
     }
+
+    
+    &__profile { 
+        background: url(../images/placeholder/profile-banner.png) no-repeat right bottom;
+        padding: 200px 0 50px;
+        margin-bottom: 40px;
+        min-height: 85vh; 
+        display: flex;
+        align-items: center;
+
+        h2 {
+            font-size: 73px;
+            line-height: 1.5;
+            font-weight: normal;
+            max-width: 500px;
+            color: $black-color;
+
+            strong {
+                font-weight: bold;
+            }
+        }
+
+    }
+
+
+
 }
