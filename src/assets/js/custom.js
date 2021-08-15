@@ -8,11 +8,11 @@
     once: true,
     duration: 1000
   });
- 
-
+  
   $(function () {
-      $('[data-toggle="tooltipa"] a').tooltip();
+    $('[data-toggle="tooltipa"]').tooltip()
   })
+   
 
   //menu click
   $(".hamburger").click(function(){
@@ -124,17 +124,15 @@ $(document).ready(function () {
     dots: false
   });
 
-  $(".slick-class-2").slick({
-    rows: 2,
-		dots: true,
-		arrows: false,
+  $(".pack-slider").slick({ 
+		dots: false,
+		arrows: true,
 		infinite: false,
 		speed: 300,
-		slidesToShow: 3,
+		slidesToShow: 6,
     slidesToScroll: 1,
     
-    responsive: [{
-  
+    responsive: [{  
       breakpoint: 991,
       settings: {
         slidesToShow: 2,

@@ -376,3 +376,23 @@ p {
 		}
 	}
 }
+
+.tooltip.show {
+	opacity: 1;
+}
+
+.tooltip-inner {
+    max-width: 250px;
+    padding: 10px 15px !important;
+    color: #fff;
+    text-align: center;
+    background-color: $primary-color;
+    border-radius: 10px; 
+	font-size: 14.8px;
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before {
+    bottom: 0;
+    border-width: 0 .4rem .4rem;
+    border-bottom-color: $primary-color;
+}

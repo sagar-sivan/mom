@@ -659,6 +659,26 @@ p {
   padding: 40px;
 }
 
+.tooltip.show {
+  opacity: 1;
+}
+
+.tooltip-inner {
+  max-width: 250px;
+  padding: 10px 15px !important;
+  color: #fff;
+  text-align: center;
+  background-color: #cb0505;
+  border-radius: 10px;
+  font-size: 14.8px;
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before {
+  bottom: 0;
+  border-width: 0 0.4rem 0.4rem;
+  border-bottom-color: #cb0505;
+}
+
 .header {
   padding: 50px 0 50px;
   border-bottom: 1px solid rgba(230, 187, 143, 0.21);
@@ -1793,6 +1813,73 @@ p {
   background-size: 23px;
   padding-left: 35px;
 }
+.profile__pack__item {
+  display: block;
+  max-width: 400px;
+  text-align: center;
+  margin: 20px 0 20px;
+}
+.profile__pack__item__holder {
+  margin: 0 -30px;
+}
+.profile__pack__item .item__date {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0 auto 20px;
+  max-width: none;
+}
+.profile__pack__item .item__day {
+  font-size: 28px;
+  line-height: 54px;
+  color: #ffffff;
+  background: #cb0505;
+  border-radius: 100px;
+  width: 54px;
+  height: 54px;
+  display: inline-block;
+  margin: 0 auto 20px;
+}
+.profile__pack__item .item__day.bg-grey {
+  background: #d7d7d7;
+  color: #787878;
+}
+.profile__pack__item .item__img {
+  border-radius: 30px;
+  width: 170px;
+  height: 135px;
+  background: #ebebeb url(../images/icons/profile-imgBg.png) no-repeat center center;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto 20px;
+}
+.profile__pack__item .item__text {
+  line-height: 1;
+  font-size: 12px;
+  margin: 0 auto 20px;
+  max-width: 150px;
+}
+.profile__pack__item .item__btn {
+  background: #ebebeb;
+  color: #000000;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: inline-block;
+  font-size: 14px;
+}
+.profile__pack__item .item__btn:hover {
+  background: #c1edf7;
+}
+.profile__pack__item .item__btn__large {
+  background: #ebebeb;
+  color: #000000;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: inline-block;
+  font-size: 14px;
+}
+.profile__pack__item .item__btn__large:hover {
+  background: #c1edf7;
+}
 
 .allergies__tab-menu {
   display: -webkit-box;
@@ -1804,6 +1891,36 @@ p {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.pack-slider {
+  position: relative;
+  padding: 60px 0 40px;
+}
+
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 30px;
+  background: url(../images/icons/profile-arrow2.png) no-repeat center center;
+  text-indent: -9999px;
+  border: 0;
+  width: 34px;
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
+}
+.slick-prev:hover, .slick-next:hover {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
 }
 
 .month-plan {
