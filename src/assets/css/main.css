@@ -1852,6 +1852,14 @@ p {
   display: block;
   margin: 0 auto 20px;
 }
+.profile__pack__item .item__img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+}
 .profile__pack__item .item__text {
   line-height: 1;
   font-size: 12px;
@@ -1895,7 +1903,7 @@ p {
 
 .pack-slider {
   position: relative;
-  padding: 60px 0 40px;
+  padding: 60px 0 20px;
 }
 
 .slick-prev, .slick-next {
@@ -1914,11 +1922,11 @@ p {
 }
 
 .slick-prev {
-  left: 20px;
+  left: 30px;
 }
 
 .slick-next {
-  right: 20px;
+  right: 30px;
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
 }
