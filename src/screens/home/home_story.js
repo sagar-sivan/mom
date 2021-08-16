@@ -30,7 +30,7 @@ function HomeStory() {
                     </ul>
                 </div>
 
-                <div className="col-12 col-md-10 order-lg-2 col-lg-6 home__story__text text-center" data-aos="fade-up">
+                <div className="col-12 col-md-10 order-lg-2 col-lg-6 home__story__text text-center" >
                     <h2 className="text-center"><span>Discover</span> Our story</h2>
                     <p>Make your month a little easier by planning all your meals at one time through Meals on Me. You can easily create your meal plan for the month and save time and money in the process by selecting from over 80 nutritionally flavour some balanced dishes.</p>
                     <a className="btn btn__started" href="#" role="button">Learn More</a>

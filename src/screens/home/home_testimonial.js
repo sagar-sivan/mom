@@ -1,26 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
 
 import { testimonial_img_1, testimonial_1, testimonial_2 } from "./../../assets/images"
 
-const testimonial__nav_settings = {
-    slidesToShow: 3,
-    asNavFor: '.testimonial__content',
-    dots: false,
-    centerPadding: '0',
-    centerMode: true,
-    focusOnSelect: true
-}
-const testimonial__content_settings = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    dots: false,
-    fade: true,
-    asNavFor: '.testimonial__nav'
-}
-
 function HomeTestimonial() {
+
+    const [nav1, setNav1] = useState(null)
+    const [nav2, setNav2] = useState(null)
+    let slider1 = []
+    let slider2 = []
+    useEffect(() => {
+        setNav1(slider1)
+        setNav2(slider2)
+    }, [slider1, slider2])
+
+
+    const testimonial__nav_settings = {
+        slidesToShow: 3,
+        asNavFor: nav1,
+        dots: false,
+        centerPadding: '0',
+        centerMode: true,
+        focusOnSelect: true
+    }
+    const testimonial__content_settings = {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        fade: true,
+        asNavFor: nav2
+    }
     return (
         <div className="container  skew-bg__grey__top home__testimonial">
             <div className="row mx-4">
@@ -33,10 +43,10 @@ function HomeTestimonial() {
                     </div>
                 </div>
 
-                <div className="col col-md-7 px-4 home__testimonial__content">
+                <div className="col col-md-7 px-4 home__testimonial__content" >
                     <img src={testimonial_img_1} className="img-fluid" alt="Meals On Me" />
 
-                    <Slider className="testimonial__content" {...testimonial__content_settings}>
+                    <Slider className="testimonial__content" {...testimonial__content_settings} ref={slider => (slider1 = slider)}>
                         <li>
                             <p className="testimonial__content__item">
                                 Always provides quality food with nearest It’s so fresh and delicious and my busy l available best restaurants.
@@ -64,7 +74,7 @@ function HomeTestimonial() {
                         </li>
                     </Slider>
 
-                    <Slider className="testimonial__nav" {...testimonial__nav_settings}>
+                    <Slider className="testimonial__nav" {...testimonial__nav_settings} ref={slider => (slider2 = slider)}>
                         <li>
                             <div className="testimonial__nav__items">
                                 <figure><img src={testimonial_1} className="img-fluid" alt="Meals On Me" /></figure>

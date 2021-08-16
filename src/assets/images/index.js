@@ -27,7 +27,12 @@ import count_3 from "./placeholder/count-3.png"
 import testimonial_img_1 from "./placeholder/testimonial_img-1.png"
 import testimonial_1 from "./placeholder/testimonial-1.png"
 import testimonial_2 from "./placeholder/testimonial-2.png"
+import profile_1 from "./placeholder/profile_1.jpg"
+import profile_img_2 from "./placeholder/profile-img-2.png"
+import profile_pack_1 from "./placeholder/profile_pack_1.jpg"
+import profile_pack_2 from "./placeholder/profile_pack_2.png"
+import profile_pack_3 from "./placeholder/profile_pack_3.png"
 
 export {
-    logo_color, banner_1, banner_bg_1, story_1, story_2, story_3, story_4, story_1_placeholder, story_2_placeholder, story_3_placeholder, plan_1, plan_2, plan_3, cusines_1, cusines_2, cusines_3, cusines_4, cusines_5, cusines_6, work_1, work_2, work_3, work_4, count_1, count_2, count_3, testimonial_img_1, testimonial_1, testimonial_2,
+    logo_color, banner_1, banner_bg_1, story_1, story_2, story_3, story_4, story_1_placeholder, story_2_placeholder, story_3_placeholder, plan_1, plan_2, plan_3, cusines_1, cusines_2, cusines_3, cusines_4, cusines_5, cusines_6, work_1, work_2, work_3, work_4, count_1, count_2, count_3, testimonial_img_1, testimonial_1, testimonial_2, profile_1, profile_img_2, profile_pack_1, profile_pack_2, profile_pack_3
 }

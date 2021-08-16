@@ -34,7 +34,7 @@ function HomeBanner() {
         return () => window.removeEventListener("scroll", () => { });
     }, [])
     return (
-        <div className="banner__holder" data-aos="fade-up">
+        <div className="banner__holder" >
             <Slider className="homebanner" {...settings}>
                 <div>
                     <div className="banner__item">
