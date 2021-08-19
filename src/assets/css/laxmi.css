@@ -1,0 +1,369 @@
+/* Our Plan Stylesheet */
+
+.bold{
+text-transform:uppercase;
+font-size:32px !important;
+}
+.arrow {
+  border: solid #ed1c24;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.nos_cal{
+margin-bottom:30px !important;
+font-weight:bold;
+}
+.common_p{
+font-size:18px !important;
+}
+.down {
+margin: 0px 0px 0px 4px;
+    position: relative;
+    top: -2px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.day{
+    float: left;
+    margin-right: 25px;
+    font-size: 50px;
+    color: red;
+    margin-top: -16px;
+}
+.detail h6{
+font-size: 16px;
+    font-weight: bold;
+}
+.detail p{
+font-size: 16px;
+    text-align: left;
+    margin-left: 82px;
+	margin-bottom:25px;
+}
+.our_plan_list ul li::before {
+    content: "\2022";
+    color: #ba0000;
+    font-weight: bold;
+    margin-left: -1em;
+    font-size: 50px;
+    position: relative;
+    top: 25px;
+    left: 20px;
+}
+.our_plan_list ul{
+min-height:20%;
+margin-top:-56px;
+}
+.our_plan_list ul li {
+    line-height: 21px;
+    font-size: 16px;
+    min-height: auto;
+    text-align: left;
+    border: none !important;
+}
+.lunch_plan{
+font-size:25px;
+}
+.divider_white{
+    border-bottom: 5px solid #fff;
+    width: 59px;
+}
+.divider_red{
+    border-bottom: 5px solid #ed1c24;
+    width: 59px;
+}
+.our_plan_shadow{
+box-shadow: none;
+    display: block;
+    z-index: 1;
+}
+.red-shape {
+    top: -184px;
+    right: -738px;
+}
+.red-spiral {
+    right: -871px;
+    top: 204px;
+    width: 73%;
+    height: auto;
+}
+.calorie_count {
+margin-top:100px;
+}
+.inc{
+margin-left: 17px;
+    margin-bottom: 12px;
+	font-weight:bold;
+}
+.features_box{
+    width: 100%;
+    display: -webkit-inline-box;
+}
+.features_box .features{
+width:50%;
+margin-right:10px;
+}
+.features_box .features ul li{
+    font-size: 14px;
+	
+  /*list-style-image: url('../images/placeholder/red-circle.jpg');*/
+padding-bottom:13px;
+text-align:left;
+}
+.features_box .our_shef{
+width:50%;
+}
+.features_box .our_shef .shef_left{
+float: left;
+    text-align: left;
+    margin-right: 26px;
+    width: 30%;
+}
+.features_box .our_shef .shef_right{
+/*width: 60%;
+    float: right;*/
+}
+.features_box .our_shef .shef_right ul li{
+font-size:14px;
+padding-bottom:20px;
+text-align:left;
+}
+
+.features_box .features .red_line{
+    border-bottom: 5px solid #ed1c24;
+    width: 30px;
+}
+.how_work{
+  width: 48%;
+    font-size: 16px;
+	text-align:left;
+}
+.how_work .left{
+float: left;
+    padding-right: 13px;
+}
+.how_title {
+   
+    margin-left: -14px !important;
+    text-align: left;
+}
+.start{
+font-size: 14px !important;
+    text-align: left;
+    margin-bottom: 0px !important;
+}
+/* Style the tab */
+.tab {
+ float: left;
+    width: 23%;
+  
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    margin: 20px 0px;
+    display: block;
+    border-radius: 20px;
+    background-color: #fff;
+    color: black;
+    padding: 15px 24px;
+    width: 100%;
+    border: 1px solid #a1a1a1;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #fff;
+ }
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  font-size: 22px;
+    color: #fff;
+    background-color: #ed1c24;
+    font-weight: bold;
+    border-radius: 20px;
+	
+}
+
+/* Style the tab content */
+.tabcontent {
+     float: left;
+    padding: 30px 20px 20px 20px;
+    width: 74%;
+    border-left: none;
+    margin: 22px 0 0 20px;
+    border: 1px solid #a1a1a1;
+    border-radius: 20px;
+	overflow:auto;
+}
+.divider_white_center{
+border-bottom: 5px solid #fff;
+    width: 59px;
+    top: -14px;
+    left: 97px;
+    position: relative;
+	}
+	
+.plan_active{
+    font-size: 30px !important;
+    color: #ffffff !important;
+    background-color: #ed1c24 !important;
+    border-radius: 20px !important;
+    border: 1px solid #a1a1a1;
+	margin: 0px 45px 0px 37px;
+	position:initial !important;
+}
+.count_call_tab{
+padding-left:0px;
+}
+.calorie_bg{
+background-image:url(../images/placeholder/container-center-banner.png);
+
+  background-size: cover;
+}
+.count_plan_bg{
+background-image:url(../images/placeholder/bottom-curve.png);
+
+  background-size: cover;
+}
+.count_call_tab_border{
+border: 1px solid #a1a1a1;
+    margin-top: 20px;
+}
+/* Types of Cuisine */
+.our_shef_sub{
+top: 36px;
+    position: relative;
+}
+.our_plan_cuisine{
+padding-top:0px;
+}
+.our_plan_calorie {
+    padding-top: 297px;
+}
+.ht_title{
+font-weight:bold;
+margin-bottom:20px !important;
+text-align:left;
+}
+.calorie_title{
+font-weight:bold;
+margin-bottom:0px !important;
+text-align:left;
+}
+.calorie_p{
+font-size:16px;
+margin-bottom:25px;
+}
+.lun_din{
+padding-top:0px;
+}
+.plan_hover{
+background: #fff !important;
+    border: 1px solid #a1a1a1;
+    border-radius: 20px !important;
+    margin-right: 35px;
+	color:#000 !important;
+}
+
+.view{
+border-radius:20px;
+background:#fff;
+border:1px solid #ed1c24;
+color:#ed1c24;
+padding:5px 10px;
+font-size:14px;
+font-weight:bold;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+border-radius:20px;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    color: white;
+	border-bottom:none;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+.btn_view{
+margin:0 auto;
+}
+.tab__menu__2 .nav-link.active::after {
+    
+    position: initial;
+	}
+
+	.count_plan_modal{
+	background: #fff;
+    padding: 20px 0px;
+    border-radius: 20px;
+	}
