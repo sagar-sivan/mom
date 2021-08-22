@@ -1086,16 +1086,44 @@ select.list-dt:focus {
 }
 #progressbar .active {
   color: #000000;
-  font-size: calc(10px + 6 * ((100vw - 320px) / 680));
+  font-size: calc(6px + 6 * ((100vw - 320px) / 680));
   transition-duration: .2s;
   animation-timing-function: ease-in;
 }
-
+#progressbar .active:after {
+  content:'';
+  background-image: url(../images/weeklymenu/check.svg);
+  position: absolute;
+  width: 15px;
+  height: 16px;
+  display:block;
+  margin: 3px auto;
+  border-radius: 50%;
+  z-index: 99;
+  background-color: #db0000;
+  top: 0;
+  left: 46%;
+}
+#progressbar li:after {
+  content:'';
+  background-image: url(../images/weeklymenu/check.svg);
+  position: absolute;
+  width: 15px;
+  height: 16px;
+  display:block;
+  margin: 3px auto;
+  border-radius: 50%;
+  z-index: 99;
+  background-color: #d3d3d3;
+  top: 0;
+  left: 46%;
+}
 #progressbar li {
   list-style-type: none;
   width: 100%;
   float: left;
   font-size: calc(6px + 6 * ((100vw - 320px) / 680));
+  padding: 14px 0;
   display: inline-block;
   alignment-baseline: middle;
   position: relative;
@@ -1303,8 +1331,15 @@ position: relative;
 
 }
 .flex-box-modal .custom-select{
-
 padding: 0;
+border: 1px solid red;
+border-radius: 0;
+}
+.custom-select:focus{
+  padding: 0;
+border: 1px solid red;
+border-radius: 0;
+box-shadow:none;
 }
 .form-shedule-popup label{
   font-size: calc(9px + 4 * ((100vw - 320px) / 680));
