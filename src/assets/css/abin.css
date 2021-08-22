@@ -294,23 +294,23 @@ width:100%;
   padding: 15px 0;
 }
 .skew-bg__grey__top::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ebebeb;
-  border-radius: 80px 80px 56px 80px;
-  z-index: -1;
+  /* content: ""; */
+  /* position: absolute; */
+  /* left: 0; */
+  /* top: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-color: #ebebeb; */
+  /* border-radius: 80px 80px 56px 80px; */
+  /* z-index: -1; */
 }
 .skew-bg__grey__top::after {
   content: "";
   position: absolute;
   left: 0;
-  top: -67px;
-  width: 100%;
-  height: 66%;
+  /* top: -67px; */
+  /* width: 100%; */
+  /* height: 66%; */
   background-color: #ebebeb;
   border-radius: 80px 80px 100px 80px;
   -webkit-transform: skewY(6deg);
@@ -670,9 +670,9 @@ width:100%;
     background: #ffffff00;
   }
   .skew-bg__grey__top{
-    margin-right: 0;
-    margin-left: 0;
-    width: auto;
+    /* margin-right: 0; */
+    /* margin-left: 0; */
+    /* width: auto; */
   }
   .item-weekfood p {
     font-size: 12px;
@@ -711,9 +711,9 @@ width:100%;
       content: "";
       position: absolute;
       left: 0;
-      top: -67px;
-      width: 100%;
-      height: 66%;
+      /* top: -67px; */
+      /* width: 100%; */
+      /* height: 66%; */
       background-color: #ebebeb;
       border-radius: 80px 80px 100px 80px;
       -webkit-transform: skewY(6deg);
@@ -722,14 +722,14 @@ width:100%;
   }
   .skew-bg__grey__top::before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ebebeb;
-    border-radius: 80px 53px 60px 60px;
-    z-index: -1;
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: 0; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* background-color: #ebebeb; */
+    /* border-radius: 80px 53px 60px 60px; */
+    /* z-index: -1; */
   }
   .weektable-menu .date-duration h3 {
     margin: 0;
@@ -784,9 +784,9 @@ width:100%;
     padding: 40px;
   }
   .skew-bg__grey__top{
-    margin-right: 20px;
-    margin-left: 20px;
-    width: auto;
+    /* margin-right: 20px; */
+    /* margin-left: 20px; */
+    /* width: auto; */
   }
   .item-weekfood p {
     font-size: 16px;
@@ -824,10 +824,10 @@ width:100%;
       .skew-bg__grey__top::after {
         content: "";
         position: absolute;
-        left: 0;
-        top: -67px;
-        width: 100%;
-        height: 66%;
+        /* left: 0; */
+        /* top: -67px; */
+        /* width: 100%; */
+        /* height: 66%; */
         background-color: #ebebeb;
         border-radius: 80px 80px 100px 80px;
         -webkit-transform: skewY(6deg);
