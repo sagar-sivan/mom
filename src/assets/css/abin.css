@@ -1570,3 +1570,15 @@ margin: 0;
 .red-box-absolute-img .red-absoluteimg2{display: block;position: fixed;width: auto;right: -2rem;top: -3.3rem;z-index: -1;}
 .red-box-absolute-img .red-absoluteimg3{display: block;position: fixed;width: auto;left: 0;bottom: -2rem;z-index: -1;}
 .red-box-absolute-img .red-absoluteimg4{display: block;position: fixed;width: auto;right: 4rem;bottom: -2rem;z-index: -1;}
+
+/*contact us*/
+.contactusmap {
+  position: relative;
+}
+.contactusmap{
+clip-path: polygon(0% 0%, 100% 0%, 100% 100%,3% 75%,2% 73%,1% 69%,1% 69%, -1% 53%, 0% 0%, 68% 163%);
+}
+.contactusmap iframe{
+border-radius: 60px;
+height: 630px;
+}
