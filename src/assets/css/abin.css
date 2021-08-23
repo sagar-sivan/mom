@@ -581,10 +581,8 @@ width:100%;
   padding: 33px 0px;
 }
 .classimage-absolute{
-
-}
-.classimage-absolute{
-
+  position: relative;
+  display: inline-flex;
 }
 .chooseplan-alert-inner .image-effect1{position: absolute;left: -50px;top: 25%;}
 .chooseplan-alert-inner .image-effect1 img{width: 52%;}
@@ -1645,8 +1643,9 @@ height: 630px;
 .box-p-style p{
    font-size: calc(18px + 1 * ((100vw - 320px) / 680));
 }
+
 .chooseplan-vector-auto img{
-  width:auto;
+  width:100%;
 }
 .heading-list{
   display: flex;
@@ -1663,4 +1662,73 @@ height: 630px;
 .heading-list li{
   font-size: 20px;
   padding: 13px 0;
+  font-weight: 600;
 }
+.heading-list li i{
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px 0 0;
+  color: #cb0505;
+}
+.absolite-moto{
+  position: absolute;
+  bottom: -10rem;
+  display: block;
+  right: -50%;
+  margin: 0 auto;
+}
+.absolite-moto img{
+  width: 100%;
+  position: relative;
+  right: 0;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  top: 1px;
+}
+/*line 592 same pattern*/
+.chooseplan-alert-inner .image-effect4 img{width: 61%;position: relative;display: block;margin: 0 auto;}
+.chooseplan-alert-inner .image-effect5 img{width: 61%;position: relative;display: block;margin: 0 auto;}
+.chooseplan-alert-inner .image-effect6 img{width: 61%;position: relative;display: block;margin: 0 auto;}
+
+.chooseplan-alert-inner .image-effect4{
+  position: absolute;
+  top: -56px;
+  right: -60px;
+  z-index: -3;
+  margin: 0 auto;
+  }
+.chooseplan-alert-inner .image-effect4 img{
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  }
+
+  .chooseplan-alert-inner .image-effect5{
+    position: absolute;
+    bottom: 0;
+    left: 19rem;
+    z-index: -1;
+    margin: 0 auto;
+    }
+  .chooseplan-alert-inner .image-effect5 img{
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    }
+
+      .chooseplan-alert-inner .image-effect6{
+        position: absolute;
+        bottom: 0;
+        left: 20rem;
+        z-index: -1;
+        margin: 0 auto;
+        }
+      .chooseplan-alert-inner .image-effect6 img{
+        width: 56%;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        }
