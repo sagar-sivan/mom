@@ -1432,7 +1432,7 @@ box-shadow:none;
     border-bottom: 2px solid #ccc;
     border-radius: 0px;
     margin-top: 2px;
-    width: 0%;
+    width:100%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #000000;
