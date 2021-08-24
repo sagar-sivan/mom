@@ -25,6 +25,10 @@
                 vertical-align: middle;
                 margin: 0 15px;
 
+                @media (max-width: 767px) {  
+                    margin: 0 10px;        
+                }
+
                 button {
                     display: inline-block;
                     vertical-align: middle;
@@ -34,6 +38,11 @@
                     background: rgba($color: $black-color, $alpha: 0.38);  
                     text-indent: -9999px; 
                     border: 0;
+
+                    @media (max-width: 767px) {  
+                        height: 12px;
+                        width: 12px;        
+                    }
         
                     &:hover {
                         background:rgba($color: $black-color, $alpha: 0.6);   
@@ -45,6 +54,11 @@
                     width: 22px;
                     background: rgba($color: $black-color, $alpha: 1);   
                     opacity: 1;
+
+                    @media (max-width: 767px) {  
+                        height: 12px;
+                        width: 12px;        
+                    }
                 }
             }
         }
@@ -91,6 +105,14 @@
         @media (max-width: 1320px) {   
             padding-top: 200px;      
         }
+
+        @media (max-width: 767px) {
+            padding-top: 150px;                  
+        }
+
+        @media (max-width: 575px) {  
+            padding-top: 120px; 
+        }
         
         h2 {
             color: $black-color;
@@ -100,6 +122,12 @@
             font-size: 29px;
             font-weight: 500;
             line-height: 1.6;
+
+            @media (max-width: 767px) {
+                font-size: 24px;
+                line-height: 1.2;
+                margin: 0 0 20px;                                
+            }
 
             & strong {
                 font-weight: bold;
@@ -111,6 +139,10 @@
     &__form {
         margin: 0 0 90px;
 
+        @media (max-width: 767px) {   
+            margin: 0 0 70px;   
+        }
+
         &__holder {
             display: flex;
             flex-direction: column;
@@ -119,6 +151,10 @@
 
         .form-group {
             margin-bottom: 30px;
+
+            @media (max-width: 767px) {
+                margin-bottom: 18px;                               
+            }
         }
 
         input {
@@ -131,6 +167,11 @@
             font-weight: 500;
             padding: 5px 40px;
             width: 100%;
+
+            @media (max-width: 767px) {
+                height: 45px;     
+                padding: 5px 20px;                         
+            }
              
             &::-webkit-input-placeholder { 
                 color: $black-color;
