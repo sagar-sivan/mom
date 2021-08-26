@@ -4,6 +4,8 @@ import { Route, BrowserRouter as Router, Switch, withRouter } from "react-router
 import HomeScreen from "./../screens/home/homeScreen"
 import Profile from "../screens/profile/profile"
 import WeeklyMenu from "../screens/weekly_menu/weekly_menu"
+import ContactScreen from "../screens/contact/contactScreen"
+import HowItWorks from "../screens/how_it_works/how_it_works"
 import AOS from "aos"
 
 import "./../assets/css/bootstrap.min.css"
@@ -29,6 +31,8 @@ const Routes = () => {
         <Route exact path="/" component={HomeScreen} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/weekly-menu" component={WeeklyMenu} />
+        <Route exact path="/contact" component={ContactScreen} />
+        <Route exact path="/how-it-works" component={HowItWorks} />
 
       </Switch>
     </Router>

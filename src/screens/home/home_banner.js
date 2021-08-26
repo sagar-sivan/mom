@@ -12,26 +12,7 @@ var settings = {
 function HomeBanner() {
 
     useEffect(() => {
-        const header = document.querySelectorAll('header');
-        const scrollToTop = document.getElementsByClassName('scrollup')
-        window.addEventListener("scroll", () => {
-            if (scrollToTop && scrollToTop[0]) {
-                if (window.scrollY > 200) {
-                    scrollToTop[0].style.display = 'block';
-                } else {
-                    scrollToTop[0].style.display = 'none';
-                }
-            }
-            if (header) {
-                if (window.scrollY > 100) {
-                    header[0].classList.add("toTop");
-                } else {
-                    header[0].classList.remove("toTop");
-                }
-            }
 
-        });
-        return () => window.removeEventListener("scroll", () => { });
     }, [])
     return (
         <div className="banner__holder" >

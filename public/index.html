@@ -25,6 +25,41 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>MOM | MealsOnMe</title>
+  <style>
+    .ReactModal__Content.ReactModal__Content--after-open {
+      position: fixed !important;
+      inset: 0 !important;
+      border: none !important;
+      background: transparent !important;
+      /* overflow: auto; */
+      /* border-radius: 4px; */
+      /* outline: none; */
+      /* padding: 20px; */
+      /* margin-right: -50%; */
+      /* transform: translate(-50%, -50%); */
+      /* z-index: 10000; */
+      margin-right: 0 !important;
+      transform: none !important;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .ReactModal__Overlay--after-open {
+      position: fixed;
+      background: #00000070;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    body.ReactModal__Body--open {
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body>

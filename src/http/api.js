@@ -1,6 +1,8 @@
 import React from "react"
 import axios from "axios";
 
+import { api_url, urlConfig } from "./../http/apiConfig"
+
 let apiRequestID = 1
 const networkRequest = async ({ url, method = "GET", data = {}, header = {}, apiID = apiRequestID++ }) => {
 
@@ -8,9 +10,9 @@ const networkRequest = async ({ url, method = "GET", data = {}, header = {}, api
         "Content-Type": "application/json",
         ...header
     }
-    // if (localStorage.getItem("token")) {
-    headerParam.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mjk3Mzg1NTMsImlzcyI6IndlYm90aXguYWUiLCJhdWQiOiJ3ZWJvdGl4LmFlIn0.pjz8RtUzsqfZINkwiywbIFtZ2lp1LGu0emBtjMF5U70`
-    // }
+    if (localStorage.getItem("token")) {
+        headerParam.Authorization = `Bearer ${localStorage.getItem("token")}`
+    }
 
     const promise = new Promise(async (resolve, reject) => {
         try {
@@ -48,14 +50,53 @@ axios.interceptors.response.use(
     },
     async (error) => {
         const apiError = error;
-        if (apiError.response && (apiError.response.status === 403)) {
-            // localStorage.removeItem("token");
-            // localStorage.removeItem("userId");
-            // localStorage.removeItem("roles");
-            // window.location = `/login`
+        if (apiError.response && (apiError.response.status === 401)) {
+            return refreshApiCall(apiError)
 
         }
     })
+
+
+const refreshApiCall = async (apiError) => {
+    try {
+        const obj = {
+            "username": "Webotix",
+            "Password": "SuccessAlways"
+        }
+
+        const authUrl = `${api_url}${urlConfig.login}`;
+        const response = await fetch(authUrl, {
+            method: "POST",
+            body: JSON.stringify(obj),
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        console.log("response", response);
+        if (response.status == 200) {
+            const authResponse = await response.json();
+            console.log("authResponse", authResponse);
+            localStorage.setItem("token", authResponse.user.token);
+            // localStorage.setItem("refreshToken", authResponse.refresh_token);
+            // localStorage.setItem("tokenType", authResponse.token_type);
+
+            apiError.config.headers["Authorization"] = `Bearer ${authResponse.user.token}`
+            // apiError.config.baseURL = undefined;
+            const newResponse = axios.request(apiError.config);
+            return newResponse;
+
+        } else {
+            // localStorage.removeItem("accessToken");
+            // localStorage.removeItem("refreshToken");
+            // localStorage.removeItem("tokenType");
+            // localStorage.removeItem("role");
+            // window.location = `/${localStorage.getItem("lang")}/login`
+        }
+    } catch (error) {
+        console.warn("ERROR : ", error)
+        return error.response
+    }
+}
 
 
 export { networkRequest };

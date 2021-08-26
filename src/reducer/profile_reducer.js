@@ -1,7 +1,8 @@
-import { GET_ALL_PROFILE_DATA } from "./../constant/constants"
+import { GET_ALL_PROFILE_DATA, GET_AUTH_TOKEN } from "./../constant/constants"
 
 const initialState = {
     userData: {},
+    authData: {}
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userData: action.payload
+            };
+        case GET_AUTH_TOKEN:
+            return {
+                ...state,
+                authData: action.payload
             };
         default:
             return { ...state };
