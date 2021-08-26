@@ -32,7 +32,19 @@ import profile_img_2 from "./placeholder/profile-img-2.png"
 import profile_pack_1 from "./placeholder/profile_pack_1.jpg"
 import profile_pack_2 from "./placeholder/profile_pack_2.png"
 import profile_pack_3 from "./placeholder/profile_pack_3.png"
+import weekly from "./weeklymenu/weekly.jpg"
+import weekly_item1 from "./weeklymenu/item1.jpg"
+import weekly_item2 from "./weeklymenu/item2.jpg"
+import weekly_item3 from "./weeklymenu/item3.jpg"
+import weekly_item4 from "./weeklymenu/item4.jpg"
+import weekly_item5 from "./weeklymenu/item5.jpg"
+import weekly_item6 from "./weeklymenu/item6.jpg"
+import weekly_item7 from "./weeklymenu/item7.jpg"
+import brakefast from "./weeklymenu/brakefast.png"
+import AMsnack from "./weeklymenu/AMsnack.png"
+import lunch from "./weeklymenu/lunch.png"
+import dinner from "./weeklymenu/dinner.png"
 
 export {
-    logo_color, banner_1, banner_bg_1, story_1, story_2, story_3, story_4, story_1_placeholder, story_2_placeholder, story_3_placeholder, plan_1, plan_2, plan_3, cusines_1, cusines_2, cusines_3, cusines_4, cusines_5, cusines_6, work_1, work_2, work_3, work_4, count_1, count_2, count_3, testimonial_img_1, testimonial_1, testimonial_2, profile_1, profile_img_2, profile_pack_1, profile_pack_2, profile_pack_3
+    logo_color, banner_1, banner_bg_1, story_1, story_2, story_3, story_4, story_1_placeholder, story_2_placeholder, story_3_placeholder, plan_1, plan_2, plan_3, cusines_1, cusines_2, cusines_3, cusines_4, cusines_5, cusines_6, work_1, work_2, work_3, work_4, count_1, count_2, count_3, testimonial_img_1, testimonial_1, testimonial_2, profile_1, profile_img_2, profile_pack_1, profile_pack_2, profile_pack_3, weekly, weekly_item1, weekly_item2, weekly_item3, weekly_item4, weekly_item5, weekly_item6, weekly_item7, brakefast, AMsnack, lunch, dinner
 }

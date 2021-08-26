@@ -2,11 +2,11 @@ import React from 'react'
 
 const ProfileTodayDishes = () => {
     return (
-        <div class="container">
-            <div class="today-dish">
-                <div class="row no-gutters">
-                    <div class="col-12 col-lg-5 today-dish__left">
-                        <div class="today-dish__left__content">
+        <div className="container">
+            <div className="today-dish">
+                <div className="row no-gutters">
+                    <div className="col-12 col-lg-5 today-dish__left">
+                        <div className="today-dish__left__content">
                             <table>
                                 <tr>
                                     <td><span>Ingrident</span></td>
@@ -31,13 +31,13 @@ const ProfileTodayDishes = () => {
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-7 today-dish__right">
-                        <span class="corner-text">Dinner</span>
+                    <div className="col-12 col-lg-7 today-dish__right">
+                        <span className="corner-text">Dinner</span>
                         <section>
                             <h3>Your Dish comming today</h3>
                             <h4>Tandoori chicken</h4>
                             <ul>
-                                <li><span>Order Number <strong>3324</strong></span> <span class="icon-date">31 July 2021</span></li>
+                                <li><span>Order Number <strong>3324</strong></span> <span className="icon-date">31 July 2021</span></li>
                             </ul>
                         </section>
                     </div>
