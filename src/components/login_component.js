@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux'
+import { isEmpty } from "lodash"
 
 import CommonAction from '../action/common_action';
+import LoaderAction from '../action/loader_action';
+import UserAction from '../action/user_action';
+import { networkRequest } from "../http/api"
+import { api_url, urlConfig } from "../http/apiConfig"
 
 const customStyles = {
     content: {
@@ -17,10 +22,55 @@ const customStyles = {
 
 const LoginComponent = () => {
     const dispatch = useDispatch()
+    const [loginFormData, setLoginFormData] = useState({})
+    const [loginError, setLoginError] = useState({})
     const { login_component } = useSelector(state => state.commonReducer);
 
     const handleLoginCLose = () => {
         dispatch(CommonAction.handleLoginComponent(false))
+    }
+    const handleChange = (value, field) => {
+        loginFormData[field] = value
+        setLoginFormData({ ...loginFormData })
+    }
+    const handleLoginValidate = () => {
+        console.log("s", loginFormData);
+        let error = {}
+        if (isEmpty(loginFormData.username)) {
+            error.username = "Username is required"
+        }
+        if (isEmpty(loginFormData.password)) {
+            error.password = "Password is required"
+        }
+        return error
+    }
+    const onLoginSubmit = async (e) => {
+        e.preventDefault()
+        let loginError = await handleLoginValidate();
+        console.log("loginError", loginError);
+        if (isEmpty(loginError)) {
+            dispatch(LoaderAction.showLoader())
+            const data = {
+                Username: loginFormData.username,
+                Password: loginFormData.password
+            }
+            console.log(loginFormData);
+            const url = `${api_url}${urlConfig.getCustomerInfo}`;
+            const result = await networkRequest({ url, method: "POST", data })
+            console.log("resultresult", result);
+            if (result.responseCode == 0) {
+                localStorage.setItem("customerId", result.customerId)
+                dispatch(UserAction.setUserData(result))
+                dispatch(CommonAction.handleLoginComponent(false))
+            } else {
+                loginError.common = result.responseName
+                setLoginError({ ...loginError })
+            }
+        } else {
+            setLoginError({ ...loginError })
+        }
+
+        dispatch(LoaderAction.hideLoader())
     }
 
     return (
@@ -53,20 +103,22 @@ const LoginComponent = () => {
                                 </nav>
                                 <div class="tab-content login-form-content text-left py-4">
                                     <div class="tab-pane fade show active" id="log-modaltab1" role="tabpanel" aria-labelledby="log-modaltab1">
+                                        <form onSubmit={onLoginSubmit}>
+                                            <div class="form-group">
+                                                <i class="bi bi-person-fill user-stepmodal"></i>
+                                                <input type="text" class="form-control" placeholder="First name" onChange={(e) => handleChange(e.target.value, "username")} value={loginFormData.username} />
+                                            </div>
+                                            <div class="form-group">
+                                                <i class="bi bi-shield-fill-check  user-stepmodal"></i>
+                                                <input type="password" class="form-control" placeholder="Password" onChange={(e) => handleChange(e.target.value, "password")} value={loginFormData.password} />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Login</button>
 
-                                        <div class="form-group">
-                                            <i class="bi bi-person-fill user-stepmodal"></i>
-                                            <input type="text" class="form-control" placeholder="First name" />
-                                        </div>
-                                        <div class="form-group">
-                                            <i class="bi bi-shield-fill-check  user-stepmodal"></i>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Login</button>
+                                            <div class="col-12 ptb-5">
+                                                <a href="javascript:void(0);" class="btn  link-gray" data-toggle="modal" data-target=".resetpassword">Forgot Password</a>
+                                            </div>
+                                        </form>
 
-                                        <div class="col-12 ptb-5">
-                                            <a href="javascript:void(0);" class="btn  link-gray" data-toggle="modal" data-target=".resetpassword">Forgot Password</a>
-                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="reg-modaltab1" role="tabpanel" aria-labelledby="reg-modaltab1">
                                         <form>

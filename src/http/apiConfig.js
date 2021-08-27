@@ -3,7 +3,8 @@ const api_url = `${base_url}/api/`
 
 const urlConfig = {
     login: "Login",
-    getAllProfileInfo: "MealsData/GetProfileAllInfo"
+    getAllProfileInfo: "MealsData/GetProfileAllInfo",
+    getCustomerInfo: "MealsData/GetCustomerInfoByUsernameAndPassword",
 }
 
 export {
