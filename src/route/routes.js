@@ -5,9 +5,10 @@ import { useDispatch } from 'react-redux'
 
 import HomeScreen from "./../screens/home/homeScreen"
 import Profile from "../screens/profile/profile"
-import WeeklyMenu from "../screens/weekly_menu/weekly_menu"
+import WeeklyMenu from "../screens/weekly_menu/weeklyMenuScreen"
 import ContactScreen from "../screens/contact/contactScreen"
-import HowItWorks from "../screens/how_it_works/how_it_works"
+import HowItWorks from "../screens/how_it_works/howItWorksScreen"
+import OurPlanScreen from "../screens/our_plan/ourPlanScreen"
 import Loader from "../components/loader"
 import PrivateRoute from "./privateRoute"
 import UserAction from "../action/user_action"
@@ -18,6 +19,7 @@ import "./../assets/css/slick.css"
 import "./../assets/css/aos.css"
 import "./../assets/css/main.css"
 import "./../assets/css/abin.css"
+import "./../assets/css/laxmi.css"
 import "./../assets/css/custom_style.css"
 
 const Routes = () => {
@@ -44,6 +46,7 @@ const Routes = () => {
         <Route exact path="/weekly-menu" component={WeeklyMenu} />
         <Route exact path="/contact" component={ContactScreen} />
         <Route exact path="/how-it-works" component={HowItWorks} />
+        <Route exact path="/our-plan" component={OurPlanScreen} />
 
       </Switch>
     </Router>

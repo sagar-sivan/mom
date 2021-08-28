@@ -1,7 +1,8 @@
-import { LOGIN_COMPONENT } from "./../constant/constants"
+import { LOGIN_COMPONENT, PLAN_COMPONENT } from "./../constant/constants"
 
 const initialState = {
-    login_component: false
+    login_component: false,
+    plan_component: false
 };
 
 const commonReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const commonReducer = (state = initialState, action) => {
             return {
                 ...state,
                 login_component: action.payload
+            };
+        case PLAN_COMPONENT:
+            return {
+                ...state,
+                plan_component: action.payload
             };
         default:
             return { ...state };

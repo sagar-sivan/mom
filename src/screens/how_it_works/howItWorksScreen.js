@@ -2,7 +2,7 @@ import React from 'react'
 
 import Footer from '../../components/footer'
 import Header from '../../components/header'
-import { howit_banner, } from "./../../assets/images"
+import { howit_banner, } from "../../assets/images"
 import KnowMore from './know_more'
 import Offerings from './offerings'
 
