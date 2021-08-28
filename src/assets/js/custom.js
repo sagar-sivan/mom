@@ -84,6 +84,32 @@ $(document).ready(function () {
 
 
 
+$(".about-kitchen").slick({
+  centerMode: false,
+  centerPadding: '0',
+  slidesToShow: 2,
+  infinite: false,
+  dots: false,
+   
+  responsive: [{
+
+      breakpoint: 1284,
+      settings: {
+        slidesToShow: 1,
+      }
+
+    }, {
+
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+      }
+
+  }]
+});  
+
+
+
    
 
 
@@ -159,11 +185,6 @@ $(document).ready(function () {
   });
 
   
-
-
-
-
-
 
   $(".slick-class-3").slick({
     centerMode: false,
