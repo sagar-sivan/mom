@@ -1899,6 +1899,11 @@ margin: 0;
 }
 /*view-summary*/
 .view-summary{
-  z-index: 9999999999999999999999;
+  z-index: 1051;
   display: none;
 }
+.chooseplan{
+      z-index: 1052;
+      display: none;
+}
+
