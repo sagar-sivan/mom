@@ -63,13 +63,16 @@ const refreshApiCall = async (apiError) => {
             "username": "Webotix",
             "Password": "SuccessAlways"
         }
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("username", "Webotix");
+        urlencoded.append("Password", "SuccessAlways");
 
         const authUrl = `${api_url}${urlConfig.login}`;
         const response = await fetch(authUrl, {
             method: "POST",
-            body: JSON.stringify(obj),
+            body: urlencoded,
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/x-www-form-urlencoded"
             },
         })
         console.log("response", response);

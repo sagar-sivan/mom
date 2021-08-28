@@ -1,12 +1,16 @@
 import React, { useEffect } from "react"
 import { Route, BrowserRouter as Router, Switch, withRouter } from "react-router-dom"
+import AOS from "aos"
+import { useDispatch } from 'react-redux'
 
 import HomeScreen from "./../screens/home/homeScreen"
 import Profile from "../screens/profile/profile"
 import WeeklyMenu from "../screens/weekly_menu/weekly_menu"
 import ContactScreen from "../screens/contact/contactScreen"
 import HowItWorks from "../screens/how_it_works/how_it_works"
-import AOS from "aos"
+import Loader from "../components/loader"
+import PrivateRoute from "./privateRoute"
+import UserAction from "../action/user_action"
 
 import "./../assets/css/bootstrap.min.css"
 // import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -14,8 +18,10 @@ import "./../assets/css/slick.css"
 import "./../assets/css/aos.css"
 import "./../assets/css/main.css"
 import "./../assets/css/abin.css"
+import "./../assets/css/custom_style.css"
 
 const Routes = () => {
+  const dispatch = useDispatch()
   useEffect(() => {
     AOS.init({
       easing: 'ease-out-sine',
@@ -24,12 +30,17 @@ const Routes = () => {
       once: true,
       duration: 1000
     })
+    const customerId = localStorage.getItem("customerId")
+    if (customerId) {
+      dispatch(UserAction.setUserData({ customerId }))
+    }
   }, [])
   return (
     <Router basename={"/"}>
+      <Loader />
       <Switch>
         <Route exact path="/" component={HomeScreen} />
-        <Route exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/profile" component={Profile} />
         <Route exact path="/weekly-menu" component={WeeklyMenu} />
         <Route exact path="/contact" component={ContactScreen} />
         <Route exact path="/how-it-works" component={HowItWorks} />

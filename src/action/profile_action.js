@@ -1,4 +1,4 @@
-import { GET_ALL_PROFILE_DATA, GET_AUTH_TOKEN } from "./../constant/constants"
+import { GET_ALL_PROFILE_DATA, GET_AUTH_TOKEN, LOADER } from "./../constant/constants"
 import { networkRequest } from "../http/api"
 import { api_url, urlConfig } from "../http/apiConfig"
 
@@ -15,7 +15,13 @@ const getAllProfileData = (CustomerId) => {
                     type: GET_ALL_PROFILE_DATA, payload: result
                 })
             }
+            dispatch({
+                type: LOADER, payload: false
+            })
         } catch (error) {
+            dispatch({
+                type: LOADER, payload: false
+            })
             console.warn("error", error);
         }
     }
