@@ -1121,9 +1121,10 @@ p {
   overflow: hidden;
   width: 100%;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .banner__img {
-    display: none;
+    display: block;
+    margin-bottom: 20px;
   }
 }
 .banner__img img {
@@ -1131,6 +1132,12 @@ p {
   display: inline-block;
   vertical-align: bottom;
   margin: 0 0 0 -40px;
+}
+@media (max-width: 991px) {
+  .banner__img img {
+    max-width: 100%;
+    margin: 0;
+  }
 }
 .banner__content {
   position: relative;
@@ -1923,6 +1930,10 @@ p {
   .home__testimonial .testimonial__nav .slick-current .testimonial__nav__items span {
     font-size: 18px;
   }
+}
+
+.about {
+  border: 1px solid red;
 }
 
 .food__select {
