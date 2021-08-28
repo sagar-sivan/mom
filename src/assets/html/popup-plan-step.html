@@ -2747,7 +2747,7 @@
                             <div class="alert alert alert-danger" role="alert">
                               You did’t selected your dish! if don’t want to select now please proceed
                             </div>
-                            <button type="button" class="btn btn-primary btn-md btn__shadow-red py-3" data-toggle="modal" data-target=".Stepform-modal">Save menu</button>
+                            <button type="button" class="btn btn-primary btn-md btn__shadow-red py-3" data-toggle="modal" data-target=".sucssesmenu">Save menu</button>
                               </div>
                           </div>
 
@@ -2764,7 +2764,7 @@
         <!-- step choose plan -->
 
 
-          <!--payment sucsesful message popup-->
+        <!--payment sucsesful message popup-->
 <div class="modal fade view-summary" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
@@ -2849,35 +2849,34 @@
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-primary btnsm btn__shadow-red py-1" data-toggle="modal" data-target=".chooseplan">Select menu</button>
-        
+
         </div>
     </div>
   </div>
 </div>
         <!-- payment sucsesful message-->
-
-
-
-        <!--Thank you for select menu message popup-->
-        <div class="modal fade selectmenu-done" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-
-                <div class="container">
-                  <div class="col-md-12 py-5">
-                    <h1>Thank you for Selecting your menu</h1>
-                    <h2>Please go to profile page for managing your selection</h2>
-                    <img src="../images/man.png">
-                    <a href="">Go to Profile page</a>
-                  </div>
-                </div>
-
+          <!--Thank you for select menu message popup-->
+        <div class="modal fade sucssesmenu" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content text-center">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
+
+              <div class="container">
+                <div class="col-md-12 heading-sucssesmenu py-5">
+                    <img class="icon" src="../images/form-payment-done/tic.png">
+                  <h1>Thank you for Selecting your menu</h1>
+                  <h2>Please go to profile page for managing your selection</h2>
+                  <img src="../images/form-payment-done/men.png">
+                  <button href="profile.html" type="button" class="btn btn-primary btn-md btn__shadow-red py-3 mt-5">Go to Profile page</button>
+
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
         <!-- Thank you for select menumessage-->
