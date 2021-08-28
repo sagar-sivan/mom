@@ -1,3 +1,299 @@
-.about {
-    border: 1px solid red;
+.about { 
+    position: relative;
+
+    .common__text p {
+        font-weight: 400;
+
+        @media (max-width: 1199px) {
+            font-size: 18px;
+            line-height: 1.8;  
+            margin: 0 0 20px;
+        }
+    }
+
+    &-one { 
+        position: relative;
+        margin: 50px auto 150px;
+
+        @media (max-width: 767px) {  
+            margin: 50px auto 50px;        
+        }
+
+        .img-1 {
+            position: absolute;
+            left: 106%;
+            top: 0;
+
+            @media (max-width: 1520px) {  
+                left: 100%;
+                top: -70px;
+                width: 220px;
+                margin-left: -112px;     
+            }
+
+            @media (max-width: 1199px) {
+                max-width: 20%;
+                margin-left: -10%; 
+                top: -20px;
+            }
+            
+        }
+
+        .img-2 {
+            position: absolute;
+            right: 100%;
+            bottom: -400px;
+            margin-right: -120px;
+
+            @media (max-width: 1199px) {
+                max-width: 15%;
+                margin-right: -120px;
+                bottom: -140px;
+            }
+
+            @media (max-width: 991px) {  
+                display: none;         
+            }
+        }
+    }
+
+    &-two { 
+        background: url(../images/placeholder/about-3.png) no-repeat right center;
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        margin: 50px auto 100px;
+
+        @media (max-width: 1199px) {
+            min-height: 400px;
+            background-size: contain;
+        }
+
+        @media (max-width: 991px) {  
+            min-height: 0; 
+            padding: 40px 0;  
+            margin: 30px auto;             
+        }
+
+        h4 {
+            font-weight: bold;
+            line-height: 2;
+            font-size: 43px;
+            background: $white-color;
+            max-width: 69%;
+            border-radius: 40px;
+            padding: 30px;
+            min-height: 370px;
+            display: flex;
+            align-items: center;
+
+            @media (max-width: 1199px) {
+                font-weight: bold;
+                line-height: 1.4;
+                font-size: 30px; 
+                max-width: 64%;
+                padding: 20px;
+                border-radius: 30px; 
+                min-height: 200px;  
+            }
+
+            @media (max-width: 991px) {  
+                max-width: 90%;
+                font-size: 22px;
+                min-height: 150px;         
+            }
+        }
+    }
+
+    &-three { 
+        margin: 50px auto 100px;
+
+        @media (max-width: 767px) {  
+            margin: 50px auto 50px;        
+        }
+    }
+
+    &-four { 
+        margin: 50px auto 100px;
+
+        @media (max-width: 767px) {  
+            margin: 50px auto 50px;        
+        }
+
+        &__item {
+            margin-bottom: 20px;
+
+            &:nth-child(2) {
+                margin-top: 100px;
+
+                @media (max-width: 1199px) {
+                    margin-top: 0;
+                }
+            }
+
+            & figure {
+                display: block; 
+                position: relative;
+                display: inline-block;
+                border-radius: 100%;
+                max-width: 260px;
+                margin-bottom: 30px;
+                background: #ebe7e8;
+
+                @media (max-width: 1199px) {
+                    margin-bottom: 10px;
+                }
+
+                @media (max-width: 767px) {   
+                    max-width: 150px;             
+                }
+
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            & h5 {
+                font-weight: bold;
+                font-size: 27px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+
+                @media (max-width: 1199px) {
+                    font-size: 21px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            & h6 {
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+
+                @media (max-width: 1199px) {
+                    font-size: 19px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            & p {
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+
+                @media (max-width: 1199px) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    &-five { 
+        margin: 50px auto 60px;
+
+        &__text {
+            position: relative;
+            z-index: 2;
+        }
+
+        & p {
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        &__slider {
+            position: relative;  
+
+            .slick-slider {
+                padding-bottom: 50px;
+            }
+
+            &::after {
+                content: "";
+                position: absolute; 
+                top: 0;
+                width: 200%;
+                height: 100%;
+                background: $white-color;
+                right: 100%;
+            }
+
+            .slick-prev, .slick-next {
+                position: absolute;
+                bottom: 30px;
+                text-indent: -9999px;
+                border: 0px;
+                width: 49px;
+                left: -281px;
+                z-index: 10;
+                height: 49px;
+                filter: brightness(1);
+                top: auto;
+                right: auto;
+                border-radius: 49px;
+                background: $primary-color url(../images/icons/kitchen-arrow.png) no-repeat center center;
+
+                &:hover {
+                    filter: brightness(1);
+                    background: $black-color url(../images/icons/kitchen-arrow.png) no-repeat center center;
+                }
+            }
+
+            .slick-next {
+                margin-left: 60px;
+            }
+
+            .slick-list {
+                overflow: visible;
+
+                @media (max-width: 767px) {  
+                    overflow: hidden;            
+                }
+            }
+
+            .slick-dots {
+                text-align: center;
+                margin: 20px 0 0;
+
+                & li {
+                    display: inline-block;
+
+                    button {
+                        display: inline-block;
+                        border: 0;
+                        background: $text-grey1;
+                        border-radius: 10px;
+                        width: 15px;
+                        height: 15px;
+                        margin: 0 5px;
+                        text-indent: -9999px;
+                    }
+
+                    &.slick-active {
+                        button { 
+                            background: $text-grey; 
+                        }
+                    }
+                }
+            }
+
+            &__item { 
+                margin: 0 20px;
+                border-radius: 80px;
+                overflow: hidden;
+
+                @media (max-width: 767px) {  
+                    border-radius: 20px;              
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

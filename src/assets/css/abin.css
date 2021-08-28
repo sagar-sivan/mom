@@ -1906,4 +1906,112 @@ margin: 0;
       z-index: 1052;
       display: none;
 }
+.sucssesmenu{
+  z-index: 1059;
+  display: none;
+}
+.login-form .close span{
+  background-color: red;
+  opacity: 1;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 24px;
+  line-height: 0;
+}
+.after-payment-modal .close span{
+  background-color: red;
+  opacity: 1;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 24px;
+  line-height: 0;
+}
+.sucssesmenu .close span{
+  background-color: red;
+  opacity: 1;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 24px;
+  line-height: 0;
+}
+.login-form .close{
+  opacity: 1;
+}
+.after-payment-modal .close{
+  opacity: 1;
+}
+.sucssesmenu .close{
+  opacity: 1;
+}
 
+.chooseplan .close{
+    background-color: red;
+    opacity: 1;
+    color: white;
+    padding: 20px 13px;
+    border-radius: 24px;
+    line-height: 0;
+    margin: 2px;
+}
+.chooseplan .modal-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.chooseplan .close{
+  opacity: 1;
+}
+.view-summary-box{
+  display: flex;
+}
+.view-summary .close span{
+  background-color: red;
+  opacity: 1;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 24px;
+  line-height: 0;
+}
+.view-summary .close{
+  opacity: 1;
+}
+.view-summary .modal-content{
+  background-color: #d7d7d7;
+}
+.view-summary .modal-title{
+  font-weight: 800;
+}
+.view-summary .view-summary-box {
+  background-color: white;
+  border-radius: 25px;
+  padding: 23px 0;
+}
+.view-summary .view-summary-box .table td, .table th{
+    background-color: white;
+    border: none;
+}
+/*selectmenu-sucsses*/
+.selectmenu-sucsses{
+  width: 100%;
+}
+.heading-sucssesmenu img{
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+.heading-sucssesmenu .icon{
+  width: 50px;
+  margin: 10px auto;
+}
+.heading-sucssesmenu{
+  text-align: center;
+  display: inline-block;
+}
+.heading-sucssesmenu h1{
+  font-size: 35px;
+  font-family: 'Montserrat';
+}
+.heading-sucssesmenu h2{
+  font-size: 20px;
+}
