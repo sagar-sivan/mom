@@ -1938,6 +1938,13 @@ p {
 .about .common__text p {
   font-weight: 400;
 }
+@media (max-width: 1199px) {
+  .about .common__text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0 0 20px;
+  }
+}
 .about-one {
   position: relative;
   margin: 50px auto 150px;
@@ -1947,11 +1954,33 @@ p {
   left: 106%;
   top: 0;
 }
+@media (max-width: 1520px) {
+  .about-one .img-1 {
+    left: 100%;
+    top: -70px;
+    width: 220px;
+    margin-left: -112px;
+  }
+}
+@media (max-width: 1199px) {
+  .about-one .img-1 {
+    max-width: 20%;
+    margin-left: -10%;
+    top: -20px;
+  }
+}
 .about-one .img-2 {
   position: absolute;
   right: 100%;
   bottom: -400px;
   margin-right: -120px;
+}
+@media (max-width: 1199px) {
+  .about-one .img-2 {
+    max-width: 15%;
+    margin-right: -120px;
+    bottom: -140px;
+  }
 }
 .about-two {
   background: url(../images/placeholder/about-3.png) no-repeat right center;
@@ -1963,6 +1992,12 @@ p {
       -ms-flex-align: center;
           align-items: center;
   margin: 50px auto 100px;
+}
+@media (max-width: 1199px) {
+  .about-two {
+    min-height: 400px;
+    background-size: contain;
+  }
 }
 .about-two h4 {
   font-weight: bold;
@@ -1980,14 +2015,33 @@ p {
       -ms-flex-align: center;
           align-items: center;
 }
+@media (max-width: 1199px) {
+  .about-two h4 {
+    font-weight: bold;
+    line-height: 1.4;
+    font-size: 30px;
+    max-width: 64%;
+    padding: 20px;
+    border-radius: 30px;
+    min-height: 200px;
+  }
+}
 .about-three {
   margin: 50px auto 100px;
 }
 .about-four {
   margin: 50px auto 100px;
 }
+.about-four__item {
+  margin-bottom: 20px;
+}
 .about-four__item:nth-child(2) {
   margin-top: 100px;
+}
+@media (max-width: 1199px) {
+  .about-four__item:nth-child(2) {
+    margin-top: 0;
+  }
 }
 .about-four__item figure {
   display: block;
@@ -1998,6 +2052,11 @@ p {
   margin-bottom: 30px;
   background: #ebe7e8;
 }
+@media (max-width: 1199px) {
+  .about-four__item figure {
+    margin-bottom: 10px;
+  }
+}
 .about-four__item figure img {
   max-width: 100%;
 }
@@ -2007,11 +2066,23 @@ p {
   line-height: 1.2;
   margin-bottom: 20px;
 }
+@media (max-width: 1199px) {
+  .about-four__item h5 {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+}
 .about-four__item h6 {
   font-weight: bold;
   font-size: 20px;
   line-height: 1.2;
   margin-bottom: 20px;
+}
+@media (max-width: 1199px) {
+  .about-four__item h6 {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
 }
 .about-four__item p {
   font-weight: 400;
@@ -2019,8 +2090,13 @@ p {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+@media (max-width: 1199px) {
+  .about-four__item p {
+    font-size: 18px;
+  }
+}
 .about-five {
-  margin: 50px auto 100px;
+  margin: 50px auto 60px;
 }
 .about-five__text {
   position: relative;
@@ -2035,11 +2111,14 @@ p {
 .about-five__slider {
   position: relative;
 }
+.about-five__slider .slick-slider {
+  padding-bottom: 50px;
+}
 .about-five__slider::after {
   content: "";
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 200%;
   height: 100%;
   background: #ffffff;
   right: 100%;

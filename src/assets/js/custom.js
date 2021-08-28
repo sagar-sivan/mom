@@ -93,7 +93,7 @@ $(".about-kitchen").slick({
    
   responsive: [{
 
-      breakpoint: 1284,
+      breakpoint: 991,
       settings: {
         slidesToShow: 1,
       }
