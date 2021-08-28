@@ -1898,7 +1898,6 @@ margin: 0;
   padding: 5px  20px;
 }
 /*view-summary*/
-
 .view-summary{
   z-index: 1051;
   display: none;
@@ -1998,6 +1997,7 @@ margin: 0;
 }
 .heading-sucssesmenu img{
   width: auto;
+  display: block;
   margin: 0 auto;
 }
 .heading-sucssesmenu .icon{
@@ -2005,8 +2005,13 @@ margin: 0;
   margin: 10px auto;
 }
 .heading-sucssesmenu{
+  text-align: center;
+  display: inline-block;
 }
-.heading-sucssesmenu h1{font-size: 35px;font-family: 'Montserrat';}
-.heading-sucssesmenu h2{font-size: 20px;}
-.heading-sucssesmenu .btn{
+.heading-sucssesmenu h1{
+  font-size: 35px;
+  font-family: 'Montserrat';
+}
+.heading-sucssesmenu h2{
+  font-size: 20px;
 }
