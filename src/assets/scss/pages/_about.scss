@@ -15,6 +15,10 @@
         position: relative;
         margin: 50px auto 150px;
 
+        @media (max-width: 767px) {  
+            margin: 50px auto 50px;        
+        }
+
         .img-1 {
             position: absolute;
             left: 106%;
@@ -46,6 +50,10 @@
                 margin-right: -120px;
                 bottom: -140px;
             }
+
+            @media (max-width: 991px) {  
+                display: none;         
+            }
         }
     }
 
@@ -59,6 +67,12 @@
         @media (max-width: 1199px) {
             min-height: 400px;
             background-size: contain;
+        }
+
+        @media (max-width: 991px) {  
+            min-height: 0; 
+            padding: 40px 0;  
+            margin: 30px auto;             
         }
 
         h4 {
@@ -82,15 +96,29 @@
                 border-radius: 30px; 
                 min-height: 200px;  
             }
+
+            @media (max-width: 991px) {  
+                max-width: 90%;
+                font-size: 22px;
+                min-height: 150px;         
+            }
         }
     }
 
     &-three { 
         margin: 50px auto 100px;
+
+        @media (max-width: 767px) {  
+            margin: 50px auto 50px;        
+        }
     }
 
     &-four { 
         margin: 50px auto 100px;
+
+        @media (max-width: 767px) {  
+            margin: 50px auto 50px;        
+        }
 
         &__item {
             margin-bottom: 20px;
@@ -114,6 +142,10 @@
 
                 @media (max-width: 1199px) {
                     margin-bottom: 10px;
+                }
+
+                @media (max-width: 767px) {   
+                    max-width: 150px;             
                 }
 
                 img {
@@ -217,12 +249,46 @@
 
             .slick-list {
                 overflow: visible;
+
+                @media (max-width: 767px) {  
+                    overflow: hidden;            
+                }
+            }
+
+            .slick-dots {
+                text-align: center;
+                margin: 20px 0 0;
+
+                & li {
+                    display: inline-block;
+
+                    button {
+                        display: inline-block;
+                        border: 0;
+                        background: $text-grey1;
+                        border-radius: 10px;
+                        width: 15px;
+                        height: 15px;
+                        margin: 0 5px;
+                        text-indent: -9999px;
+                    }
+
+                    &.slick-active {
+                        button { 
+                            background: $text-grey; 
+                        }
+                    }
+                }
             }
 
             &__item { 
                 margin: 0 20px;
                 border-radius: 80px;
                 overflow: hidden;
+
+                @media (max-width: 767px) {  
+                    border-radius: 20px;              
+                }
 
                 img {
                     width: 100%;
