@@ -1,4 +1,4 @@
-import { LOGIN_COMPONENT } from "./../constant/constants"
+import { LOGIN_COMPONENT, PLAN_COMPONENT } from "./../constant/constants"
 
 const handleLoginComponent = (status) => {
     return dispatch => {
@@ -7,7 +7,14 @@ const handleLoginComponent = (status) => {
         })
     }
 }
+const handlePlanComponent = (status) => {
+    return dispatch => {
+        dispatch({
+            type: PLAN_COMPONENT, payload: status
+        })
+    }
+}
 
 export default {
-    handleLoginComponent
+    handleLoginComponent, handlePlanComponent
 }

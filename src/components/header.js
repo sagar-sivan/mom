@@ -57,7 +57,7 @@ const Header = () => {
                         <div className="col-auto header__right">
                             <nav className="header__nav">
                                 <ul role="menu">
-                                    <li><a href="javascript:void(0);">Our Plan</a></li>
+                                    <li><Link to="/">Our Plan</Link></li>
                                     <li><Link to="/weekly-menu">Weekly Menu</Link></li>
                                     <li><a href="javascript:void(0);">Our Story</a></li>
                                     <li><Link to="/how-it-works">How it Works</Link></li>

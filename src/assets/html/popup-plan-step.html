@@ -316,7 +316,7 @@
         </div>
         <div class="row mx-lg-2 mx-auto justify-content-center">
           <!-- <a class="btn btn-primary btn-lg btn__shadow-red" role="button" data-toggle="modal" data-target="#exampleModal">Start your plan now</a> -->
-          <button type="button" class="btn btn-primary btn-lg btn__shadow-red"  data-toggle="modal" data-target=".calories-paln">Start your plan now</button>
+          <button type="button" class="btn btn-primary btn-lg btn__shadow-red"  data-toggle="modal" data-target=".calories-paidplan">Start your plan now</button>
 
         </div>
 
@@ -1369,36 +1369,36 @@
                                             <label class="col-sm-4 col-form-label">Select your daily meal</label>
                                             <div class="col-sm-8">
                                               <ul class="daily-meal-modal">
-        <li>
-          <input type="checkbox" id="myCheckbox1" />
-          <label class="daily-modal-tick" for="myCheckbox1"><img src="../images/weeklymenu/brakefast.png" />
-          <span>Brakefast</span>
-          </label>
-        </li>
-        <li>
-          <input type="checkbox" id="myCheckbox2" />
-          <label class="daily-modal-tick"  for="myCheckbox2"><img src="../images/weeklymenu/AMsnack.png" />
-            <span>Am Snack</span>
-          </label>
-        </li>
-        <li>
-          <input type="checkbox" id="myCheckbox3" />
-          <label class="daily-modal-tick"  for="myCheckbox3"><img src="../images/weeklymenu/lunch.png" />
-              <span>Lunch</span>
-          </label>
-        </li>
-        <li>
-          <input type="checkbox" id="myCheckbox4" />
-          <label class="daily-modal-tick"  for="myCheckbox4"><img src="../images/weeklymenu/AMsnack.png" />
-              <span>PM Snack</span>
-          </label>
-        </li>
-        <li>
-          <input type="checkbox" id="myCheckbox5" />
-          <label class="daily-modal-tick"  for="myCheckbox5"><img src="../images/weeklymenu/dinner.png" />
-          <span>Dinner</span>
-          </label>
-        </li>
+                                                  <li>
+                                                    <input type="checkbox" id="myCheckbox1" />
+                                                    <label class="daily-modal-tick" for="myCheckbox1"><img src="../images/weeklymenu/brakefast.png" />
+                                                    <span>Brakefast</span>
+                                                    </label>
+                                                  </li>
+                                                  <li>
+                                                    <input type="checkbox" id="myCheckbox2" />
+                                                    <label class="daily-modal-tick"  for="myCheckbox2"><img src="../images/weeklymenu/AMsnack.png" />
+                                                      <span>Am Snack</span>
+                                                    </label>
+                                                  </li>
+                                                  <li>
+                                                    <input type="checkbox" id="myCheckbox3" />
+                                                    <label class="daily-modal-tick"  for="myCheckbox3"><img src="../images/weeklymenu/lunch.png" />
+                                                        <span>Lunch</span>
+                                                    </label>
+                                                  </li>
+                                                  <li>
+                                                    <input type="checkbox" id="myCheckbox4" />
+                                                    <label class="daily-modal-tick"  for="myCheckbox4"><img src="../images/weeklymenu/AMsnack.png" />
+                                                        <span>PM Snack</span>
+                                                    </label>
+                                                  </li>
+                                                  <li>
+                                                    <input type="checkbox" id="myCheckbox5" />
+                                                    <label class="daily-modal-tick"  for="myCheckbox5"><img src="../images/weeklymenu/dinner.png" />
+                                                    <span>Dinner</span>
+                                                    </label>
+                                                  </li>
                                               </ul>
                                             </div>
                                           </div>
@@ -2824,8 +2824,8 @@
                         <td>1200 AED</td>
                       </tr>
                       <tr>
-                        <th scope="row">Status Paid</th>
-                        <td>Lunch Only</td>
+                        <th scope="row">Status</th>
+                        <td>Paid</td>
                       </tr>
                       <tr>
                         <th scope="row">Allergies</th>
@@ -2855,6 +2855,96 @@
   </div>
 </div>
         <!-- payment sucsesful message-->
+
+        <!-- view summary for calories plan -->
+        <div class="modal fade view-summary-calories" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="col-12 py-3 text-center">
+                <h5 class="modal-title" id="exampleModalLongTitle">View Summary</h5>
+              </div>
+
+              <div class="modal-body">
+
+                <div class="col-12 py-1">
+                    <div class="view-summary-box mx-auto">
+                      <div class="col-6">
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <th scope="row">Order No.</th>
+                                <td>6681</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Meal Plan Selected</th>
+                                <td>'Count-Cal' Plan</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Quantity</th>
+                                <td>7</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Schedule</th>
+                                <td>5 Days a Week (Sat,Sun,.)</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Duration</th>
+                                <td>Trial Week</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Start Date</th>
+                                <td>24 / 08 / 2021</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                      </div>
+                      <div class="col-6">
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <th scope="row">Amount</th>
+                                <td>1200 AED</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Status</th>
+                                <td>Paid</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Allergies</th>
+                                <td> Milk , Milk products, Nuts</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Address</th>
+                                <td>City:Dubai State/province/area :Dubai</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="col-12 text-center py-5">
+                            <h4>Your Payment  is sucssesfull</h4>
+                          </div>
+                      </div>
+
+
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary btnsm btn__shadow-red py-1" data-toggle="modal" data-target=".chooseplan">Select menu</button>
+
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- end view summary for calorires plan-->
+
           <!--Thank you for select menu message popup-->
         <div class="modal fade sucssesmenu" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
@@ -2871,7 +2961,7 @@
                   <h1>Thank you for Selecting your menu</h1>
                   <h2>Please go to profile page for managing your selection</h2>
                   <img src="../images/form-payment-done/men.png">
-                  <a class="btn btn-primary btn-md btn__shadow-red py-3 mt-5"  href="https://sagar-sivan.github.io/mom/src/assets/html/profile.html">Go to Profile page</a>
+                  <button href="profile.html" type="button" class="btn btn-primary btn-md btn__shadow-red py-3 mt-5">Go to Profile page</button>
 
                 </div>
               </div>
@@ -3478,6 +3568,605 @@
           </div>
         </div>
         <!-- after payment lunch and dinner modal -->
+
+
+        <!-- after payment calories plan-->
+        <!-- modal for Lunch and Dinner Plan-->
+
+        <div class="modal fade calories-paidplan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="container-fluid" id="grad1">
+            <div class="justify-content-center mt-0">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center p-0 mt-3 mb-2">
+                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+
+                        <div class="row">
+                            <div class="col-md-12 mx-0">
+                                <form id="step-form-modal">
+                                    <!-- progressbar -->
+                                    <ul id="progressbar">
+                                        <li class="active" id="step-1"><strong>Step 1</strong></li>
+                                        <li id="step-2"><strong>Step 2</strong></li>
+                                        <li id="step-3"><strong>Step 3</strong></li>
+                                        <li id="step-4"><strong>Step 4</strong></li>
+                                    </ul>
+
+                                    <fieldset>
+
+
+                                      <div class="form-card form-check-step">
+                                        <h2 class="fs-title">Calorie Counted Plans</h2>
+                                        <div class="col-md-4 float-left">
+                                          <div class="plan-image-step">
+                                              <div class="step-1choose">
+                                                <div class="form-check">
+                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="001p" value="option1">
+                                                  <label class="form-check-label" for="001p">
+                                                    <h3>
+                                                    'Count-Cal' Plan</h3>
+                                                  </label>
+                                                </div>
+
+                                              </div>
+                                            <img src="../images/step-form/step101.jpg">
+                                          </div>
+                                        </div>
+
+                                        <div class="col-md-4 float-left">
+                                          <div class="plan-image-step">
+                                            <div class="step-1choose">
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="002p" value="option1">
+                                                <label class="form-check-label" for="002p">
+                                                  <h3>
+                                                    'Klean' Eating Plan</h3>
+
+                                                </label>
+                                              </div>
+                                              </div>
+
+                                          <img src="../images/step-form/step101.jpg">
+                                        </div>
+                                        </div>
+
+                                        <div class="col-md-4 float-left">
+                                          <div class="plan-image-step">
+                                            <div class="step-1choose">
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="003p" value="option1" >
+                                                <label class="form-check-label" for="003p">
+                                                  <h3>
+                                                    Vegetarian Plan</h3>
+
+                                                </label>
+                                              </div>
+                                              </div>
+
+                                          <img src="../images/step-form/step101.jpg">
+                                        </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <input type="button" name="make_payment" class="next action-button" value="Next Step" />
+                                    </fieldset>
+
+
+
+                                    <fieldset>
+                                      <div class="col-md-12 py-3">
+                                        <div class="fs-title">Select Your Special Plan</div>
+                                      </div>
+                                      <div class="col-md-12 col-12">
+                                        <div class="flex-box-modal">
+                                          <div class="col-md-5  pb-5">
+                                            <div class="modal-left-img">
+                                              <h1>'Count-Cal' Plan</h1>
+                                              <img src="../images/step-form/step101.jpg">
+                                            </div>
+                                          </div>
+                                          <div class="col-md-7 text-left form-shedule-popup  pb-5">
+                                              <div class="col-md-12">
+
+                                              <div class="row-item">
+                                                <label class="col-sm-4 col-form-label">Meal Plan Selected</label>
+                                                <div class="col-sm-8">
+                                                  <h4>Special Plan</h4>
+                                                </div>
+                                              </div>
+
+                                              <div class="row-item">
+                                                <label class="col-sm-4 col-form-label">Plan Selected</label>
+                                                <div class="col-sm-8">
+                                                  <h4>Count-Cal' Plan</h4>
+                                                </div>
+                                              </div>
+
+                                              <div class="row-item">
+                                                <label class="col-sm-4 col-form-label">Select your daily meal</label>
+                                                <div class="col-sm-8">
+                                                  <ul class="daily-meal-modal">
+                                                      <li>
+                                                        <input type="checkbox" id="myCheckbox1p" />
+                                                        <label class="daily-modal-tick" for="myCheckbox1p"><img src="../images/weeklymenu/brakefast.png" />
+                                                        <span>Brakefast</span>
+                                                        </label>
+                                                      </li>
+                                                      <li>
+                                                        <input type="checkbox" id="myCheckbox2p" />
+                                                        <label class="daily-modal-tick"  for="myCheckbox2p"><img src="../images/weeklymenu/AMsnack.png" />
+                                                          <span>Am Snack</span>
+                                                        </label>
+                                                      </li>
+                                                      <li>
+                                                        <input type="checkbox" id="myCheckbox3p" />
+                                                        <label class="daily-modal-tick"  for="myCheckbox3p"><img src="../images/weeklymenu/lunch.png" />
+                                                            <span>Lunch</span>
+                                                        </label>
+                                                      </li>
+                                                      <li>
+                                                        <input type="checkbox" id="myCheckbox4p" />
+                                                        <label class="daily-modal-tick"  for="myCheckbox4p"><img src="../images/weeklymenu/AMsnack.png" />
+                                                            <span>PM Snack</span>
+                                                        </label>
+                                                      </li>
+                                                      <li>
+                                                        <input type="checkbox" id="myCheckbox5p" />
+                                                        <label class="daily-modal-tick"  for="myCheckbox5p"><img src="../images/weeklymenu/dinner.png" />
+                                                        <span>Dinner</span>
+                                                        </label>
+                                                      </li>
+                                                  </ul>
+                                                </div>
+                                              </div>
+
+                                              <div class="row-item">
+                                                <label class="col-sm-4 col-form-label">No Of Meals/Quantity</label>
+                                                <div class="col-sm-8">
+                                                  <div class="row d-flex">
+                                                    <div class="col-md-6">
+                                                      <ul class="radio-ul-modal">
+                                                        <li>
+                                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" >
+                                                         <label class="form-check-label" for="gridRadios1">1</label>
+                                                        </li>
+                                                        <li>
+                                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option1" >
+                                                         <label class="form-check-label" for="gridRadios2">2</label>
+                                                        </li>
+                                                        <li>
+                                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option1" >
+                                                         <label class="form-check-label" for="gridRadios3">3</label>
+                                                        </li>
+                                                        <li>
+                                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option1" >
+                                                         <label class="form-check-label" for="gridRadios4">4</label>
+                                                        </li>
+
+                                                      </ul>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="row-item">
+                                                <label class="col-sm-4 col-form-label">Schedule</label>
+                                                <div class="col-sm-8">
+                                                  <select class="custom-select col-md-12 " id="inlineFormCustomSelect">
+                                                    <option selected>Choose..</option>
+                                                    <option value="1">6 Days a Week</option>
+                                                    <option value="2">5 Days a Week (Sat,Sun,Mon,Tue,Wed)</option>
+                                                    <option value="2">5 Days a Week (Sun,Mon,Tue,Wed,Thu)</option>
+                                                    <option value="2">4 Days a Week (Mon,Tue,Wed,thu)</option>
+                                                    <option value="2">3 Days a Week (Tue,Wed,thu)</option>
+                                                  </select>
+                                                </div>
+                                              </div>
+                                              <div class="row-item">
+                                                <label class="col-sm-4 col-form-label">Duration</label>
+                                                <div class="col-sm-8">
+                                                  <select class="custom-select col-md-12 " id="inlineFormCustomSelect">
+                                                    <option selected>Choose..</option>
+                                                    <option value="1">Trial Week</option>
+                                                    <option value="2">1 Week</option>
+                                                    <option value="2">2 Week</option>
+                                                    <option value="2">3 Week</option>
+                                                    <option value="2">1 Month</option>
+                                                    <option value="2">2 Month</option>
+                                                    <option value="2">3 Month</option>
+                                                  </select>
+                                                </div>
+                                              </div>
+
+                                              <div class="row-item">
+                                                <label class="col-sm-4 col-form-label">Start Date</label>
+                                                <div class="col-sm-8">
+                                                  <h4>08 / 02 / 2021 <span class="icon-date"></span></h4>
+                                                </div>
+                                              </div>
+                                            </div>
+
+
+                                          </div>
+                                        </div>
+                                      </div>
+                                        <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+                                        <input type="button" name="make_payment" class="next action-button" value="Next Step" />
+
+
+
+                                      </fieldset>
+
+
+                                      <fieldset>
+
+                                        <div class="col-md-12 py-3">
+                                          <div class="fs-title">Do you have allergies?</div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                          <div class="flex-box-modal">
+                                            <div class="col-md-6  pb-5">
+                                              <div class="modal-left-img">
+                                                <h1>Indian cuisines</h1>
+                                                <img src="../images/step-form/step4.jpg">
+                                              </div>
+                                              <div class="col-md-12 text-left form-shedule-popup">
+
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Meal Plan Selected</label>
+                                                  <div class="col-sm-6">
+                                                    <h4>Special Plan</h4>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Plan Selected</label>
+                                                  <div class="col-sm-6">
+                                                    <h4>Count-Cal' Plan</h4>
+                                                  </div>
+                                                </div>
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">No Of Meals/Quantity</label>
+                                                  <div class="col-sm-6">
+                                                    <div class="row d-flex">
+                                                      <div class="col-md-6">
+                                                        <h4>1</h4>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Schedule</label>
+                                                  <div class="col-sm-6">
+                                                   <h4>5 Days a Week (Sat,Sun,.)</h4>
+                                                  </div>
+                                                </div>
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Select your daily meal</label>
+                                                  <div class="col-sm-6">
+                                                    <ul class="daily-meal-modal">
+                                      <li>
+                                        <input type="checkbox" id="myCheckbox01" />
+                                        <label class="daily-modal-tick" for="myCheckbox01p"><img src="../images/weeklymenu/brakefast.png" />
+                                        <span>Brakefast</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" id="myCheckbox02p" />
+                                        <label class="daily-modal-tick"  for="myCheckbox02p"><img src="../images/weeklymenu/AMsnack.png" />
+                                          <span>Am Snack</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" id="myCheckbox03p" />
+                                        <label class="daily-modal-tick"  for="myCheckbox03p"><img src="../images/weeklymenu/lunch.png" />
+                                            <span>Lunch</span>
+                                        </label>
+                                      </li>
+
+                                                </ul>
+                                                  </div>
+                                                </div>
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Duration</label>
+                                                  <div class="col-sm-6">
+                                                <h4>Trial Week</h4>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Start Date</label>
+                                                  <div class="col-sm-6">
+                                                    <h4>08 / 02 / 2021 <span class="icon-date"></span></h4>
+                                                  </div>
+                                                </div>
+
+
+                                            </div>
+                                            </div>
+
+                                            <div class="col-md-6 modal-allergies-tab text-left pb-5">
+                                              <div class="col-12">
+
+                                                <div class="allergies__tab-menu">
+                                                  <nav class="nav tab__menu__1" id="pills-tab" role="tablist">
+                                                    <a class="nav-link active" id="nav-upcoming-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
+                                                      Allergies
+                                                    </a>
+                                                  </nav>
+                                                </div>
+
+                                                <div class="tab-content tab__content__1 text-left">
+                                                  <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+
+                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked> Milk </label>
+                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked> Milk products </label>
+                                                    <label class="select__style__1"> <input type="checkbox" class="select__input"  checked> Nuts </label>
+                                                    <label class="select__style__1"> <input type="checkbox" class="select__input"> Fish & Shellfish </label>
+                                                    <label class="select__style__1"> <input type="checkbox" class="select__input"> Wheat & gluten </label>
+                                                    <label class="select__style__1"> <input type="checkbox" class="select__input"> Soya </label>
+                                                    <!-- <label class="select__style__1"> <input type="checkbox" class="select__input" disabled> Pine Nuts </label> *when disabled*-->
+
+                                                  </div>
+                                                </div>
+
+                                                <div class="textarea__style__1 mt-4">
+                                                  <textarea placeholder="Comments & Specific Allergies"></textarea>
+                                                </div>
+
+
+                                              </div>
+                                              </div>
+
+                                          </div>
+                                        </div>
+                                        <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+                                        <input type="button" name="make_payment" class="next action-button" value="Next Step" />
+
+
+
+                                      </fieldset>
+
+
+                                      <fieldset>
+
+                                        <div class="col-md-12 py-3">
+                                          <div class="fs-title">Pricing</div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                          <div class="flex-box-modal">
+                                            <div class="col-md-6  pb-5">
+                                              <div class="modal-left-img">
+                                                <h1>Count-Cal' Plan</h1>
+                                                <img src="../images/step-form/step4.jpg">
+                                              </div>
+                                              <div class="col-md-12 text-left form-shedule-popup">
+
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Meal Plan Selected</label>
+                                                  <div class="col-sm-6">
+                                                    <h4>Special plan</h4>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Plan Selected</label>
+                                                  <div class="col-sm-6">
+                                                    <h4>Count-Cal' Plan</h4>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">No Of Meals/Quantity</label>
+                                                  <div class="col-sm-6">
+                                                    <div class="row d-flex">
+                                                      <div class="col-md-6">
+                                                        <h4>1</h4>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Schedule</label>
+                                                  <div class="col-sm-6">
+                                                   <h4>6 Days a Week</h4>
+                                                  </div>
+                                                </div>
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Duration</label>
+                                                  <div class="col-sm-6">
+                                                <h4>Trial Week</h4>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row-item">
+                                                  <label class="col-sm-6 col-form-label">Start Date</label>
+                                                  <div class="col-sm-6">
+                                                    <h4>08 / 02 / 2021 <span class="icon-date"></span></h4>
+                                                  </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-12">
+                                              <div class="allergies__tab-menu">
+                                                <nav class="nav tab__menu__1" id="pills-tab" role="tablist">
+                                                  <a class="nav-link active" id="nav-upcoming-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
+                                                  Allergies
+                                                  </a>
+                                                </nav>
+                                              </div>
+
+                                              <div class="tab-content tab__content__1 text-left">
+                                                <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+
+                                                  <label class="select__style__1"> <input type="checkbox" class="select__input" checked> Milk </label>
+                                                  <label class="select__style__1"> <input type="checkbox" class="select__input" checked> Milk products </label>
+                                                  <label class="select__style__1"> <input type="checkbox" class="select__input"  checked> Nuts </label>
+
+                                                </div>
+                                              </div>
+
+                                            </div>
+
+
+
+
+                                            </div>
+
+                                            <div class="col-md-6 modal-allergies-tab text-left pb-5">
+                                              <!-- <div class="tab-content login-form-content text-left py-4">
+                                                <div class="tab-pane fade show active" id="log-modaltab" role="tabpanel" aria-labelledby="log-modaltab">
+                                                  <form>
+                                                    <div class="form-group">
+                                                      <i class="bi bi-person-fill user-stepmodal"></i>
+                                                      <input type="text" class="form-control" placeholder="First name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <i class="bi bi-shield-fill-check  user-stepmodal"></i>
+                                                      <input type="password" class="form-control" id="exampleInputPassword1"  placeholder="Password">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Login</button>
+                                                  </form>
+                                                  <div class="col-12 ptb-5">
+                                                    <button type="submit" class="btn btn-primary link-gray">Forgot Password</button>
+                                                  </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="reg-modaltab" role="tabpanel" aria-labelledby="reg-modaltab">
+                                                  <form>
+                                                    <div class="form-group">
+                                                      <i class="bi bi-person-fill user-stepmodal"></i>
+                                                      <input type="text" class="form-control" placeholder="First name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <i class="bi bi-envelope-fill  user-stepmodal"></i>
+                                                        <input type="email" class="form-control" placeholder="Email">
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <i class="bi bi-shield-fill-check  user-stepmodal"></i>
+                                                        <input type="number" class="form-control" id="exampleInputPassword1"  placeholder="Mobile Number">
+                                                      </div>
+                                                      <div class="form-group d-flex align-items-center class=" mt-4"">
+
+                                                        <div class="py-1 m-1">
+                                                            Location
+                                                        </div>
+                                                        <div class="py-1 w-100">
+                                                          <select class="custom-select " id="inlineFormCustomSelect">
+                                                            <option selected>Choose..</option>
+                                                            <option value="1">Al Barsha</option>
+                                                            <option value="2">Marina</option>
+                                                            <option value="2">Jumeira</option>
+                                                            <option value="2">JLT</option>
+                                                            <option value="2">Umm Suquim </option>
+                                                            <option value="2">Karama</option>
+                                                          </select>
+                                                        </div>
+
+                                                      </div>
+                                                        <div class="form-group">
+                                                          <div class=" mt-4">
+                                                            <textarea placeholder="Address"></textarea>
+                                                          </div>
+                                                        </div>
+
+                                                    <div class="form-group">
+                                                      <i class="bi bi-shield-fill-check  user-stepmodal"></i>
+                                                      <input type="password" class="form-control" id="exampleInputPassword1"  placeholder="Password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <i class="bi bi-shield-fill-check  user-stepmodal"></i>
+                                                        <input type="password" class="form-control" id="exampleInputPassword1"  placeholder="Re-Enter Password">
+                                                      </div>
+                                                    <button type="submit" class="btn btn-primary">Register</button>
+                                                  </form>
+
+
+
+
+                                                </div>
+                                                </div> -->
+
+
+
+                                                <!-- price showing section -->
+                                              <div class="col-md-12 d-block py-4">
+                                                <div class="col-md-6 float-left">
+                                                  <h4>Cost in AED</h4>
+
+                                                    <button type="button" class="btn btn-primary btn__shadow-red" data-toggle="modal" data-target=".view-summary-calories">Pay</button>
+                                                </div>
+
+                                                <div class="col-md-6 float-left">
+                                                  <h4>1200 AED</h4>
+                                                  <button type="submit" class="btn btn-primary">Cash On Delivery</button>
+                                                </div>
+                                              </div>
+                                              <!-- price showing section -->
+
+                                              <!-- <div class="col-md-12 py-3 text-center">
+
+                                              <div class="alert alert alert-danger" role="alert">
+                                                Please login / Register to get the price
+                                                </div>
+
+                                               </div> -->
+
+                                               <!-- cupon code added -->
+                                               <div class="row pt-5">
+                                                 <div class="coupon-code m-3">
+                                                    <div class="col-2 color-bg1">
+                                                        <i class="bi bi-gift"></i>
+                                                    </div>
+                                                    <div class="col-10 color-bg2">
+                                                      <div class="head-coupon">
+                                                        <span class="logo-c"><img src="../images/logo/logo_color.png"></span>
+                                                          <h3>Thank You for Being Our Customer</h3>
+                                                      </div>
+                                                      <div class="body-coupon">
+
+                                                            <h2><b>GET 20% OFF</b></h2>
+
+                                                            <p>Use Promo Code: <span class="promo">MOM00821</span></p>
+                                                            <a class="submit-coupon" href="#">Add</a>
+                                                      </div>
+                                                    </div>
+
+                                                  </div>
+                                               </div>
+
+
+
+                                              </div>
+
+                                          </div>
+                                        </div>
+                                        <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+
+
+
+                                      </fieldset>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!--end plan-->
+
+        <!-- after payment calories plan-->
 
 
     <a href="#" class="scrollup"><i class="fas fa-chevron-up"></i></a>
