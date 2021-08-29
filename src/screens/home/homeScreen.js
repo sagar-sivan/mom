@@ -9,6 +9,7 @@ import HomeCuisine from './home_cuisine'
 import HomeHowWorks from './home_how'
 import HomeCaloriesPlan from './home_calories_plan'
 import HomeTestimonial from './home_testimonial'
+import StartPlan from '../../components/start_plan'
 
 const HomeScreen = () => {
     return (
@@ -23,6 +24,7 @@ const HomeScreen = () => {
                 <HomeCaloriesPlan />
                 <HomeTestimonial />
             </div>
+            <StartPlan />
             <Footer />
         </>
     )

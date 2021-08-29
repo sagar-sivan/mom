@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { plan_1, plan_2, plan_3 } from "./../../assets/images"
+import { plan_1, plan_2, plan_3 } from "./../../assets/images";
+import CommonAction from "./../../action/common_action"
+
 
 function HomePlan() {
+    const dispatch = useDispatch()
+    const handleStartPlan = (e) => {
+        e.preventDefault()
+        console.log("asdasasd", e);
+        dispatch(CommonAction.handlePlanComponent(true))
+    }
     return (
         <div className="container home__plans">
             <div className="row">
@@ -43,7 +52,7 @@ function HomePlan() {
                 </div>
 
                 <div className="col-12 text-center my-5">
-                    <a className="btn btn-primary btn-lg btn__shadow-red" href="#" role="button">Start your plan now</a>
+                    <a className="btn btn-primary btn-lg btn__shadow-red" onClick={e => handleStartPlan(e)} href="#" role="button">Start your plan now</a>
                 </div>
             </div>
         </div>

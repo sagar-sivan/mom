@@ -50,14 +50,14 @@ const Header = () => {
                 <div className="container">
                     <div className="row no-gutters">
                         <div className="col d-flex align-items-center">
-                            <a href="javascript:void(0);" className="header__logo">
+                            <Link to="/" className="header__logo">
                                 <img src={logo_color} className="img-fluid" alt="Meals On Me" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="col-auto header__right">
                             <nav className="header__nav">
                                 <ul role="menu">
-                                    <li><Link to="/">Our Plan</Link></li>
+                                    <li><Link to="/our-plan">Our Plan</Link></li>
                                     <li><Link to="/weekly-menu">Weekly Menu</Link></li>
                                     <li><a href="javascript:void(0);">Our Story</a></li>
                                     <li><Link to="/how-it-works">How it Works</Link></li>
