@@ -144,11 +144,15 @@ $(".about-kitchen").slick({
   packSlider = function(){
     $(".pack-slider").slick({ 
       dots: false,
-      arrows: true,
+      arrows: false,
       infinite: false,
       speed: 300,
       slidesToShow: 6,
       slidesToScroll: 1,
+      prevArrow: $('.new-btn-prev'),
+      nextArrow: $('.new-btn-next'),
+
+      
       
       responsive: [{  
         breakpoint: 991,
@@ -162,11 +166,19 @@ $(".about-kitchen").slick({
         settings: {
           slidesToShow: 1,
           dots: true
-        }
-  
-      }]
-  
+        }  
+      }]  
     });
+
+    $('.new-btn-prev').click(function(){ 
+      $(this).parent().find('.slick-slider').slick('slickPrev');
+    } );
+    
+    $('.new-btn-next').click(function(e){
+      e.preventDefault(); 
+      $(this).parent().find('.slick-slider').slick('slickNext');
+    } );
+
   };
 
   packSlider();

@@ -178,6 +178,8 @@
 
             &__holder { 
                 margin: 0 -30px;
+                position: relative;
+                padding: 60px 0 0;
             }
 
             .item { 
@@ -269,10 +271,10 @@
 
 .pack-slider {
     position: relative;
-    padding: 60px 0 20px;
+    padding: 0;
 }
 
-.slick-prev, .slick-next {
+.new-btn-prev { 
     position: absolute;
     top: 30px;
     background: url(../images/icons/profile-arrow2.png) no-repeat center center;
@@ -280,19 +282,27 @@
     border: 0;
     width: 34px;
     filter:brightness(0);
+    left: 30px;
 
     &:hover {
         filter:brightness(100);        
     }
 }
 
-.slick-prev { 
-    left: 30px;
-}
-
-.slick-next { 
+.new-btn-next { 
+    position: absolute;
+    top: 30px;
+    background: url(../images/icons/profile-arrow2.png) no-repeat center center;
+    text-indent: -9999px;
+    border: 0;
+    width: 34px;
+    filter:brightness(0);
     right: 30px;
     transform: scaleX(-1);
+
+    &:hover {
+        filter:brightness(100);        
+    }
 }
 
 

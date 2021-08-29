@@ -2526,6 +2526,8 @@ p {
 }
 .profile__pack__item__holder {
   margin: 0 -30px;
+  position: relative;
+  padding: 60px 0 0;
 }
 .profile__pack__item .item__date {
   font-size: 20px;
@@ -2608,10 +2610,10 @@ p {
 
 .pack-slider {
   position: relative;
-  padding: 60px 0 20px;
+  padding: 0;
 }
 
-.slick-prev, .slick-next {
+.new-btn-prev {
   position: absolute;
   top: 30px;
   background: url(../images/icons/profile-arrow2.png) no-repeat center center;
@@ -2620,20 +2622,29 @@ p {
   width: 34px;
   -webkit-filter: brightness(0);
           filter: brightness(0);
+  left: 30px;
 }
-.slick-prev:hover, .slick-next:hover {
+.new-btn-prev:hover {
   -webkit-filter: brightness(100);
           filter: brightness(100);
 }
 
-.slick-prev {
-  left: 30px;
-}
-
-.slick-next {
+.new-btn-next {
+  position: absolute;
+  top: 30px;
+  background: url(../images/icons/profile-arrow2.png) no-repeat center center;
+  text-indent: -9999px;
+  border: 0;
+  width: 34px;
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
   right: 30px;
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
+}
+.new-btn-next:hover {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
 }
 
 .month-plan {
