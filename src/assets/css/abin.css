@@ -1717,7 +1717,7 @@ height: 630px;
 }
 
 .daily-meal-modal :checked + label:before {
-  content: "Ã¢Å“â€œ";
+  content: "✔";
   background-color: #cb0505;
   transform: scale(.9);
 }
