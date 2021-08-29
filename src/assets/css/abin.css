@@ -1755,6 +1755,9 @@ margin: 0;
   .chooseplan .modal-xl {
     max-width: 2024px;
   }
+  .choosespecialplan .modal-xl{
+    max-width: 2024px;
+  }
 }
 
 
@@ -1913,6 +1916,21 @@ margin: 0;
 .sucssesmenu{
   z-index: 1059;
   display: none;
+}
+.choosespecialplan{
+  z-index: 1052;
+  display: none;
+}
+.choosespecialplan .close span{
+  background-color: red;
+  opacity: 1;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 24px;
+  line-height: 0;
+}
+.choosespecialplan .close{
+  opacity: 1;
 }
 .login-form .close span{
   background-color: red;
