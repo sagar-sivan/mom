@@ -2023,6 +2023,10 @@ margin: 0;
     background-color: white;
     border: none;
 }
+.view-summary-calories .table td, .table th{
+  background-color: white;
+  border: none;
+}
 /*selectmenu-sucsses*/
 .selectmenu-sucsses{
   width: 100%;
