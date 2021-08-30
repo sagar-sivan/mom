@@ -1966,6 +1966,14 @@ margin: 0;
 .login-form .close{
   opacity: 1;
 }
+.calories-paidplan .close span{
+    background-color: red;
+  opacity: 1;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 24px;
+  line-height: 0;
+}
 .after-payment-modal .close{
   opacity: 1;
 }
