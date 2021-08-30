@@ -1717,7 +1717,7 @@ height: 630px;
 }
 
 .daily-meal-modal :checked + label:before {
-  content: "✔";
+  content: "âœ”";
   background-color: #cb0505;
   transform: scale(.9);
 }
@@ -1736,18 +1736,20 @@ height: 630px;
 .login-form-content a{
   color:black;
 }
+
 .chooseplan .alert-danger{
-
 color: #ffffff;
-
 background-color: #cb0505;
-
 border-color: #f5c6cb;
-
 border-radius: 15px;
 }
+.choosespecialplan .alert-danger{
+  color: #ffffff;
+  background-color: #cb0505;
+  border-color: #f5c6cb;
+  border-radius: 15px;
+}
 .chooseplan h5{
-
 margin: 0;
 }
 /*chooseplan*/
@@ -1755,11 +1757,14 @@ margin: 0;
   .chooseplan .modal-xl {
     max-width: 2024px;
   }
+  .choosespecialplan .modal-xl{
+    max-width: 2024px;
+  }
 }
 
 
 /*plan modal */
-.plan_modal-item_box{background-color: #e1e1e1;border: none;border-radius: 0;}
+.plan_modal-item_box{border: none;border-radius: 0;}
 .plan-modal-body{display: flex;flex-direction: row;flex-wrap: nowrap;align-content: center;padding: 8px;align-items: center;justify-content: center;background-color: #e6e6e6;border: none;}
 .plan-modal-body .text-item{text-align: left;}
 .plan-modal-body .text-item h3{font-size: 12px;margin: 0;}
@@ -1914,6 +1919,28 @@ margin: 0;
   z-index: 1059;
   display: none;
 }
+.choosespecialplan{
+  z-index: 1052;
+  display: none;
+}
+.choosespecialplan .close{
+    background-color: red;
+    opacity: 1;
+    color: white;
+    padding: 20px 13px;
+    border-radius: 24px;
+    line-height: 0;
+    margin: 2px;
+}
+.choosespecialplan .modal-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.choosespecialplan .close{
+  opacity: 1;
+}
 .login-form .close span{
   background-color: red;
   opacity: 1;
@@ -1940,6 +1967,14 @@ margin: 0;
 }
 .login-form .close{
   opacity: 1;
+}
+.calories-paidplan .close span{
+    background-color: red;
+  opacity: 1;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 24px;
+  line-height: 0;
 }
 .after-payment-modal .close{
   opacity: 1;
@@ -2005,6 +2040,10 @@ margin: 0;
     background-color: white;
     border: none;
 }
+.view-summary-calories .table td, .table th{
+  background-color: white;
+  border: none;
+}
 /*selectmenu-sucsses*/
 .selectmenu-sucsses{
   width: 100%;
@@ -2028,4 +2067,7 @@ margin: 0;
 }
 .heading-sucssesmenu h2{
   font-size: 20px;
+}
+.new-btn-next{
+  z-index: 1;
 }

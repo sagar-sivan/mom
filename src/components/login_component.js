@@ -9,6 +9,8 @@ import UserAction from '../action/user_action';
 import { networkRequest } from "../http/api"
 import { api_url, urlConfig } from "../http/apiConfig"
 
+Modal.setAppElement('body');
+
 const customStyles = {
     content: {
         top: '50%',
