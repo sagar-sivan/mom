@@ -1737,18 +1737,19 @@ height: 630px;
   color:black;
 }
 .chooseplan .alert-danger{
-
-color: #ffffff;
-
-background-color: #cb0505;
-
-border-color: #f5c6cb;
-
-border-radius: 15px;
+  color: #ffffff;
+  background-color: #cb0505;
+  border-color: #f5c6cb;
+  border-radius: 15px;
 }
+.calories-paidplan  .alert-danger{
+  color: #ffffff;
+  background-color: #cb0505;
+  border-color: #f5c6cb;
+  border-radius: 15px;
+ }
 .chooseplan h5{
-
-margin: 0;
+  margin: 0;
 }
 /*chooseplan*/
 @media (min-width: 1200px){
