@@ -170,13 +170,13 @@ $(".about-kitchen").slick({
       }]  
     });
 
-    $('.new-btn-prev').click(function(){ 
-      $(this).parent().find('.slick-slider').slick('slickPrev');
+    $('.new-btn-prev').click(function(){  
+      $(this).parent().parent().parent().parent().find('.slick-slider').slick('slickPrev');
     } );
     
     $('.new-btn-next').click(function(e){
-      e.preventDefault(); 
-      $(this).parent().find('.slick-slider').slick('slickNext');
+      e.preventDefault();  
+      $(this).parent().parent().parent().parent().find('.slick-slider').slick('slickNext');
     } );
 
   };
