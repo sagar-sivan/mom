@@ -2051,3 +2051,6 @@ margin: 0;
 .heading-sucssesmenu h2{
   font-size: 20px;
 }
+.new-btn-next{
+  z-index: 1;
+}
