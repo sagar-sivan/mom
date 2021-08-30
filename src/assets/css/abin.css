@@ -1737,17 +1737,18 @@ height: 630px;
   color:black;
 }
 .chooseplan .alert-danger{
-
 color: #ffffff;
-
 background-color: #cb0505;
-
 border-color: #f5c6cb;
-
 border-radius: 15px;
 }
+.choosespecialplan .alert-danger{
+  color: #ffffff;
+  background-color: #cb0505;
+  border-color: #f5c6cb;
+  border-radius: 15px;
+}
 .chooseplan h5{
-
 margin: 0;
 }
 /*chooseplan*/
