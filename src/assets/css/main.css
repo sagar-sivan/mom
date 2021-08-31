@@ -2374,6 +2374,7 @@ p {
 }
 .profile__card__left {
   min-width: 150px;
+  width: 150px;
   margin-right: 20px;
 }
 .profile__card__left a {
