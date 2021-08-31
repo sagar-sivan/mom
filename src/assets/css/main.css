@@ -2973,6 +2973,7 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
   font-weight: 700;
+  margin-top: 13px;
 }
 .item__select label {
   font-size: 12px;
