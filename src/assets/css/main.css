@@ -2603,7 +2603,8 @@ p {
   font-size: 12px;
   text-transform: uppercase;
 }
-.profile__pack__item .item__btn {
+
+.item__btn {
   background: #ebebeb;
   color: #000000;
   border-radius: 20px;
@@ -2613,7 +2614,7 @@ p {
   font-size: 11px;
   font-weight: 600;
 }
-.profile__pack__item .item__btn__holder {
+.item__btn__holder {
   position: absolute;
   background: rgba(0, 0, 0, 0.4);
   width: 100%;
@@ -2630,10 +2631,10 @@ p {
       -ms-flex-align: center;
           align-items: center;
 }
-.profile__pack__item .item__btn:hover {
+.item__btn:hover {
   background: #c1edf7;
 }
-.profile__pack__item .item__btn__large {
+.item__btn__large {
   background: #ebebeb;
   color: #000000;
   border-radius: 20px;
@@ -2641,7 +2642,7 @@ p {
   display: inline-block;
   font-size: 14px;
 }
-.profile__pack__item .item__btn__large:hover {
+.item__btn__large:hover {
   background: #c1edf7;
 }
 
