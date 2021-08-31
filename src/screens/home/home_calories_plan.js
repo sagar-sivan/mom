@@ -1,8 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 import { count_1, count_2, count_3 } from "./../../assets/images"
+import CommonAction from "./../../action/common_action"
 
 function HomeCaloriesPlan() {
+    const dispatch = useDispatch()
+    const handleOpenPlan = (e) => {
+        e.preventDefault()
+        dispatch(CommonAction.handleMenuComponent(true))
+    }
     return (
         <div className="container  skew-bg__grey__top home__calories">
 
@@ -48,7 +55,7 @@ function HomeCaloriesPlan() {
             </div>
 
             <div className="col text-center my-5">
-                <a className="btn btn-primary btn-lg btn__shadow-red" href="#" role="button">Start your plan now</a>
+                <a className="btn btn-primary btn-lg btn__shadow-red" href="#" role="button" onClick={(e) => handleOpenPlan(e)}>Start your plan now</a>
             </div>
 
         </div>

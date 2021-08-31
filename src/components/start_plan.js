@@ -13,6 +13,7 @@ import CommonAction from '../action/common_action';
 import { urlConfig, api_url } from "./../http/apiConfig"
 import { networkRequest } from "./../http/api"
 import TEST_IMAGE from "../assets/images/step-form/step101.jpg"
+import LoginRegister from './login_register';
 
 Modal.setAppElement('body');
 
@@ -31,14 +32,16 @@ const imageUrl = "http://mealsuae-001-site1.itempurl.com/Images/Plan/"
 
 const StartPlan = () => {
     const dispatch = useDispatch()
-    const { plan_component } = useSelector(state => state.commonReducer);
+    const { loginData } = useSelector(state => state.userReducer);
+    const { plan_component, calorie_plan } = useSelector(state => state.commonReducer);
     const [activeStep, setActiveStep] = useState(0)
     const [planData, setPlanData] = useState([])
     const [cuisineData, setCuisineData] = useState([])
     const [noOfMealsData, setNoOfMealsData] = useState([])
     const [scheduleData, setScheduleData] = useState([])
     const [durationData, setDurationData] = useState([])
-    const [allergies, setAllergies] = useState({})
+    const [selectedAllergies, setSelectedAllergies] = useState({})
+    const [allergiesList, setAllergiesList] = useState([])
     const [formData, setFormData] = useState({})
     const [error, setError] = useState({})
     useEffect(() => {
@@ -46,19 +49,24 @@ const StartPlan = () => {
         getNumberOfMealsData()
         getScheduleData()
         getDurationData()
+        getAllAllergiesList()
     }, [])
     const handleChange = (value, field) => {
         console.log(field, value);
         formData[field] = value;
         setFormData({ ...formData })
+        error[field] = ""
+        setError({ ...error })
     }
     const getPlanData = async () => {
         try {
+            dispatch(LoaderAction.showLoader())
             const url = `${api_url}${urlConfig.getPlanData}`;
             const result = await networkRequest({ url })
             setPlanData(result.apiPlanDataOutputList)
-
+            dispatch(LoaderAction.hideLoader())
         } catch (error) {
+            dispatch(LoaderAction.hideLoader())
             console.log(error);
         }
     }
@@ -87,6 +95,16 @@ const StartPlan = () => {
             const url = `${api_url}${urlConfig.getDurationData}`;
             const result = await networkRequest({ url })
             setDurationData(result._APIDurationDataOutputList)
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const getAllAllergiesList = async () => {
+        try {
+            const url = `${api_url}${urlConfig.getAllAllergies}`;
+            const result = await networkRequest({ url })
+            setAllergiesList(result.apiAllergyDetailsOutputList)
 
         } catch (error) {
             console.log(error);
@@ -149,7 +167,6 @@ const StartPlan = () => {
         switch (step) {
             case 0:
                 error = await handleValidate(0)
-                console.log(error);
                 if (isEmpty(error)) {
                     await getCuisineData()
                     return setActiveStep(1)
@@ -159,7 +176,6 @@ const StartPlan = () => {
                 break
             case 1:
                 error = await handleValidate(1)
-                console.log(error);
                 if (isEmpty(error)) {
                     return setActiveStep(2)
                 } else {
@@ -167,15 +183,68 @@ const StartPlan = () => {
                 }
             case 2:
                 error = await handleValidate(2)
-                console.log(error);
                 if (isEmpty(error)) {
-                    return setActiveStep(3)
+                    return handleSaveOrder()
+                    // return setActiveStep(3)
                 } else {
                     return setError({ ...error })
                 }
             case 3:
-                return setActiveStep(4)
+                return handleSaveAllergyOrder()
+            // return setActiveStep(4)
 
+        }
+    }
+
+    const handleSaveOrder = async () => {
+        // return setActiveStep(3)
+        try {
+            dispatch(LoaderAction.showLoader())
+            const data = {
+                "PlanIdTemp": formData.plan,
+                "CuisineIdTemp": formData.cuisine,
+                "NoOfMealsIdTemp": formData.noOfMeals,
+                "ScheduleIdTemp": formData.schedule,
+                "DurationIdTemp": formData.duration,
+                "DeliveryStartingDate": moment(formData.startDate).format("DD/MM/yyyy"),
+                "DeliveryEndingDate": "30/09/2021"
+            }
+            // return console.log("data", data);
+            const url = `${api_url}${urlConfig.saveOrderData}`;
+            const result = await networkRequest({ url, method: "POST", data })
+            if (result.responseCode == 0) {
+                formData.orderId = result.orderIdTemp
+                setFormData({ ...formData })
+                setActiveStep(3)
+            }
+            dispatch(LoaderAction.hideLoader())
+            // setAllergiesList(result.apiAllergyDetailsOutputList)
+
+        } catch (error) {
+            dispatch(LoaderAction.hideLoader())
+            console.log(error);
+        }
+    }
+    const handleSaveAllergyOrder = async () => {
+        try {
+            dispatch(LoaderAction.showLoader())
+            const tempAllergies = Object.keys(selectedAllergies).map(item => { return ({ AllergyIdTemp: item }) })
+            console.log("tempAllergies", tempAllergies);
+            const data = {
+                OrderIdTemp: formData.orderId,
+                AllergyCommentsTemp: formData.comments,
+                _APIOrderAllergyDataInputList: tempAllergies
+            }
+            const url = `${api_url}${urlConfig.saveOrderAllergyData}`;
+            const result = await networkRequest({ url, method: "POST", data })
+            if (result.responseCode == 0) {
+                setActiveStep(4)
+            }
+            dispatch(LoaderAction.hideLoader())
+
+        } catch (error) {
+            dispatch(LoaderAction.hideLoader())
+            console.log(error);
         }
     }
 
@@ -184,8 +253,8 @@ const StartPlan = () => {
     }
     const handleAllergyChange = (value, field) => {
         console.log(field, value);
-        allergies[field] = value;
-        setAllergies({ ...allergies })
+        selectedAllergies[field] = value;
+        setSelectedAllergies({ ...selectedAllergies })
 
     }
     const handleCLose = () => {
@@ -228,13 +297,6 @@ const StartPlan = () => {
                                                         <Step label="Step 4" />
                                                         <Step label="Step 5" />
                                                     </Stepper>
-                                                    {/* <ul id="progressbar">
-                                                        <li class="active" id="step-1"><strong>Step 1</strong></li>
-                                                        <li id="step-2"><strong>Step 2</strong></li>
-                                                        <li id="step-3"><strong>Step 3</strong></li>
-                                                        <li id="step-4"><strong>Step 4</strong></li>
-                                                        <li id="step-5"><strong>Step 5</strong></li>
-                                                    </ul> */}
                                                     {
                                                         activeStep == 0 && <fieldset>
 
@@ -242,28 +304,30 @@ const StartPlan = () => {
                                                             <div class="form-card form-check-step">
                                                                 <h2 class="fs-title">Select your Lunch & Dinner Plan</h2>
                                                                 {!isEmpty(error.plan) && <p className="validation-error">{error.plan}</p>}
+                                                                <div className="col-12">
+                                                                    {
+                                                                        planData.filter(item => item.isSpecialPlan == calorie_plan).map(item => {
+                                                                            return (
+                                                                                <div class="col-md-4 float-left">
+                                                                                    <div class="plan-image-step">
+                                                                                        <div class="step-1choose">
+                                                                                            <div class="form-check">
+                                                                                                <input class="form-check-input" type="radio" name="exampleRadios" id={`plan_${item.planId}`} value={formData.plan} onChange={(e) => handleChange(item.planId, "plan")} />
+                                                                                                <label class="form-check-label" for={`plan_${item.planId}`}>
+                                                                                                    <h3>{item.planName}</h3>
+                                                                                                </label>
+                                                                                            </div>
 
-                                                                {
-                                                                    planData.map(item => {
-                                                                        return (
-                                                                            <div class="col-md-4 float-left">
-                                                                                <div class="plan-image-step">
-                                                                                    <div class="step-1choose">
-                                                                                        <div class="form-check">
-                                                                                            <input class="form-check-input" type="radio" name="exampleRadios" id={`plan_${item.planId}`} value={formData.plan} onChange={(e) => handleChange(item.planId, "plan")} />
-                                                                                            <label class="form-check-label" for={`plan_${item.planId}`}>
-                                                                                                <h3>{item.planName}</h3>
-                                                                                            </label>
                                                                                         </div>
-
+                                                                                        <img src={`${imageUrl}${item.planFileName}`} />
                                                                                     </div>
-                                                                                    <img src={`${imageUrl}${item.planFileName}`} />
                                                                                 </div>
-                                                                            </div>
-                                                                        )
-                                                                    })
-                                                                }
+                                                                            )
+                                                                        })
+                                                                    }
+                                                                </div>
                                                             </div>
+
 
                                                             <input type="button" name="make_payment" onClick={() => handleNext(0)} class="next action-button" value="Next Step" id="next_button" />
                                                         </fieldset>
@@ -328,7 +392,7 @@ const StartPlan = () => {
                                                                                 <label class="col-sm-4 col-form-label">No Of Meals/Quantity</label>
                                                                                 <div class="col-sm-8">
                                                                                     <div class="row d-flex">
-                                                                                        <div class="col-md-6">
+                                                                                        <div class="col-md-12">
                                                                                             <ul class="radio-ul-modal">
                                                                                                 {
                                                                                                     noOfMealsData.map(item => {
@@ -343,7 +407,7 @@ const StartPlan = () => {
 
                                                                                             </ul>
                                                                                         </div>
-                                                                                        {!isEmpty(error.noOfMeals) && <p className="validation-error">{error.noOfMeals}</p>}
+                                                                                        {!isEmpty(error.noOfMeals) && <p className="validation-error col-md-12">{error.noOfMeals}</p>}
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -363,7 +427,7 @@ const StartPlan = () => {
                                                                                 <label class="col-sm-4 col-form-label">Duration</label>
                                                                                 <div class="col-sm-8">
                                                                                     <select class="custom-select col-md-12 " value={formData.duration} onChange={(e) => handleChange(e.target.value, "duration")} id="inlineFormCustomSelect">
-                                                                                        <option selected>Choose..</option>
+                                                                                        <option value="" selected>Choose duration</option>
                                                                                         {
                                                                                             durationData.map(item => <option value={item.durationId}>{item.durationName}</option>)
                                                                                         }
@@ -470,17 +534,22 @@ const StartPlan = () => {
                                                                             <div class="tab-content tab__content__1 text-left">
                                                                                 <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
 
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={allergies.milk} onChange={(e) => handleAllergyChange(e.target.checked, "milk")} /> Milk </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={allergies.milk_products} onChange={(e) => handleAllergyChange(e.target.checked, "milk_products")} /> Milk products </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={allergies.nuts} onChange={(e) => handleAllergyChange(e.target.checked, "nuts")} /> Nuts </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={allergies.fish} onChange={(e) => handleAllergyChange(e.target.checked, "fish")} /> Fish & Shellfish </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={allergies.wheat} onChange={(e) => handleAllergyChange(e.target.checked, "wheat")} /> Wheat & gluten </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={allergies.soya} onChange={(e) => handleAllergyChange(e.target.checked, "soya")} /> Soya </label>
+                                                                                    {
+                                                                                        allergiesList.map(item => {
+                                                                                            return (<label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.milk} onChange={(e) => handleAllergyChange(e.target.checked, item.allergyId)} /> {item.allergyName} </label>)
+                                                                                        })
+                                                                                    }
+                                                                                    {/* <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.milk} onChange={(e) => handleAllergyChange(e.target.checked, "milk")} /> Milk </label>
+                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.milk_products} onChange={(e) => handleAllergyChange(e.target.checked, "milk_products")} /> Milk products </label>
+                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.nuts} onChange={(e) => handleAllergyChange(e.target.checked, "nuts")} /> Nuts </label>
+                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.fish} onChange={(e) => handleAllergyChange(e.target.checked, "fish")} /> Fish & Shellfish </label>
+                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.wheat} onChange={(e) => handleAllergyChange(e.target.checked, "wheat")} /> Wheat & gluten </label>
+                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.soya} onChange={(e) => handleAllergyChange(e.target.checked, "soya")} /> Soya </label> */}
                                                                                 </div>
                                                                             </div>
 
                                                                             <div class="textarea__style__1 mt-4">
-                                                                                <textarea placeholder="Comments & Specific Allergies"></textarea>
+                                                                                <textarea placeholder="Comments & Specific Allergies" value={formData.comments} onChange={(e) => handleChange(e.target.value, "comments")} />
                                                                             </div>
 
 
@@ -568,11 +637,10 @@ const StartPlan = () => {
                                                                                     </a>
                                                                                 </nav>
                                                                             </div>
-                                                                            {console.log("allergies", allergies)}
                                                                             <div class="tab-content tab__content__1 text-left">
                                                                                 <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
                                                                                     {
-                                                                                        Object.keys(allergies).map(item => <label class="select__style__1"> <input type="checkbox" class="select__input" checked /> {item} </label>)
+                                                                                        Object.keys(selectedAllergies).map(item => <label class="select__style__1"> <input type="checkbox" class="select__input" checked /> {item} </label>)
                                                                                     }
 
                                                                                     {/* <label class="select__style__1"> <input type="checkbox" class="select__input" checked /> Milk </label>
@@ -590,18 +658,22 @@ const StartPlan = () => {
                                                                     </div>
 
                                                                     <div class="col-md-6 modal-allergies-tab text-left pb-5">
-                                                                        <div class="col-md-12 d-block py-4">
-                                                                            <div class="col-md-6 float-left">
-                                                                                <h4>Cost in AED</h4>
+                                                                        {
+                                                                            isEmpty(loginData) ? <LoginRegister /> :
+                                                                                <div class="col-md-12 d-block py-4">
+                                                                                    <div class="col-md-6 float-left">
+                                                                                        <h4>Cost in AED</h4>
 
-                                                                                <button type="button" class="btn btn-primary btn__shadow-red" data-toggle="modal" data-target=".view-summary">Pay</button>
-                                                                            </div>
+                                                                                        <button type="button" class="btn btn-primary btn__shadow-red" data-toggle="modal" data-target=".view-summary">Pay</button>
+                                                                                    </div>
 
-                                                                            <div class="col-md-6 float-left">
-                                                                                <h4>1200 AED</h4>
-                                                                                <button type="submit" class="btn btn-primary">Cash On Delivery</button>
-                                                                            </div>
-                                                                        </div>
+                                                                                    <div class="col-md-6 float-left">
+                                                                                        <h4>1200 AED</h4>
+                                                                                        <button type="submit" class="btn btn-primary">Cash On Delivery</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                        }
+
 
                                                                         <div class="row pt-5">
                                                                             <div class="coupon-code m-3">
