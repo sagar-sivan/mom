@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { plan_1, plan_2, plan_3 } from "./../../assets/images";
 import CommonAction from "./../../action/common_action"

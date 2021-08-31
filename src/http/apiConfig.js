@@ -11,6 +11,10 @@ const urlConfig = {
     getNoOfMealsData: "MealsData/GetNoOfMealsData",
     getScheduleData: "MealsData/GetScheduleData",
     getDurationData: "MealsData/GetDurationData",
+    getAllAllergies: "MealsData/GetAllactiveAllergy",
+    saveOrderData: "MealsData/SaveOrderData",
+    saveOrderAllergyData: "MealsData/SaveOrderAllergyData",
+    createCustomer: "MealsData/CreateCustomer",
 }
 
 export {
