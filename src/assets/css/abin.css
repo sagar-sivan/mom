@@ -1909,7 +1909,7 @@ margin: 0;
 }
 .chooseplan{
       z-index: 1052;
-      display: none;
+      /* display: none; */
 }
 .view-summary-calories{
   z-index: 1051;
