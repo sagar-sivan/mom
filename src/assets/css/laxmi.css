@@ -810,6 +810,7 @@ and (max-device-width : 568px) {
   display: block;
   right: 0;
   top: 40%;
+  z-index: 9;
 }
 
 .social-media .style-li:hover li:nth-child(1) {
