@@ -264,12 +264,34 @@
         display: flex;
         align-items: center;
 
+        @media (max-width: 991px) {  
+            background-position: right bottom; 
+            padding: 130px 0 0;
+            margin-bottom: 40px;               
+        }
+
+
+
         h2 {
             font-size: 73px;
             line-height: 1.5;
             font-weight: normal;
             max-width: 500px;
             color: $black-color;
+
+            @media (max-width: 1320px) { 
+                max-width: none; 
+                font-size: 60px;     
+            }
+
+            @media (max-width: 991px) {  
+                font-size: 50px;               
+            }
+
+            @media (max-width: 575px) {  
+                font-size: 36px; 
+                line-height: 1.2;   
+            }
 
             strong {
                 font-weight: bold;

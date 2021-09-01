@@ -41,6 +41,14 @@ $(".homebanner").slick({
   slidesToScroll: 1
 });
 
+$(".address-slide").slick({
+  dots: false,
+  arrows: true,
+  infinite: false,
+  slidesToShow: 1,
+  slidesToScroll: 1
+});
+
 // scroll top script
 $(document).ready(function () {
 
@@ -148,24 +156,40 @@ $(".about-kitchen").slick({
       infinite: false,
       speed: 300,
       slidesToShow: 6,
-      slidesToScroll: 1,
+      slidesToScroll: 1,  
+      swipe: false, 
       prevArrow: $('.new-btn-prev'),
-      nextArrow: $('.new-btn-next'),
-
-      
+      nextArrow: $('.new-btn-next'),     
       
       responsive: [{  
-        breakpoint: 991,
+        breakpoint: 1220,
+        settings: {
+          slidesToShow: 5,
+        }
+  
+      },{  
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 4,
+        }
+  
+      },{  
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 3,
+        }
+  
+      },{  
+        breakpoint: 600,
         settings: {
           slidesToShow: 2,
         }
   
       }, {
   
-        breakpoint: 600,
+        breakpoint: 450,
         settings: {
           slidesToShow: 1,
-          dots: true
         }  
       }]  
     });
