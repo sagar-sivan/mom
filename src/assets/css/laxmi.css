@@ -810,7 +810,6 @@ and (max-device-width : 568px) {
   display: block;
   right: 0;
   top: 40%;
-  z-index: 99999999;
 }
 
 .social-media .style-li:hover li:nth-child(1) {
@@ -841,8 +840,14 @@ and (max-device-width : 568px) {
 }
 .social-media a:hover{
   transition-duration: .5s;
-
+  transform: rotateY(
+359deg
+);
+  display: block;
+  position: relative;
 }
 .social-media a{
   color: white;
+  transition: .5s;
 }
+
