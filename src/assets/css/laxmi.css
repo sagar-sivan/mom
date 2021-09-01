@@ -1,8 +1,6 @@
 /* Our Plan Stylesheet */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
-.text_transform{
-text-transform:uppercase;
-}
+.text_transform{text-transform: capitalize;font-family: "Montserrat";font-size: 30px;margin-bottom: 40px;font-weight: bold;line-height: 1.3;color: #24272f;}
 .arrow {
   border: solid #ed1c24;
   border-width: 0 3px 3px 0;
