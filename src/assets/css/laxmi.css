@@ -1,1 +1,853 @@
-﻿/* Our Plan Stylesheet */.text_transform{text-transform:uppercase;}.arrow {  border: solid #ed1c24;  border-width: 0 3px 3px 0;  display: inline-block;  padding: 3px;}.nos_cal{margin-bottom:30px !important;font-weight:bold;}.common_p{font-size:25px !important;}.down {margin: 0px 0px 0px 4px;    position: relative;    top: -2px;    transform: rotate(45deg);    -webkit-transform: rotate(45deg);}.day{    float: left;    margin-right: 25px;    font-size: 50px;    color: red;    margin-top: -16px;}.detail h6{font-size: 16px;    font-weight: bold;}.detail p{font-size: 16px;    text-align: left;    margin-left: 82px;	margin-bottom:50px;}.sub_title{font-size:16px !important;}.our_plan_list {    margin-top: -48px;}.our_plan_list ul li::before {    content: "\2022";    color: #ba0000;    margin-left: -1em;    font-size: 50px;    position: relative;    top: 35px;    left: 20px;}.our_plan_list ul{min-height:20%;margin-top:-56px;}.our_plan_list ul li {    line-height: 32px;    font-size: 25px;    min-height: auto;    text-align: left;    border: none !important;}.lunch_plan{font-size:25px;}.popup{padding-top:0px;}.our_plan_cuisine {    margin-top: -125px;}.divider_white{    border-bottom: 5px solid #fff;    width: 39px;}.divider_red{    border-bottom: 5px solid #ed1c24;    width: 39px;}.our_plan_shadow{box-shadow: none;    display: block;    z-index: 1;}.red-shape {     top: -134px;    right: -745px;}.red-spiral {right: -761px;    top: 338px;    width: 25%;}.calorie_count {margin-top:22px;}.inc{margin-left: 17px;    margin-bottom: 12px;	font-weight:bold;}.features_box{    width: 100%;    display: -webkit-inline-box;}.features_box ul li::before{content: "\2022";    color: #ba0000;    font-size: 50px;    position: relative;    top: 9px;    left: -3px; }.features_box .features{width:50%;margin-right:10px;}.features_box .features ul li{    font-size: 14px;	line-height:20px;  /*list-style-image: url('../images/placeholder/red-circle.jpg');*/padding-bottom:13px;text-align:left;}.features_box .our_shef{width:50%;}.features_box .our_shef .shef_left{float: left;    margin-right: 26px;    width: 30%;}.features_box .our_shef .shef_right{/*width: 60%;    float: right;*/}.features_box .our_shef .shef_right ul li{font-size: 14px;    text-align: left;    line-height: 24px;}.features_box .features .red_line{    border-bottom: 5px solid #ed1c24;    width: 30px;}.our_shef_sub ul li{line-height:24px;}.how_work_ht .left img{margin:10px 0;}.how_work{  width: 48%;    font-size: 16px;	text-align:left;}.how_work .left{float: left;    padding-right: 13px;}.how_title {       margin-left: -14px !important;    text-align: left;}.start{font-size: 14px !important;    text-align: left;    margin-bottom: 0px !important;}/* Style the tab */.tab { float: left;    width: 23%;  }/* Style the buttons inside the tab */.tab button {    margin: 20px 0px;    display: block;    border-radius: 20px;    background-color: #fff;    color: black;    padding: 15px 24px;    width: 100%;    border: 1px solid #a1a1a1;    outline: none;    text-align: left;    cursor: pointer;    transition: 0.3s;    font-size: 20px; }/* Change background color of buttons on hover */.tab button:hover {  background-color: #fff; }/* Create an active/current "tab button" class */.tab button.active {  font-size: 22px;    color: #fff;    background-color: #ed1c24;      border-radius: 20px;	}/* Style the tab content */.tabcontent {     float: left;    padding: 30px 20px 20px 20px;    width: 74%;    border-left: none;    margin: 22px 0 0 20px;    border: 1px solid #a1a1a1;    border-radius: 20px;	overflow:auto;}.divider_white_center{border-bottom: 5px solid #fff;    width: 59px;    top: -14px;    left: 97px;    position: relative;	}	.plan_active{    font-size: 30px !important;    color: #ffffff !important;    background-color: #ed1c24 !important;    border-radius: 20px !important;    border: 1px solid #a1a1a1;	margin: 0px 45px 0px 37px;	position:initial !important;	font-weight:normal!important;}.count_call_tab{padding-left:0px;}.calorie_bg{background-image:url(../images/placeholder/container-center-banner.png);padding-top:68px;  background-size: cover;}.count_plan_bg{background-image:url(../images/placeholder/bottom-curve.png);  background-size: cover;}.count_call_tab_border{border: 1px solid #a1a1a1;    margin-top: 20px;}/* Types of Cuisine */.our_shef_sub{top: 36px;    position: relative;}/*.our_plan_calorie {    padding-top: 297px;}*/.ht_title{font-weight:bold;margin-bottom:20px !important;text-align:left;}.calorie_title{font-weight:bold;margin-bottom:0px !important;text-align:left;}.calorie_p{font-size:16px;margin-bottom:100px;}.lun_din{margin-top: -267px;}.plan_hover{background: #fff !important;    border: 1px solid #a1a1a1;    border-radius: 20px !important;    margin-right: 35px;	color:#000 !important;	font-weight:normal !important;}.view{border-radius:20px;background:#fff;border:1px solid #ed1c24;color:#ed1c24;padding:5px 10px;font-size:14px;font-weight:bold;}.view_more{    margin-top: 66px;    margin-left: -30px;	}/* The Modal (background) */.modal {    display: none; /* Hidden by default */    position: fixed; /* Stay in place */    z-index: 1; /* Sit on top */    padding-top: 100px; /* Location of the box */    left: 0;    top: 0;    width: 100%; /* Full width */    height: 100%; /* Full height */    overflow: auto; /* Enable scroll if needed */    background-color: rgb(0,0,0); /* Fallback color */    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */}/* Modal Content */.modal-content {border-radius:20px;    position: relative;    background-color: #fefefe;    margin: auto;    padding: 0;    border: 1px solid #888;    width: 90%;    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);    -webkit-animation-name: animatetop;    -webkit-animation-duration: 0.4s;    animation-name: animatetop;    animation-duration: 0.4s}/* Add Animation */@-webkit-keyframes animatetop {    from {top:-300px; opacity:0}    to {top:0; opacity:1}}@keyframes animatetop {    from {top:-300px; opacity:0}    to {top:0; opacity:1}}/* The Close Button */.close {    color: #000;    float: right;    font-size: 28px;    font-weight: bold;}.close:hover,.close:focus {    color: #000;    text-decoration: none;    cursor: pointer;}.modal-header {    padding: 2px 16px;    color: white;	border-bottom:none;}.modal-body {padding: 2px 16px;}.modal-footer {    padding: 2px 16px;    background-color: #5cb85c;    color: white;}.tab__menu__2 .nav-link.active::after {        position: initial;	}	.count_plan_modal{	background: #fff;    padding: 20px 0px;    border-radius: 20px;	}	.pseudo_border {        position: relative;    display: inline-block;    font-family: 'Montserrat';    font-size: 25px;    font-weight: normal;}.pseudo_border:after {    content: '';    position: absolute;    left: 1px;    right: 158px;    top: 100%;    margin: 10px 0px;    width: 20%;    height: 4px;    background: #fff;}	/*.pseudo_border_red {        position: relative;    display: inline-block;    font-family: 'Montserrat';    font-size: 25px;    font-weight: normal;}.pseudo_border_red:after {    content: '';    position: absolute;    left: 1px;    right: 158px;    top: 100%;    margin: 10px auto;    width: 23%;    height: 4px;    background: #ed1c24;}		*/	/* Media Queries Start Here */		/* Desktops and laptops ----------- */@media only screenand (min-width : 1024px) {.women img{width:100%;}.our_plan_shadow img{    width: 100%;}   .calorie_p {    margin-bottom: 41px;}.detail p {    margin-bottom: 25px;}.divider_white_center{display:none;}}/* Smartphones (portrait and landscape) ----------- */@media only screenand (min-device-width : 321px)and (max-device-width : 480px) {.women img{width:100%;}.banner__inner{margin-bottom:45px;}.our_plan_shadow{padding-bottom:30px;padding-top:0px;}.our_plan_shadow img{    width: 100%;    margin-top: 84px;}.common__text p {    font-size: 20px;    text-align: justify;}.our_plan_list ul li{font-size:20px;}.our_plan_cuisine {    margin-top: 0px;}.view_more {    margin-top: 66px;    margin-left: 80px;}.plan_active {    font-size: 14px !important;  }}/* Smartphones (landscape) ----------- */@media only screenand (min-width : 321px) {}/* Smartphones (portrait) ----------- */@media only screenand (max-width : 320px) {.container{width:100%;}.women img{width:100%;}.common__text p {    font-size: 20px;    text-align: justify;}.banner__inner{margin-bottom:60px;}.our_plan_shadow{padding-bottom:30px;}.our_plan_shadow img{    margin: 2px 0 23px;}.our_plan_list ul li{font-size:20px;}.our_plan_cuisine {    margin-top: 0px;}.view_more {    margin-top: 66px;    margin-left: 93px; }.plan_hover {    font-size: 16px !important;    font-weight: normal !important;}.plan_active {    font-size: 16px !important;    font-weight: normal !important;}}@media (max-width: 767px) { .women img{ width:100%; } .our_plan_shadow img{ width:100%; } .our_plan_shadow{ margin-top:90px; } .our_plan_cuisine {    margin-top: 25px;}.our_plan_list {    margin-top: -78px;}.view_more {    margin: 0;}.features_box .our_shef .shef_left{float:none;}.how_work {    width: 47%;   }   .how_work .right{   font-size:14px;   }   .tabcontent{   width:auto;   }   .tab {    width: auto;}.plan_active{font-size:18px !important;font-weight:normal !important;}.plan_hover{font-size:18px !important;font-weight:normal !important;}.tab__menu__2 .nav-link{padding:0 10px 0;margin:0 10px 10px;line-height:54px;}.divider_white_center{display:none;}}/* iPads (portrait and landscape) ----------- */@media only screenand (min-device-width : 768px)and (max-device-width : 1024px) {.tab{width:100%;}.tabcontent{width:100%;}.features_box .our_shef .shef_left{width:auto;}.how_work{width:auto;}.how_work .left img{margin-top:20px;}.our_plan_shadow{    padding-top: 216px;}.our_plan_shadow img{width:100%;}.our_plan_cuisine {   margin-top: 0;}.view_more {   margin-top: 23px;    margin-left:0px;}.divider_white_center{border:none;}.women img{width:100%;}.plan_active{width:100%;margin:0;}.plan_hover {    width: 100%;    margin: 10px 0px;}.red-shape {   /* top: -707px;    right: 8px;*/	display:none;}.red-spiral {   /* right: -25px;    top: -282px;    width: 25%;*/	display:none;}calorie_p {    font-size: 16px;    margin-bottom: 50px;}.detail p {        margin-bottom: 18px;}}/* Desktops and laptops ----------- */@media only screenand (min-width : 1224px) {}/* Large screens ----------- */@media only screenand (min-width : 1824px) {}@media (max-width: 1390px) {  }@media (max-width: 1199px) { }/* iPhone 5 (portrait & landscape)----------- */@media only screenand (min-device-width : 320px)and (max-device-width : 568px) {}
+/* Our Plan Stylesheet */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+.text_transform{text-transform: capitalize;font-family: "Montserrat";font-size: 30px;margin-bottom: 40px;font-weight: bold;line-height: 1.3;color: #24272f;}
+.arrow {
+  border: solid #ed1c24;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.nos_cal{
+margin-bottom:30px !important;
+font-weight:bold;
+}
+.common_p{
+font-size:25px !important;
+}
+.down {
+margin: 0px 0px 0px 4px;
+    position: relative;
+    top: -2px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.day{
+    float: left;
+    margin-right: 25px;
+    font-size: 50px;
+    color: red;
+    margin-top: -16px;
+}
+.detail h6{
+font-size: 16px;
+    font-weight: bold;
+}
+.detail p{
+font-size: 16px;
+    text-align: left;
+    margin-left: 82px;
+	margin-bottom:50px;
+}
+.sub_title{
+font-size:16px !important;
+}
+
+.our_plan_list {
+    margin-top: -48px;
+}
+
+.our_plan_list ul li::before {
+    content: "\2022";
+    color: #ba0000;
+    margin-left: -1em;
+    font-size: 50px;
+    position: relative;
+    top: 35px;
+    left: 20px;
+}
+.our_plan_list ul{
+min-height:20%;
+margin-top:-56px;
+}
+.our_plan_list ul li {
+    line-height: 23px;
+    font-size: 20px;
+    min-height: auto;
+    text-align: left;
+    border: none !important;
+}
+.lunch_plan{
+font-size:25px;
+}
+.popup{padding-top:0px;}
+
+.our_plan_cuisine {/* margin-top: -125px; */}
+.divider_white{
+    border-bottom: 5px solid #fff;
+    width: 39px;
+}
+.divider_red{
+    border-bottom: 5px solid #ed1c24;
+    width: 39px;
+}
+.our_plan_shadow{
+box-shadow: none;
+    display: block;
+    z-index: 1;
+}
+.red-shape {
+     top: -134px;
+    right: -745px;
+}
+.red-spiral {
+right: -761px;
+    top: 338px;
+    width: 25%;
+}
+.calorie_count {
+margin-top:22px;
+}
+.inc{/* margin-left: 17px; *//* margin-bottom: 12px; */font-weight:bold;margin: 1rem 0;}
+.features_box{
+    /* width: 100%; */
+    /* display: -webkit-inline-box; */
+}
+.features_box ul li::before{content: "\2022";color: #ba0000;font-size: 50px;position: relative;top: 9px;left: -3px;}
+.features_box .features{width: auto;}
+.features_box .features ul li{
+    font-size: 15px;
+    line-height: 15px;
+/*     list-style-image: url('../images/placeholder/red-circle.jpg'); */
+    padding-bottom: 5px;
+    text-align:left;
+}
+.features_box .features ul:marker{
+    width:10px;
+}
+.features_box .our_shef{width: auto;}
+.features_box .our_shef .shef_left{float: left;margin-right: 26px;width: auto;}
+.features_box .our_shef .shef_right{
+/*width: 60%;
+    float: right;*/
+}
+.features_box .our_shef .shef_right ul li{font-size: 14px;text-align: left;line-height: 15px;}
+
+.features_box .features .red_line{
+    border-bottom: 5px solid #ed1c24;
+    width: 30px;
+}
+.our_shef_sub ul li{
+line-height:24px;
+}
+.how_work_ht .left img{
+margin:10px 0;
+}
+.how_work{
+  width: 50%;
+  font-size: 16px;
+  text-align:left;
+  padding-top: 20px;
+}
+.how_work .left{float: left;padding-right: 20px;}
+.how_title {
+     /* margin-left: -14px !important; */
+     /* text-align: left; */
+     text-align: left;
+}
+.start{
+font-size: 14px !important;
+    text-align: left;
+    margin-bottom: 0px !important;
+}
+/* Style the tab */
+.tab {
+ /* float: left; */
+ /* width: 23%; */
+}/* Style the buttons inside the tab */
+.tab button {
+    margin: 10px 0px;
+    display: flex;
+    border-radius: 20px;
+    background-color: #fff;
+    color: black;
+    padding: 10px 10px;
+    width: 100%;
+    border: 1px solid #a1a1a1;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+ }
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #fff;
+ }
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  font-size: 17px;
+  color: #fff;
+  background-color: #ed1c24;
+  border-radius: 20px;
+}
+.tab button h1:after{
+   content:'';
+   position:relative;
+   width:30px;
+   height:2.3px;
+   display:block;
+   background-color:red;
+   transition-duration: .5s;
+   left:0;
+   border-radius:15px;
+}
+.tab button.active h1:after{
+   content:'';
+   position:relative;
+   width: 50px;
+   height:2.3px;
+   display:block;
+   transition-duration: .5s;
+   background-color:white;
+   left:0;
+   border-radius:15px;
+}
+.tab button .pseudo_border{
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 600;
+}
+/* tyle the tab content */
+.tabcontent {
+     /* float: left; */
+     /* padding: 0 27px 14px 50px; */
+     /* width: 100%; */
+     /* display: inline-block; */
+     /* border-left: none; */
+     /* margin: 0 auto; */
+     /* border-radius: 20px; */
+     /* overflow:auto; */
+     /* position: relative; */
+}
+.divider_white_center{
+border-bottom: 5px solid #fff;
+    width: 59px;
+    top: -14px;
+    left: 97px;
+    position: relative;
+	}
+
+.plan_ative{
+    font-size: 30px !important;
+    color: #ffffff !important;
+    background-color: #ed1c24 !important;
+    border-radius: 20px !important;
+    border: 1px solid #a1a1a1;
+	margin: 0px 45px 0px 37px;
+	position:initial !important;
+	font-weight:normal!important;
+}
+.count_call_tab{
+padding-left:0px;
+}
+/* .calorie_bg{
+background-image:url(../images/placeholder/container-center-banner.png);
+padding-top:68px;
+  background-size: cover;
+} */
+.count_plan_bg{
+background-image:url(../images/placeholder/bottom-curve.png);
+
+  background-size: cover;
+}
+.count_call_tab_border{
+border: 1px solid #a1a1a1;
+    margin-top: 20px;
+}
+/* Types of Cuisine */
+.our_shef_sub{
+top: 36px;
+    position: relative;
+}
+
+/*.our_plan_calorie {
+    padding-top: 297px;
+}*/
+.ht_title{font-weight:bold;text-align:left;margin: 1rem 0;}
+.calorie_title{
+font-weight:bold;
+margin-bottom:0px !important;
+text-align:left;
+}
+.calorie_p{
+font-size:16px;
+margin-bottom:100px;
+}
+.lun_din{
+margin-top: -267px;
+}
+.plan_hover{
+background: #fff !important;
+    border: 1px solid #a1a1a1;
+    border-radius: 20px !important;
+    margin-right: 35px;
+	color:#000 !important;
+	font-weight:normal !important;
+}
+
+.view{
+border-radius:20px;
+background:#fff;
+border:1px solid #ed1c24;
+color:#ed1c24;
+padding:5px 10px;
+font-size:14px;
+font-weight:bold;
+
+}
+.view_more{
+    margin-top: 66px;
+    margin-left: -30px;
+	}
+/* The Modal (background) */
+.modal {
+    /* display: none; */ /* Hidden by default */
+    /* position: fixed; */ /* Stay in place */
+    /* z-index: 1; */ /* Sit on top */
+    /* padding-top: 100px; */ /* Location of the box */
+    /* left: 0; */
+    /* top: 0; */
+    /* width: 100%; */ /* Full width */
+    /* height: 100%; */ /* Full height */
+    /* overflow: auto; */ /* Enable scroll if needed */
+    /* background-color: rgb(0,0,0); */ /* Fallback color */
+    /* background-color: rgba(0,0,0,0.4); */ /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {/* border-radius:20px; *//* position: relative; *//* background-color: #fefefe; *//* margin: auto; *//* padding: 0; *//* border: 1px solid #888; *//* width: 90%; *//* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); *//* -webkit-animation-name: animatetop; *//* -webkit-animation-duration: 0.4s; *//* animation-name: animatetop; *//* animation-duration: 0.4s; */}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    /* padding: 2px 16px; */
+    /* color: white; */
+    border-bottom:none;
+}
+
+.modal-body {/* padding: 2px 16px; */}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+.tab__menu__2 .nav-link.active::after {
+
+    pion: initial;
+	}
+
+	.count_plan_modal{
+	background: #fff;
+    padding: 20px 0px;
+    border-radius: 20px;
+	}
+
+.pseudo_bordr {
+        position: relative;
+    display: inline-block;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-weight: normal;
+}
+.pseudo_border:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    right: 158px;
+    top: 100%;
+    margin: 10px 0px;
+    width: 20%;
+    height: 4px;
+    background: #fff;
+}
+/*.pseudo_borer_red {
+        position: relative;
+    display: inline-block;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-weight: normal;
+}
+.pseudo_border_red:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    right: 158px;
+    top: 100%;
+    margin: 10px auto;
+    width: 23%;
+    height: 4px;
+    background: #ed1c24;
+}		*/
+
+/* Media Queris Start Here */
+
+
+/* Desktops ndlaptops ----------- */
+@media only screen
+and (min-width : 1024px) {
+.women img{
+width:100%;
+}
+.our_plan_shadow img{
+    width: 100%;
+}
+
+
+   .calorie_p {
+    margin-bottom: 41px;
+}
+.detail p {
+    margin-bottom: 25px;
+}
+.divider_white_center{
+display:none;
+}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 321px)
+and (max-device-width : 480px) {
+
+.women img{
+width:100%;
+}
+.banner__inner{
+margin-bottom:45px;
+}
+.our_plan_shadow{
+padding-bottom:30px;
+padding-top:0px;
+}
+.our_plan_shadow img{
+    width: 100%;
+    margin-top: 84px;
+
+}
+.common__text p {
+    font-size: 20px;
+    text-align: justify;
+}
+.our_plan_list ul li{
+font-size:20px;
+}
+.our_plan_cuisine {
+    margin-top: 0px;
+}
+.view_more {
+    margin-top: 66px;
+    margin-left: 80px;
+}
+.plan_active {
+    font-size: 14px !important;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+.container{
+width:100%;
+}
+.women img{
+width:100%;
+}
+.common__text p {
+    font-size: 20px;
+    text-align: justify;
+}
+.banner__inner{
+margin-bottom:60px;
+}
+.our_plan_shadow{
+padding-bottom:30px;
+}
+.our_plan_shadow img{
+    margin: 2px 0 23px;
+
+}
+.our_plan_list ul li{
+font-size:20px;
+}
+.our_plan_cuisine {
+    margin-top: 0px;
+}
+.view_more {
+    margin-top: 66px;
+    margin-left: 93px;
+
+}
+.plan_hover {
+   font-size: 16px !important;
+    font-weight: normal !important;
+}
+.plan_active {
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+}
+@media (max-width: 767px) {
+ .women img{
+ width:100%;
+ }
+ .our_plan_shadow img{
+ width:100%;
+ }
+ .our_plan_shadow{
+ margin-top:90px;
+ }
+ .our_plan_cuisine {
+    margin-top: 25px;
+}
+.our_plan_list {
+    margin-top: -78px;
+}
+.view_more {
+    margin: 0;
+}
+.features_box .our_shef .shef_left{
+float:none;
+}
+.how_work {
+    width: 47%;
+   }
+   .how_work .right{
+   font-size:14px;
+   }
+   .tabcontent{
+   width:auto;
+   }
+   .tab {
+    width: auto;
+}
+.plan_active{
+font-size:18px !important;
+font-weight:normal !important;
+}
+.plan_hover{
+font-size:18px !important;
+font-weight:normal !important;
+}
+.tab__menu__2 .nav-link{
+padding:0 10px 0;
+margin:0 10px 10px;
+line-height:54px;
+}
+.divider_white_center{
+display:none;
+}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+.tab{
+width:100%;
+}
+.tabcontent{
+width:100%;
+}
+.features_box .our_shef .shef_left{
+width:auto;
+}
+.how_work{
+width:auto;
+}
+.how_work .left img{
+margin-top:20px;
+}
+.our_plan_shadow{
+    padding-top: 216px;
+}
+.our_plan_shadow img{
+width:100%;
+}
+.our_plan_cuisine {
+   margin-top: 0;
+}
+.view_more {
+   margin-top: 23px;
+    margin-left:0px;
+}
+.divider_white_center{
+border:none;
+}
+.women img{
+width:100%;
+}
+.plan_active{
+width:100%;
+margin:0;
+}
+.plan_hover {
+    width: 100%;
+    margin: 10px 0px;
+}
+.red-shape {
+   /* top: -707px;
+    right: 8px;*/
+	display:none;
+}
+.red-spiral {
+   /* right: -25px;
+    top: -282px;
+    width: 25%;*/
+	display:none;
+}
+calorie_p {
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+.detail p {
+
+    margin-bott18px;
+}
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+
+}
+@media (max-width: 1390px) {
+
+}
+@media (max-width: 99px) {
+
+}
+/* iPhone 5 (portrait  landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+}
+
+
+
+
+
+
+/*img-width-100*/
+.img-width-100 img{
+  width:100%
+}
+.calorie_bg:before{
+  content:'';
+  display:block;
+  width:100%;
+  top:0;
+  background-image: url(../images/placeholder/topimg-bg.png);
+  padding: 14rem 0;
+  background-size: cover;
+  z-index: -1;
+  margin-top: -26rem;
+  position: absolute;
+
+}
+.calorie_bg:after{
+  content:'';
+  display:block;
+  width:100%;
+  bottom: 0;
+  background-image: url(../images/placeholder/bottomimg-bg.png);
+  background-size: cover;
+  height: 380px;
+  z-index: -1;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: -20em;
+}
+.calorie_bg{/* background-image:url(../images/placeholder/container-center-banner.png);*/
+  padding-top: 0px;
+  background-size: cover;
+  position: relative;
+  display: block;
+  background-color: #e0e0e0;
+  margin-top: 13rem;
+  margin-bottom: 20rem;
+}
+#cusinefirstpopup{
+  z-index:1042;
+  width: 100%;
+}
+#cusinefirstpopup .modal-header .close span{
+  background-color: red;
+  font-weight: 100;
+  color: white;
+  outline: none;
+  padding: 0 9px;
+  border-radius: 50%;
+}
+#cusinefirstpopup .modal-header button:focus {
+  outline: none;
+}
+#cusinefirstpopup  .close:not(:disabled):not(.disabled):focus, .close:not(:disabled):not(.disabled):hover {
+  outline: none;
+  background-color: white;
+}
+#cusinefirstpopup .modal-header .close{
+    opacity: 1;
+    position: relative;
+}
+/*second modal*/
+#caloriespopup{
+
+}
+
+#caloriespopup .modal-header .close span{
+  background-color: red;
+  font-weight: 100;
+  color: white;
+  outline: none;
+  padding: 0 9px;
+  border-radius: 50%;
+}
+#caloriespopup .modal-header button:focus {
+  outline: none;
+}
+#caloriespopup  .close:not(:disabled):not(.disabled):focus, .close:not(:disabled):not(.disabled):hover {
+  outline: none;
+  background-color: white;
+}
+#caloriespopup .modal-header .close{
+    opacity: 1;
+    position: relative;
+}
+.ourplan-tab-menu{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.ourplan-tab-menu .ourplan-tab-item.active{
+  background-color:red;
+  color: white;
+}
+.ourplan-tab-menu .ourplan-tab-item:after{
+  content:'';
+  width: 61px;
+  transition-duration: .5s;
+  border-radius: 15px;
+  height: 3px;
+  position:relative;
+  display:block;
+  margin:0 auto;
+  background-color: red;
+  color: white;
+  z-index: 2;
+}
+.ourplan-tab-menu .ourplan-tab-item.active:after{
+  content:'';
+  width: 44px;
+  border-radius: 15px;
+  height: 3px;
+  position:relative;
+  display:block;
+  margin:0 auto;
+  background-color:white;
+  color: white;
+  z-index: 2;
+  transition-duration: .5s;
+}
+.ourplan-tab-menu .ourplan-tab-item{
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid #a1a1a1;
+  margin: 4px;
+  color: black;
+  font-weight: 600;
+}
+/*social-media*/
+.social-media{
+  position: fixed;
+  display: block;
+  right: 0;
+  top: 40%;
+}
+
+.social-media .style-li:hover li:nth-child(1) {
+  background-color:#0062cc;
+}
+.social-media .style-li li:nth-child(1) {
+  background-color:#cb0505;
+}
+.social-media .style-li:hover li:nth-child(2) {
+  background-color:#1e7e34;
+}
+.social-media .style-li li:nth-child(2) {
+  background-color:#a20202;
+}
+.social-media .style-li:hover li:nth-child(3) {
+  background-color:#de00b4;
+}
+.social-media .style-li li:nth-child(3) {
+  background-color:#640000;
+}
+.social-media li{
+  padding:15px;
+  text-align: center;
+  transition-duration: .5s;
+}
+.social-media li:hover{
+  transition-duration: .5s;
+}
+.social-media a:hover{
+  transition-duration: .5s;
+  transform: rotateY(
+359deg
+);
+  display: block;
+  position: relative;
+}
+.social-media a{
+  color: white;
+  transition: .5s;
+}
+
