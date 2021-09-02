@@ -1413,6 +1413,9 @@ box-shadow:none;
 .contact-page .red-box-contractus ul{
 
 }
+.contact-page .red-box-contractus li a{
+  color:white;
+}
 .contact-page .red-box-contractus li{
   color: white;
   font-weight: 600;
