@@ -1717,7 +1717,7 @@ height: 630px;
 }
 
 .daily-meal-modal :checked + label:before {
-  content: "âœ”";
+  content: "ÃƒÂ¢Ã…â€œÃ¢â‚¬Â";
   background-color: #cb0505;
   transform: scale(.9);
 }
@@ -1736,7 +1736,6 @@ height: 630px;
 .login-form-content a{
   color:black;
 }
-
 .chooseplan .alert-danger{
 color: #ffffff;
 background-color: #cb0505;
@@ -1909,7 +1908,7 @@ margin: 0;
 }
 .chooseplan{
       z-index: 1052;
-      /* display: none; */
+      display: none;
 }
 .view-summary-calories{
   z-index: 1051;
@@ -2074,21 +2073,21 @@ margin: 0;
 
 /*img-width-100*/
 .img-width-100 img{
-  width:100%
+    width:100%
 }
 /*faq*/
 .absolute-img{
-position: absolute;
-width: 100%;
-display: block;
-top: 0;
-z-index: 2;
+  position: absolute;
+  width: 100%;
+  display: block;
+  top: 0;
+  z-index: 2;
 }
 .faq_img_1{
-right: 0;
-position: absolute;
-display: block;
-top: 12rem;
+  right: 0;
+  position: absolute;
+  display: block;
+  top: 12rem;
 }
 .mom-tab{
 
@@ -2097,68 +2096,180 @@ top: 12rem;
 
 }
 .mom-tab  .panel-collapse{
-border-left: 2px solid darkgrey;
-margin-left: 20px;
+  border-left: 2px solid darkgrey;
+  margin-left: 20px;
 }
 .mom-tab .panel-heading i{
-background-color: red;
-padding: 7px 8px;
-color: white;
-border-radius: 36px;
+  background-color: red;
+  padding: 7px 8px;
+  color: white;
+  border-radius: 36px;
 }
 .mom-tab .panel-heading span{
- color: black;
- margin: 0 15px;
- background-color: #ffffff00;
- font-weight: bold;
+   color: black;
+   margin: 0 15px;
+   background-color: #ffffff00;
+   font-weight: bold;
 }
 .mom-tab .panel-heading h4{
-padding: 6px;
-color: white;
-margin: 10px auto;
+  padding: 6px;
+  color: white;
+  margin: 10px auto;
 }
 .mom-tab  .collapsed{
-  background-color: #ffffff!important;
+    background-color: #ffffff!important;
 }
 .mom-tab  .collapsed i{
-  background-color: gray;
+    background-color: gray;
 }
 .mom-tab  .collapsed span{
-  color: gray;
+    color: gray;
 }
 /*media query*/
-@media only screen and (min-width:320px) and (max-width:500px){
-  .absolute-img{
-  position: absolute;
-  }
-  .faq_img_1{
-  width: 48%;
-  position: absolute;
-  z-index: 99;
-  }
-  .mom-tab  .collapsed span{
-    color: gray;
-    font-size:11px;
-  }
-  .mom-tab  span{
-    font-size:11px;
-  }
-  .mom-tab  .panel-body{
-    font-size: 13px;
-  }
-  .mom-tab .panel-collapse{
-    padding: 8px!important;
-    margin: 7px;
-  }
-  .mom-tab .panel-heading h4{
-  padding: 8px 0;
-  }
-  .mom-tab .panel-heading i{
-    padding: 3px 4px;
-    font-size: 9px;
-  }
-  .mom-tab{
-    padding: 0!important;
-  }
+@media (max-width: 1320px) {
+}
 
+@media (max-width: 1199px) {
+    /*FAQ*/
+    .absolute-img{
+    position: absolute;
+    }
+    .faq_img_1{
+    width: 33%;
+    position: absolute;
+    z-index: 99;
+    }
+    .mom-tab  .collapsed span{
+      color: gray;
+      font-size: 20px;
+    }
+    .mom-tab  span{
+      font-size: 20px;
+    }
+    .mom-tab  .panel-body{
+      font-size: 20px;
+    }
+    .mom-tab .panel-collapse{
+      padding: 8px!important;
+      margin: 7px;
+    }
+    .mom-tab .panel-heading h4{
+     padding: 8px 0;
+    }
+    .mom-tab .panel-heading i{
+      padding: 3px 4px;
+      font-size: 20px;
+    }
+    .mom-tab{
+      padding: 0!important;
+    }
+
+}
+
+@media (max-width: 991px) {
+    /*FAQ*/
+    .absolute-img{
+    position: absolute;
+    }
+    .faq_img_1{
+    width: 31%;
+    position: absolute;
+    z-index: 99;
+    }
+    .mom-tab  .collapsed span{
+      color: gray;
+      font-size:11px;
+    }
+     .mom-tab  span{
+      font-size:11px;
+    }
+    .mom-tab  .panel-body{
+      font-size: 13px;
+    }
+    .mom-tab .panel-collapse{
+      padding: 8px!important;
+      margin: 7px;
+    }
+    .mom-tab .panel-heading h4{
+     padding: 8px 0;
+    }
+    .mom-tab .panel-heading i{
+      padding: 3px 4px;
+      font-size: 9px;
+    }
+    .mom-tab{
+      padding: 0!important;
+    }
+}
+
+@media (max-width: 767px) {
+    /*FAQ*/
+    .absolute-img{
+    position: absolute;
+    }
+    .faq_img_1{
+    width: 48%;
+    position: absolute;
+    z-index: 99;
+    }
+    .mom-tab  .collapsed span{
+      color: gray;
+      font-size:11px;
+    }
+    .mom-tab  span{
+      font-size:11px;
+    }
+    .mom-tab  .panel-body{
+      font-size: 13px;
+    }
+    .mom-tab .panel-collapse{
+      padding: 8px!important;
+      margin: 7px;
+    }
+    .mom-tab .panel-heading h4{
+     padding: 8px 0;
+    }
+    .mom-tab .panel-heading i{
+      padding: 3px 4px;
+      font-size: 9px;
+    }
+    .mom-tab{
+      padding: 0!important;
+    }
+}
+
+@media (max-width: 575px) {
+    /*FAQ*/
+    .absolute-img{
+    position: absolute;
+    }
+    .faq_img_1{
+    width: 48%;
+    position: absolute;
+    z-index: 99;
+    }
+    .mom-tab  .collapsed span{
+      color: gray;
+      font-size:11px;
+    }
+    .mom-tab  span{
+      font-size:11px;
+    }
+    .mom-tab  .panel-body{
+      font-size: 13px;
+    }
+    .mom-tab .panel-collapse{
+      padding: 8px!important;
+      margin: 7px;
+    }
+    .mom-tab .panel-heading h4{
+     padding: 8px 0;
+    }
+    .mom-tab .panel-heading i{
+      padding: 3px 4px;
+      font-size: 9px;
+    }
+    .mom-tab{
+      padding: 0!important;
+    }
 }
