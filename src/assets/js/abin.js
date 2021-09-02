@@ -96,6 +96,15 @@ if ($(this).scrollTop() > bannerHeight) {
 
 
 
+function toggleIcon(e) {
+  $(e.target)
+      .prev('.panel-heading')
+      .find(".more-less")
+      .toggleClass('bi-plus-lg bi-dash-lg ');
+
+    }
+      $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+      $('.panel-group').on('shown.bs.collapse', toggleIcon);
 
 
 
