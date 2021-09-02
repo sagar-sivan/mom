@@ -2175,6 +2175,7 @@ margin: 0;
   justify-content: center;
   align-content: flex-end;
   text-align: center;
+  margin: 0 auto;
 }
 .for-zero-box h1{
   font-size: 23em;
@@ -2329,6 +2330,41 @@ margin: 0;
     .mom-tab{
       padding: 0!important;
     }
+    /*404*/
+    .for-zero-box h1{
+      font-size: 8rem;
+    }
+    .for-zero-box .animate-item1{
+      width: 70%;
+      top: -119px;
+    }
+    .for-zero-box .animate-item2{
+      width: 70%;
+      top: -9px;
+    }
+     .for-zero-box .animate-item3{
+      width: 50%;
+      top: -90px;
+      left: -6px;
+    }
+    .error-wrap{
+        background-size: contain;
+        background-repeat-x: repeat;
+        background-repeat: repeat-x;
+        height: 70vh;
+    }
+    .for-zero-box{
+      width: 100%;
+      display: flex;
+      position: absolute;
+      align-content: center;
+      left: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin: 0 auto;
+      align-items: center;
+    }
 }
 
 @media (max-width: 767px) {
@@ -2365,6 +2401,41 @@ margin: 0;
     .mom-tab{
       padding: 0!important;
     }
+    /*404*/
+    .for-zero-box h1{
+      font-size: 8rem;
+    }
+    .for-zero-box .animate-item1{
+      width: 70%;
+      top: -119px;
+    }
+    .for-zero-box .animate-item2{
+      width: 70%;
+      top: -9px;
+    }
+     .for-zero-box .animate-item3{
+      width: 50%;
+      top: -90px;
+      left: -6px;
+    }
+    .error-wrap{
+        background-size: contain;
+        background-repeat-x: repeat;
+        background-repeat: repeat-x;
+        height: 70vh;
+    }
+    .for-zero-box{
+      width: 100%;
+      display: flex;
+      position: absolute;
+      align-content: center;
+      left: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin: 0 auto;
+      align-items: center;
+    }
 }
 
 @media (max-width: 575px) {
@@ -2400,5 +2471,41 @@ margin: 0;
     }
     .mom-tab{
       padding: 0!important;
+    }
+
+    /*404*/
+    .for-zero-box h1{
+      font-size: 8rem;
+    }
+    .for-zero-box .animate-item1{
+      width: 70%;
+      top: -119px;
+    }
+    .for-zero-box .animate-item2{
+      width: 70%;
+      top: -9px;
+    }
+     .for-zero-box .animate-item3{
+      width: 50%;
+      top: -90px;
+      left: -6px;
+    }
+    .error-wrap{
+        background-size: contain;
+        background-repeat-x: repeat;
+        background-repeat: repeat-x;
+        height: 70vh;
+    }
+    .for-zero-box{
+      width: 100%;
+      display: flex;
+      position: absolute;
+      align-content: center;
+      left: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin: 0 auto;
+      align-items: center;
     }
 }
