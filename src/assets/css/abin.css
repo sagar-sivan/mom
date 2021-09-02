@@ -2128,36 +2128,37 @@ margin: 10px auto;
 }
 /*media query*/
 @media only screen and (min-width:320px) and (max-width:500px){
-.absolute-img{
-position: absolute;
-}
-.faq_img_1{
-width: 48%;
-position: absolute;
-z-index: 99;
-}
-.mom-tab  .collapsed span{
-  color: gray;
-  font-size:11px;
-}
- .mom-tab  span{
-  font-size:11px;
-}
-.mom-tab  .panel-body{
-  font-size: 13px;
-}
-.mom-tab .panel-collapse{
-  padding: 8px!important;
-  margin: 7px;
-}
-.mom-tab .panel-heading h4{
- padding: 8px 0;
-}
-.mom-tab .panel-heading i{
-  padding: 3px 4px;
-  font-size: 9px;
-}
-.mom-tab{
-  padding: 0!important;
-}
+  .absolute-img{
+  position: absolute;
+  }
+  .faq_img_1{
+  width: 48%;
+  position: absolute;
+  z-index: 99;
+  }
+  .mom-tab  .collapsed span{
+    color: gray;
+    font-size:11px;
+  }
+  .mom-tab  span{
+    font-size:11px;
+  }
+  .mom-tab  .panel-body{
+    font-size: 13px;
+  }
+  .mom-tab .panel-collapse{
+    padding: 8px!important;
+    margin: 7px;
+  }
+  .mom-tab .panel-heading h4{
+  padding: 8px 0;
+  }
+  .mom-tab .panel-heading i{
+    padding: 3px 4px;
+    font-size: 9px;
+  }
+  .mom-tab{
+    padding: 0!important;
+  }
+
 }
