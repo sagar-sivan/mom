@@ -2125,6 +2125,34 @@ margin: 0;
 .mom-tab  .collapsed span{
     color: gray;
 }
+/*Terms and Conditions*/
+
+.display_1_list li{
+  line-height: 38px;
+  text-align-last: left;
+  padding-left: 13px;
+}
+.display_1_list li p{
+  font-size: 20px;
+}
+.display_1_list a{
+  color:black;
+}
+.display_1_list a:hover{
+  color:red;
+}
+.display_1_list li:before{
+  content:'';
+  width: 15px;
+  height: 15px;
+  display:block;
+  position:absolute;
+  left:0;
+  background-color:red;
+  margin: 10px 0;
+  border-radius: 50%;
+}
+
 /*media query*/
 @media (max-width: 1320px) {
 }
