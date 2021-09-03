@@ -277,4 +277,5 @@ $(".about-kitchen").slick({
   });
 
 
+ 
 })(jQuery);

@@ -264,8 +264,20 @@
         justify-content: space-between;
         align-items: flex-start;
 
+        @media (max-width: 991px) {  
+            flex-direction: column;      
+            
+            .tab__menu__2 { 
+                order: 2;
+            }
+        }
+
         &__holder { 
             margin: 0 40px;
+
+            @media (max-width: 991px) {  
+                margin: 0 20px;                
+            }
         }
 
         &__top { 
@@ -320,6 +332,10 @@
             &__holder { 
                 margin: 0 -30px;
                 position: relative; 
+
+                @media (max-width: 767px) {  
+                    margin: 0 -10px;               
+                }
             }
 
             .item { 

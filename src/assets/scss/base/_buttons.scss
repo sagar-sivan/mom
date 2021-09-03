@@ -164,6 +164,11 @@
             color: $primary-color;
         }
 
+        @media (max-width: 991px) {             
+            margin: 0 10px 20px 30px;
+            align-self: flex-end;                    
+        }
+
         &:hover {
             color: $primary-color;
         }

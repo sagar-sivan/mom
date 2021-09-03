@@ -249,6 +249,12 @@ p {
 		width: auto;
 	}
 
+	@media (max-width: 767px) { 
+		.profile & {
+			margin-bottom: 10px; 
+		}
+	}
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -259,6 +265,12 @@ p {
 		background-color: $grey-color;
 		border-radius: 80px 80px 0 80px;
 		z-index: -1;
+
+		@media (max-width: 767px) { 
+			.profile & {
+				border-radius: 40px;
+			}
+		}
 	}
 
 	&::after {
@@ -271,7 +283,13 @@ p {
 		background-color: $grey-color;
 		border-radius: 80px 0 100px 80px;
 		transform: skewY(6deg);   
-		z-index: -1;         
+		z-index: -1;    
+		
+		@media (max-width: 767px) {  
+			.profile & {
+				display: none;    
+			}          
+		}
 	}
 }
 
@@ -348,6 +366,14 @@ p {
 				padding: invertValues(0, 0, 0, 35px);
 			}
 
+			@media (max-width: 767px) {          	
+				padding: invertValues(0, 0, 0, 20px);      
+			}
+
+			@media (max-width: 575px) {      
+				padding: invertValues(0, 0, 0, 0);  
+			}
+
 			.nav-link {
 				background: $grey-color;
 				color: #808080;
@@ -362,7 +388,21 @@ p {
 					font-size: 17px;
 					padding: 0 15px 0; 
 					border-radius: 20px 20px 0 0;
-					line-height: 40px;
+					line-height: 40px; 
+				}
+
+				@media (max-width: 991px) {       
+					font-weight: 500; 
+					font-size: 15px;
+					padding: 0 12px;    
+					border-radius: 20px 20px 0 0;    
+				}
+
+				@media (max-width: 575px) {   
+					border-radius: 10px;   
+					margin: 0 5px 10px 0;
+					background: rgba($color: $text-grey, $alpha: 0.09);
+
 				}
 
 				&.active {
@@ -420,6 +460,11 @@ p {
 			z-index: 1;
 			border-radius: 40px;
 			padding: 40px;
+
+			@media (max-width: 767px) {  
+				padding: 15px 15px; 
+				border-radius: 15px;             
+			}
 		}
 	}
 }
