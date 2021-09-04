@@ -2606,6 +2606,130 @@ margin: 0;
    .contact-page .red-box-contractus li i{
       font-size: 17px;
     }
+    /*modal*/
+    #progressbar .active:after{
+     width: 10px;
+     height: 10px;
+     position: absolute;
+     margin: 0 auto;
+   }
+   #progressbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+   #progressbar li:after{
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  }
+   #progressbar .active{
+   font-size: 12px;
+   padding: 10px 0;
+   }
+   #progressbar li {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    float: left;
+    font-size: 12px;
+    padding: 0;
+   font-size: 12px;
+   padding: 10px 0;
+   }
+   /*modal ste 1*/
+    #step-form-modal fieldset .form-card .plan-image-step{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
+      align-items: center;
+      width: 100%;
+      float: left;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 10px 0;
+    }
+    #step-form-modal fieldset .form-card .col-md-4{
+      width: 50%;
+    }
+    #step-form-modal .step-1choose [type="radio"]:checked + label:before, .step-1choose [type="radio"]:not(:checked) + label:before{
+        width: 15px;
+        height: 15px;
+    }
+     #step-form-modal .step-1choose [type="radio"]:checked + label:after, .step-1choose [type="radio"]:not(:checked) + label:after{
+       width: 15px;
+        height: 15px;
+    }
+    #step-form-modal  .step-1choose h3{
+      font-size: 10px;
+      font-weight: 400;
+      margin: 0;
+    }
+    #step-form-modal  .step-1choose{
+      padding: 15px 0;
+    }
+    #step-form-modal fieldset .form-card .plan-image-step img{
+        border-radius: 11px;
+    }
+    /*step-4 allergies tab*/
+    .modal-allergies-tab{
+     padding: 0;
+    }
+    .tab__content__1{
+     padding: 6px;
+    }
+    .select__style__1{
+      padding: 2px 7px;
+      margin: 2px auto;
+      font-size: 13px;
+    }
+    /*.view-summary .view-summary-box*/
+    .view-summary .view-summary-box{
+      padding: 8px;
+    }
+    .view-summary .modal-body{
+        padding: 0;
+    }
+    .view-summary .table{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: space-around;
+        align-items: center;
+    }
+     .view-summary  .view-summary-calories .table td, .table th{
+      padding: 5px;
+    }
+     .view-summary  .table td, .table th{
+      padding: 0px;
+      font-size: 13px;
+    }
+     .view-summary tr{
+        display: grid;
+        vertical-align: middle;
+        border-color: inherit;
+        position: relative;
+        align-content: center;
+        justify-content: start;
+        align-items: start;
+        justify-items: start;
+      }
+     .view-summary h4{
+        font-size: 13px;
+     }
+     .view-summary  .text-center.py-5{
+       padding: 0!important;
+     }
 
 
 }
