@@ -2695,7 +2695,7 @@ margin: 0;
       font-size: 13px;
     }
     .modal-left-img h1{
-      
+
 font-size: 14px;
     }
     /*step-4 allergies tab*/
@@ -2749,6 +2749,21 @@ font-size: 14px;
      .view-summary  .text-center.py-5{
        padding: 0!important;
      }
-
+     /*slick slider*/
+     .pack-slider .slick-dots{
+       display: none!important;
+       }
+      .pack-slider{
+        margin: 0 auto;
+        width: 100%;
+      }
+      .slick-initialized .slick-slide{
+          width: 100%;
+      }
+      .chooseplan .row .offset-col-md-4{
+          margin:0 auto;
+          flex: 1;
+          max-width: 100%;
+      }
 
 }
