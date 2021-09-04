@@ -2763,9 +2763,13 @@ font-size: 14px;
         position: relative;
         display: inline;
      }
+     .sm-box-manage .col-6{     
+        max-width: 100%;     
+        flex: 1;
+     }
      /*slick slider*/
      .pack-slider .slick-dots{
-      display: none;
+      display: none!important;
       }
-      
+
 }
