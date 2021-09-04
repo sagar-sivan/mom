@@ -2749,21 +2749,23 @@ font-size: 14px;
      .view-summary  .text-center.py-5{
        padding: 0!important;
      }
+     .align-center-sm{
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        display: flex;
+     }
+      .align-center-sm .foodtime-icon {
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        display: inline;
+     }
      /*slick slider*/
      .pack-slider .slick-dots{
-       display: none!important;
-       }
-      .pack-slider{
-        margin: 0 auto;
-        width: 100%;
+      display: none;
       }
-      .slick-initialized .slick-slide{
-          width: 100%;
-      }
-      .chooseplan .row .offset-col-md-4{
-          margin:0 auto;
-          flex: 1;
-          max-width: 100%;
-      }
-
+      
 }
