@@ -1719,7 +1719,7 @@ height: 630px;
 }
 
 .daily-meal-modal :checked + label:before {
-  content: "ÃƒÂ¢Ã…â€œÃ¢â‚¬Â";
+  content: "ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â";
   background-color: #cb0505;
   transform: scale(.9);
 }
@@ -2658,7 +2658,7 @@ margin: 0;
       padding: 10px 0;
     }
     #step-form-modal fieldset .form-card .col-md-4{
-      width: 50%;
+      width: 100%;
     }
     #step-form-modal .step-1choose [type="radio"]:checked + label:before, .step-1choose [type="radio"]:not(:checked) + label:before{
         width: 15px;
@@ -2669,9 +2669,8 @@ margin: 0;
         height: 15px;
     }
     #step-form-modal  .step-1choose h3{
-      font-size: 10px;
-      font-weight: 400;
-      margin: 0;
+      font-size: 15px;
+      font-weight: 500;
     }
     #step-form-modal  .step-1choose{
       padding: 15px 0;
