@@ -2678,6 +2678,26 @@ margin: 0;
     #step-form-modal fieldset .form-card .plan-image-step img{
         border-radius: 11px;
     }
+    /*step3*/
+    .flex-box-modal .radio-ul-modal li{
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        padding: 11px 0;
+    }
+     .flex-box-modal .radio-ul-modal input[type=checkbox], input[type=radio]{
+      border: none;
+      outline: none;
+      position: relative;
+      margin: 5px 5px;
+    }
+     .flex-box-modal .form-shedule-popup label{
+      font-size: 13px;
+    }
+    .modal-left-img h1{
+      
+font-size: 14px;
+    }
     /*step-4 allergies tab*/
     .modal-allergies-tab{
      padding: 0;
