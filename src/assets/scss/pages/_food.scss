@@ -34,8 +34,13 @@
 
         &:hover {
             figure { 
-                transform: translate(0, -5px) rotate(30deg);
-                transition: all 0.5s;
+                transform: scale(1.1,1.1);
+                transition: all 0.5s ease-in-out;
+
+                &.with-shadow { 
+                    transform: scale(1,1) translate(0, -5px) rotate(30deg);
+                    transition: all 0.5s;
+                }
             }
         }
 

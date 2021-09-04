@@ -187,9 +187,9 @@
             text-indent: -9999px;
             background-size: 40px;
 
-            @media (max-width: 1199px) {
-                display: none;
-            }
+            // @media (max-width: 1199px) {
+            //     display: none;
+            // }
 
             &::before {
                 content: "";

@@ -272,11 +272,6 @@ a:hover {
   text-indent: -9999px;
   background-size: 40px;
 }
-@media (max-width: 1199px) {
-  .btn__menu i {
-    display: none;
-  }
-}
 .btn__menu i::before {
   content: "";
   position: absolute;
@@ -2411,8 +2406,14 @@ p {
   }
 }
 .food__select:hover figure {
-  -webkit-transform: translate(0, -5px) rotate(30deg);
-          transform: translate(0, -5px) rotate(30deg);
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.food__select:hover figure.with-shadow {
+  -webkit-transform: scale(1, 1) translate(0, -5px) rotate(30deg);
+          transform: scale(1, 1) translate(0, -5px) rotate(30deg);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
