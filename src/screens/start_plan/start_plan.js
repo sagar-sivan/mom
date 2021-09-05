@@ -8,12 +8,12 @@ import moment from "moment"
 
 import "react-datepicker/dist/react-datepicker.css";
 
-import LoaderAction from '../action/loader_action';
-import CommonAction from '../action/common_action';
-import { urlConfig, api_url } from "./../http/apiConfig"
-import { networkRequest } from "./../http/api"
-import TEST_IMAGE from "../assets/images/step-form/step101.jpg"
-import LoginRegister from './login_register';
+import LoaderAction from '../../action/loader_action';
+import CommonAction from '../../action/common_action';
+import { urlConfig, api_url } from "../../http/apiConfig"
+import { networkRequest } from "../../http/api"
+import TEST_IMAGE from "../../assets/images/step-form/step101.jpg"
+import LoginRegister from '../authentication/login_register';
 
 Modal.setAppElement('body');
 
@@ -33,7 +33,10 @@ const imageUrl = "http://mealsuae-001-site1.itempurl.com/Images/Plan/"
 const StartPlan = () => {
     const dispatch = useDispatch()
     const { loginData } = useSelector(state => state.userReducer);
-    const { plan_component, calorie_plan } = useSelector(state => state.commonReducer);
+    const { plan_component, calorie_plan, settings } = useSelector(state => state.commonReducer);
+    const planImageLocation = settings.find(item => item.pName == "Plan Image Location")?.pValue
+    const dishImageLocation = settings.find(item => item.pName == "Dish Image Location")?.pValue
+    const vatPercentage = settings.find(item => item.pName == "vatPercentage")?.pValue
     const [activeStep, setActiveStep] = useState(0)
     const [planData, setPlanData] = useState([])
     const [cuisineData, setCuisineData] = useState([])
@@ -44,6 +47,7 @@ const StartPlan = () => {
     const [allergiesList, setAllergiesList] = useState([])
     const [formData, setFormData] = useState({})
     const [error, setError] = useState({})
+    const [couponData, setCouponData] = useState({})
     useEffect(() => {
         getPlanData();
         getNumberOfMealsData()
@@ -226,26 +230,31 @@ const StartPlan = () => {
         }
     }
     const handleSaveAllergyOrder = async () => {
-        try {
-            dispatch(LoaderAction.showLoader())
-            const tempAllergies = Object.keys(selectedAllergies).map(item => { return ({ AllergyIdTemp: item }) })
-            console.log("tempAllergies", tempAllergies);
-            const data = {
-                OrderIdTemp: formData.orderId,
-                AllergyCommentsTemp: formData.comments,
-                _APIOrderAllergyDataInputList: tempAllergies
-            }
-            const url = `${api_url}${urlConfig.saveOrderAllergyData}`;
-            const result = await networkRequest({ url, method: "POST", data })
-            if (result.responseCode == 0) {
-                setActiveStep(4)
-            }
-            dispatch(LoaderAction.hideLoader())
+        if (!isEmpty(selectedAllergies) && !isEmpty(formData.comments)) {
+            try {
+                dispatch(LoaderAction.showLoader())
+                const tempAllergies = Object.keys(selectedAllergies).map(item => { return ({ AllergyIdTemp: item }) })
+                console.log("tempAllergies", tempAllergies);
+                const data = {
+                    OrderIdTemp: formData.orderId,
+                    AllergyCommentsTemp: formData.comments,
+                    _APIOrderAllergyDataInputList: tempAllergies
+                }
+                const url = `${api_url}${urlConfig.saveOrderAllergyData}`;
+                const result = await networkRequest({ url, method: "POST", data })
+                if (result.responseCode == 0) {
+                    setActiveStep(4)
+                }
+                dispatch(LoaderAction.hideLoader())
 
-        } catch (error) {
-            dispatch(LoaderAction.hideLoader())
-            console.log(error);
+            } catch (error) {
+                dispatch(LoaderAction.hideLoader())
+                console.log(error);
+            }
+        } else {
+            setActiveStep(4)
         }
+
     }
 
     const handlePrevious = async (step) => {
@@ -264,6 +273,78 @@ const StartPlan = () => {
         setFormData({})
     }
     console.log("formData", formData);
+    const handleApplyCoupon = async (e) => {
+        if (!isEmpty(formData.coupon)) {
+            try {
+                dispatch(LoaderAction.showLoader())
+                const data = {
+                    CouponCode: formData.coupon
+                }
+                const url = `${api_url}${urlConfig.getCouponById}`;
+                const result = await networkRequest({ url, method: "POST", data })
+                if (result.responseCode == 0) {
+                    setCouponData(result)
+                } else {
+                    error.coupon = "Invalid coupon";
+                    setError({ ...error })
+                }
+                dispatch(LoaderAction.hideLoader())
+            } catch (error) {
+                dispatch(LoaderAction.hideLoader())
+                console.log(error);
+            }
+        } else {
+            error.coupon = "Enter coupon";
+            setError({ ...error })
+        }
+
+    }
+    const initiatePayment = async (type) => {
+        try {
+            dispatch(LoaderAction.showLoader())
+            const data = {
+                OrderIdTemp: formData.orderId,
+                CustomerIdTemp: localStorage.getItem("customerIdTemp"),
+                PaymentStatus: "P",
+                OrderAmount: 400,
+                OrderAmountVat: vatPercentage,
+                PaymentMode: type
+            }
+            const url = `${api_url}${urlConfig.initiatePayment}`;
+            const result = await networkRequest({ url, method: "POST", data })
+            // if (result.responseCode == 0) {
+            //     setCouponData(result)
+            // } else {
+            //     error.coupon = "Invalid coupon";
+            //     setError({ ...error })
+            // }
+        } catch (error) {
+            dispatch(LoaderAction.hideLoader())
+            console.log(error);
+        }
+    }
+    const UpdatePaymentStatus = async ({ orderIdTemp }) => {
+        try {
+            const data = {
+                orderIdTemp,
+                "PaymentStatus": "S",
+                "PaymentRefNo": "qasdqwert",
+                "PaymentTransactionNumber": "vbvbvsdsd"
+            }
+            const url = `${api_url}${urlConfig.updatePaymentStatus}`;
+            const result = await networkRequest({ url, method: "POST", data })
+            // if (result.responseCode == 0) {
+            //     setCouponData(result)
+            // } else {
+            //     error.coupon = "Invalid coupon";
+            //     setError({ ...error })
+            // }
+            dispatch(LoaderAction.hideLoader())
+        } catch (error) {
+            dispatch(LoaderAction.hideLoader())
+            console.log(error);
+        }
+    }
     return (
         <Modal
             isOpen={plan_component}
@@ -289,7 +370,7 @@ const StartPlan = () => {
 
                                         <div class="row">
                                             <div class="col-md-12 mx-0">
-                                                <form id="step-form-modal">
+                                                <div id="step-form-modal" >
                                                     <Stepper activeStep={activeStep} hideConnectors>
                                                         <Step label="Step 1" />
                                                         <Step label="Step 2" />
@@ -319,7 +400,7 @@ const StartPlan = () => {
                                                                                             </div>
 
                                                                                         </div>
-                                                                                        <img src={`${imageUrl}${item.planFileName}`} />
+                                                                                        <img src={`${planImageLocation}${item.planFileName}`} />
                                                                                     </div>
                                                                                 </div>
                                                                             )
@@ -344,7 +425,7 @@ const StartPlan = () => {
                                                                         return (
                                                                             <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4">
                                                                                 <div class="food__select small bg-gray check-input-popp">
-                                                                                    <figure><img src={`${imageUrl}${item.cuisineFileName}`} alt="Meals On Me" /></figure>
+                                                                                    <figure><img src={`${dishImageLocation}${item.cuisineFileName}`} alt="Meals On Me" /></figure>
                                                                                     <input class="form-check-input" type="radio" name="In-1" id={`cuisine_${item.cuisineId}`} value={formData.cuisine} onChange={(e) => handleChange(item.cuisineId, "cuisine")} />
                                                                                     <label for={`cuisine_${item.cuisineId}`} >{item.cuisineName}</label>
                                                                                 </div>
@@ -651,15 +732,32 @@ const StartPlan = () => {
                                                                             </div>
 
                                                                         </div>
+                                                                        <div class="col-md-12 text-left form-shedule-popup">
 
+                                                                            <div class="row-item">
+                                                                                <label class="col-sm-6 col-form-label">Comment</label>
+                                                                                <div class="col-sm-6">
+                                                                                    <h4>{formData.comments}</h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
 
 
 
                                                                     </div>
-
+                                                                    {console.log("loginData", loginData)}
                                                                     <div class="col-md-6 modal-allergies-tab text-left pb-5">
                                                                         {
-                                                                            isEmpty(loginData) ? <LoginRegister /> :
+                                                                            isEmpty(loginData) ? <>
+                                                                                <LoginRegister />
+                                                                                <div class="col-md-12 py-3 text-center">
+
+                                                                                    <div class="alert alert alert-danger" role="alert">
+                                                                                        Please login / Register to get the price
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </> :
                                                                                 <div class="col-md-12 d-block py-4">
                                                                                     <div class="col-md-6 float-left">
                                                                                         <h4>Cost in AED</h4>
@@ -676,8 +774,15 @@ const StartPlan = () => {
 
 
                                                                         <div class="row pt-5">
-                                                                            <div class="coupon-code m-3">
-                                                                                <div class="col-2 color-bg1">
+                                                                            <div class="coupon-code m-3" style={{ justifyContent: "space-around" }}>
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" placeholder="Coupon code" value={formData.coupon} onChange={(e) => handleChange(e.target.value, "coupon")} />
+                                                                                    {!isEmpty(error.coupon) && <p className="validation-error">{error.coupon}</p>}
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <a class="submit-coupon" href="#" onClick={(e) => handleApplyCoupon(e)}>Add</a>
+                                                                                </div>
+                                                                                {/* <div class="col-2 color-bg1">
                                                                                     <i class="bi bi-gift"></i>
                                                                                 </div>
                                                                                 <div class="col-10 color-bg2">
@@ -692,7 +797,7 @@ const StartPlan = () => {
                                                                                         <p>Use Promo Code: <span class="promo">MOM00821</span></p>
                                                                                         <a class="submit-coupon" href="#">Add</a>
                                                                                     </div>
-                                                                                </div>
+                                                                                </div> */}
 
                                                                             </div>
                                                                         </div>
@@ -714,7 +819,7 @@ const StartPlan = () => {
 
 
 
-                                                </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

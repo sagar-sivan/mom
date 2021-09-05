@@ -15,6 +15,11 @@ const urlConfig = {
     saveOrderData: "MealsData/SaveOrderData",
     saveOrderAllergyData: "MealsData/SaveOrderAllergyData",
     createCustomer: "MealsData/CreateCustomer",
+    getCouponById: "MealsData/GetCouponById",
+    getAPISettings: "MealsData/GetAPISettings",
+    initiatePayment: "MealsData/InitiatePayment",
+    getLocation: "MealsData/GetAllactiveLocation",
+    updatePaymentStatus: "MealsData/UpdatePaymentStatus",
 }
 
 export {

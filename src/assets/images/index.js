@@ -63,7 +63,7 @@ import tree1 from "./how-it-works/tree1.png"
 import tree2 from "./how-it-works/tree2.png"
 import lady_nots from "./how-it-works/lady-nots.png"
 import motor_cyle from "./how-it-works/motor-cyle.png"
-import our_plan_header_banner from "./placeholder/our-plan-header-banner.png"
+import our_plan_header_banner from "./placeholder/our-plan-header-banner.jpg"
 
 export {
     logo_color, banner_1, banner_bg_1, story_1, story_2, story_3, story_4, story_1_placeholder, story_2_placeholder, story_3_placeholder, plan_1, plan_2, plan_3, cusines_1, cusines_2, cusines_3, cusines_4, cusines_5, cusines_6, work_1, work_2, work_3, work_4, count_1, count_2, count_3, testimonial_img_1, testimonial_1, testimonial_2, profile_1, profile_img_2, profile_pack_1, profile_pack_2, profile_pack_3, weekly, weekly_item1, weekly_item2, weekly_item3, weekly_item4, weekly_item5, weekly_item6, weekly_item7, brakefast, AMsnack, lunch, dinner, absolute_choose1, absolute_choose2, absolute_choose3, chooseplan_alert, contact_banner, ab_red_box_absolute3, ab_red_box_absolute4, ab_red_box_absolute2, ab_red_box_absolute1, howit_banner, ab_1, ab_2, ab_3, ab_4, Ellipse_b, tree1, tree2, lady_nots, motor_cyle, our_plan_header_banner

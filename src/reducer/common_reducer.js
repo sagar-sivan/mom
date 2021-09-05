@@ -1,10 +1,11 @@
-import { LOGIN_COMPONENT, PLAN_COMPONENT, SET_CALORIE_PLAN, MENU_COMPONENT } from "./../constant/constants"
+import { LOGIN_COMPONENT, PLAN_COMPONENT, SET_CALORIE_PLAN, MENU_COMPONENT, GET_SETTINGS } from "./../constant/constants"
 
 const initialState = {
     login_component: false,
     plan_component: false,
     menu_component: false,
-    calorie_plan: false
+    calorie_plan: false,
+    settings: []
 };
 
 const commonReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const commonReducer = (state = initialState, action) => {
             return {
                 ...state,
                 menu_component: action.payload
+            };
+        case GET_SETTINGS:
+            return {
+                ...state,
+                settings: action.payload
             };
         default:
             return { ...state };

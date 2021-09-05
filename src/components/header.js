@@ -4,8 +4,9 @@ import { Link } from "react-router-dom"
 import { isEmpty } from "lodash"
 
 import { logo_color } from "./../assets/images"
-import LoginComponent from './login_component'
+import Authentication from './../screens/authentication/authenticationScreen'
 import CommonAction from '../action/common_action'
+import UserAction from '../action/user_action'
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -40,7 +41,9 @@ const Header = () => {
 
     const handleLogout = (e) => {
         e.preventDefault();
+        dispatch(UserAction.setUserData({}))
         localStorage.removeItem("customerId")
+        localStorage.removeItem("customerIdTemp")
     }
 
     return (
@@ -81,7 +84,7 @@ const Header = () => {
                 </div>
 
             </header>
-            <LoginComponent />
+            <Authentication />
         </>
     )
 }

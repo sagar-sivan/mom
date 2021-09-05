@@ -7,3 +7,4 @@ export const LOADER = "LOADER";
 export const USER_DATA = "USER_DATA";
 export const GET_WEEKLY_DATA = "GET_WEEKLY_DATA";
 export const SET_CALORIE_PLAN = "SET_CALORIE_PLAN";
+export const GET_SETTINGS = "GET_SETTINGS";

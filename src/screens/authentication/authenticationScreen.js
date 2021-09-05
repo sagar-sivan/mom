@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux'
 import { isEmpty } from "lodash"
 
-import CommonAction from '../action/common_action';
+import CommonAction from '../../action/common_action';
 import LoginRegister from "./login_register"
 
 Modal.setAppElement('body');

@@ -12,6 +12,7 @@ import OurPlanScreen from "../screens/our_plan/ourPlanScreen"
 import Loader from "../components/loader"
 import PrivateRoute from "./privateRoute"
 import UserAction from "../action/user_action"
+import CommonAction from "../action/common_action"
 
 import "./../assets/css/bootstrap.min.css"
 // import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -33,9 +34,11 @@ const Routes = () => {
       duration: 1000
     })
     const customerId = localStorage.getItem("customerId")
-    if (customerId) {
-      dispatch(UserAction.setUserData({ customerId }))
+    const customerIdTemp = localStorage.getItem("customerIdTemp")
+    if (customerId || customerIdTemp) {
+      dispatch(UserAction.setUserData({ customerId, customerIdTemp }))
     }
+    dispatch(CommonAction.getSettings())
   }, [])
   return (
     <Router basename={"/"}>

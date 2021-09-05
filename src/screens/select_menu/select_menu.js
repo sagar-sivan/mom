@@ -1,7 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux'
+import Slider from "react-slick";
+// import $ from 'jquery';
 
+const pack_slider_settings = {
+    dots: false,
+    arrows: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    // prevArrow: $('.new-btn-prev'),
+    // nextArrow: $('.new-btn-next'),
+
+    responsive: [{
+        breakpoint: 991,
+        settings: {
+            slidesToShow: 2,
+        }
+
+    }, {
+
+        breakpoint: 600,
+        settings: {
+            slidesToShow: 1,
+            dots: true
+        }
+    }]
+}
 Modal.setAppElement('body');
 
 const customStyles = {
@@ -20,6 +47,35 @@ const SelectMenu = () => {
     const dispatch = useDispatch()
     const { loginData } = useSelector(state => state.userReducer);
     const { menu_component } = useSelector(state => state.commonReducer);
+    const [nav1, setNav1] = useState({})
+    let sliderRef1 = useRef({})
+    let sliderRef2 = useRef({})
+    // let slider1 = []
+    // useEffect(() => {
+    //     console.log("slider 1", slider1);
+    //     setNav1(slider1)
+    // }, [slider1])
+
+    // useEffect(() => {
+    //     $('.new-btn-prev').click(function (e) {
+    //         $(this).parent().parent().parent().parent().find('.slick-slider').slick('slickPrev');
+    //     });
+
+    //     $('.new-btn-next').click(function (e) {
+    //         e.preventDefault();
+    //         $(this).parent().parent().parent().parent().find('.slick-slider').slick('slickNext');
+    //     });
+    // }, [])
+    const handleSliderNext = (e) => {
+        e.preventDefault()
+        sliderRef1.slickNext()
+        // nav1.slickNext()
+    }
+    const handleSliderPrev = (e) => {
+        e.preventDefault()
+        sliderRef2.slickPrev()
+        // nav1.slickPrev()
+    }
     return (
         <Modal
             isOpen={menu_component}
@@ -29,7 +85,7 @@ const SelectMenu = () => {
             overlayClassName=" chooseplan"
         // contentLabel="Example Modal"
         >
-            <div class="modal1 show fade ">
+            <div class="modal1 fade show">
                 <div class="container-fluid modal-dialog modal-xl w-100">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -47,10 +103,11 @@ const SelectMenu = () => {
 
 
                                 <div class="col-12 ">
-                                    <a href="javascript:void(0);" class="new-btn-prev">((((((</a>
-                                    <a href="javascript:void(0);" class="new-btn-next">))))))</a>
+                                    <a href="" /* onClick={(e) => handleSliderPrev(e)} */ class="new-btn-prev">((((((</a>
+                                    <a href="" /* onClick={(e) => handleSliderNext(e)} */ class="new-btn-next">))))))</a>
 
-                                    <div class="pack-slider col-10 offset-md-2  pt-5">
+                                    {/* <div class="pack-slider col-10 offset-md-2  pt-5"> */}
+                                    <Slider className="pack-slider col-10 offset-md-2  pt-5r" {...pack_slider_settings}>
 
                                         <div>
                                             <div class="profile__pack__item">
@@ -89,13 +146,6 @@ const SelectMenu = () => {
 
                                         <div>
                                             <div class="profile__pack__item">
-                                                <p class="item__date">03 / 08 / 2021</p>
-                                                <span class="item__day">Fr</span>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div class="profile__pack__item">
                                                 <p class="item__date">04 / 08 / 2021</p>
                                                 <span class="item__day bg-grey">Sa</span>
                                             </div>
@@ -107,8 +157,8 @@ const SelectMenu = () => {
                                                 <span class="item__day bg-grey">Su</span>
                                             </div>
                                         </div>
-
-                                    </div>
+                                    </Slider>
+                                    {/* </div> */}
 
 
                                     <div class="col-2 pt-5 float-left">
@@ -116,7 +166,8 @@ const SelectMenu = () => {
                                             <img src="../images/weeklymenu/lunch.png" />Lunch
                                         </div>
                                     </div>
-                                    <div class="pack-slider col-10 float-left pt-4">
+                                    {/* <div class="pack-slider col-10 float-left pt-4"> */}
+                                    {/* <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} ref={slider => sliderRef1 = slider} >
 
                                         <div>
                                             <div class="col plan_modal-item_box">
@@ -136,6 +187,7 @@ const SelectMenu = () => {
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                                 <div class="card plan-modal-body">
                                                     <div class="text-item">
@@ -170,6 +222,21 @@ const SelectMenu = () => {
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -227,61 +294,19 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div class="col plan_modal-item_box">
-                                                <div class="card plan-modal-body">
-                                                    <div class="text-item">
-                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
                                                     </div>
-                                                    <div class="quantity-check">
-                                                        <div class="input-group input-number-group">
-                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
-                                                            </div>
-
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card plan-modal-body">
-                                                    <div class="text-item">
-                                                        <h3>Black bean full with Arabic Bread</h3>
-                                                    </div>
-                                                    <div class="quantity-check">
-                                                        <div class="input-group input-number-group">
-                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
-                                                            </div>
-
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card plan-modal-body">
-                                                    <div class="text-item">
-                                                        <h3>Black bean full with Arabic Bread</h3>
-                                                    </div>
-                                                    <div class="quantity-check">
-                                                        <div class="input-group input-number-group">
-                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
-                                                            </div>
-
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -339,6 +364,20 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -395,6 +434,90 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="col plan_modal-item_box">
+                                                <div class="card plan-modal-body">
+                                                    <div class="text-item">
+                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                    </div>
+                                                    <div class="quantity-check">
+                                                        <div class="input-group input-number-group">
+                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
+                                                            </div>
+
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card plan-modal-body">
+                                                    <div class="text-item">
+                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                    </div>
+                                                    <div class="quantity-check">
+                                                        <div class="input-group input-number-group">
+                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
+                                                            </div>
+
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card plan-modal-body">
+                                                    <div class="text-item">
+                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                    </div>
+                                                    <div class="quantity-check">
+                                                        <div class="input-group input-number-group">
+                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
+                                                            </div>
+
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div>
@@ -450,6 +573,20 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div>
@@ -505,10 +642,24 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-
-                                    </div>
+                                    </Slider> */}
+                                    {/* </div> */}
 
 
                                     <div class="col-2 pt-5 float-left">
@@ -516,8 +667,9 @@ const SelectMenu = () => {
                                             <img src="../images/weeklymenu/dinner.png" />Dinner
                                         </div>
                                     </div>
-                                    <div class="pack-slider col-10 float-left pt-4">
+                                    {/* <div class="pack-slider col-10 float-left pt-4"> */}
 
+                                    {/* <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} ref={slider => sliderRef2 = slider}>
                                         <div>
                                             <div class="col plan_modal-item_box">
                                                 <div class="card plan-modal-body">
@@ -570,6 +722,20 @@ const SelectMenu = () => {
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -627,61 +793,19 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div class="col plan_modal-item_box">
-                                                <div class="card plan-modal-body">
-                                                    <div class="text-item">
-                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
                                                     </div>
-                                                    <div class="quantity-check">
-                                                        <div class="input-group input-number-group">
-                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
-                                                            </div>
-
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card plan-modal-body">
-                                                    <div class="text-item">
-                                                        <h3>Black bean full with Arabic Bread</h3>
-                                                    </div>
-                                                    <div class="quantity-check">
-                                                        <div class="input-group input-number-group">
-                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
-                                                            </div>
-
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card plan-modal-body">
-                                                    <div class="text-item">
-                                                        <h3>Black bean full with Arabic Bread</h3>
-                                                    </div>
-                                                    <div class="quantity-check">
-                                                        <div class="input-group input-number-group">
-                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
-                                                            </div>
-
-                                                            <div class="input-group-button">
-                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -739,6 +863,20 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -795,6 +933,90 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="col plan_modal-item_box">
+                                                <div class="card plan-modal-body">
+                                                    <div class="text-item">
+                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                    </div>
+                                                    <div class="quantity-check">
+                                                        <div class="input-group input-number-group">
+                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
+                                                            </div>
+
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card plan-modal-body">
+                                                    <div class="text-item">
+                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                    </div>
+                                                    <div class="quantity-check">
+                                                        <div class="input-group input-number-group">
+                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
+                                                            </div>
+
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card plan-modal-body">
+                                                    <div class="text-item">
+                                                        <h3>Black bean full with Arabic Bread</h3>
+                                                    </div>
+                                                    <div class="quantity-check">
+                                                        <div class="input-group input-number-group">
+                                                            <input class="input-number" type="number" value="1" min="0" max="1000" />
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-decrement"><i class="bi bi-dash-square"></i></span>
+                                                            </div>
+
+                                                            <div class="input-group-button">
+                                                                <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div>
@@ -850,6 +1072,20 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div>
@@ -905,10 +1141,24 @@ const SelectMenu = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="location-modal card plan-modal-body">
+                                                    <div class="input-group-button p-2">
+                                                        <span class="input-number-increment"><i class="bi bi-plus-square "></i></span>
+                                                    </div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected>Choose..</option>
+                                                        <option value="1">Al Barsha</option>
+                                                        <option value="2">Marina</option>
+                                                        <option value="2">Jumeira</option>
+                                                        <option value="2">JLT</option>
+                                                        <option value="2">Umm Suquim </option>
+                                                        <option value="2">Karama</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-
-                                    </div>
+                                    </Slider> */}
+                                    {/* </div> */}
 
 
 
@@ -943,6 +1193,7 @@ const SelectMenu = () => {
                     </div>
                 </div>
             </div>
+
         </Modal>
     )
 }

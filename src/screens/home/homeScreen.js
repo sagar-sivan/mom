@@ -9,8 +9,8 @@ import HomeCuisine from './home_cuisine'
 import HomeHowWorks from './home_how'
 import HomeCaloriesPlan from './home_calories_plan'
 import HomeTestimonial from './home_testimonial'
-import StartPlan from '../../components/start_plan'
-import SelectMenu from '../../components/select_menu'
+import StartPlan from '../../screens/start_plan/start_plan'
+import SelectMenu from './../select_menu/select_menu'
 
 const HomeScreen = () => {
     return (
