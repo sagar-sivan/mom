@@ -2795,6 +2795,22 @@ font-size: 14px;
         border-radius: 40px;
         padding: 0;
       }
-
+      /*how it work page*/
+      .absolite-moto{
+        right: 0;
+        bottom: 0;
+        position: relative;
+      }
+      .heading-list li{
+        font-size: 13px;
+        padding: 8px 0;
+        position: relative;
+        display: flex;
+      }
+      .heading-list li i{
+         font-size: 13px;
+         padding: 0;
+         margin: 0 5px 0 0;
+      }
 
 } 
