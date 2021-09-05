@@ -2059,13 +2059,14 @@ margin: 0;
   width: 100%;
   display: block;
   top: 0;
-  z-index: 2;
+  z-index: 1;
 }
 .faq_img_1{
   right: 0;
   position: absolute;
   display: block;
   top: 12rem;
+  z-index: -1;
 }
 .mom-tab{
 
@@ -2190,6 +2191,7 @@ margin: 0;
   display: block;
   right: 0;
   top: 40%;
+  z-index: 2;
 }
 
 .social-media .style-li:hover li:nth-child(1) {
