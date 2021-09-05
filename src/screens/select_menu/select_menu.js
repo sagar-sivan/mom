@@ -103,8 +103,8 @@ const SelectMenu = () => {
 
 
                                 <div class="col-12 ">
-                                    <a href="" /* onClick={(e) => handleSliderPrev(e)} */ class="new-btn-prev">((((((</a>
-                                    <a href="" /* onClick={(e) => handleSliderNext(e)} */ class="new-btn-next">))))))</a>
+                                    <a href="javascript:void(0);" /* onClick={(e) => handleSliderPrev(e)} */ class="new-btn-prev">((((((</a>
+                                    <a href="javascript:void(0);" /* onClick={(e) => handleSliderNext(e)} */ class="new-btn-next">))))))</a>
 
                                     {/* <div class="pack-slider col-10 offset-md-2  pt-5"> */}
                                     <Slider className="pack-slider col-10 offset-md-2  pt-5r" {...pack_slider_settings}>
@@ -167,7 +167,7 @@ const SelectMenu = () => {
                                         </div>
                                     </div>
                                     {/* <div class="pack-slider col-10 float-left pt-4"> */}
-                                    {/* <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} ref={slider => sliderRef1 = slider} >
+                                    <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} ref={slider => sliderRef1 = slider} >
 
                                         <div>
                                             <div class="col plan_modal-item_box">
@@ -658,7 +658,7 @@ const SelectMenu = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </Slider> */}
+                                    </Slider>
                                     {/* </div> */}
 
 
@@ -669,7 +669,7 @@ const SelectMenu = () => {
                                     </div>
                                     {/* <div class="pack-slider col-10 float-left pt-4"> */}
 
-                                    {/* <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} ref={slider => sliderRef2 = slider}>
+                                    <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} ref={slider => sliderRef2 = slider}>
                                         <div>
                                             <div class="col plan_modal-item_box">
                                                 <div class="card plan-modal-body">
@@ -1157,7 +1157,7 @@ const SelectMenu = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </Slider> */}
+                                    </Slider>
                                     {/* </div> */}
 
 
