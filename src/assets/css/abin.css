@@ -1906,7 +1906,7 @@ margin: 0;
 /*view-summary*/
 .view-summary{
   z-index: 1051;
-  display: none;
+  /* display: none; */
 }
 .chooseplan{
       z-index: 1052;
@@ -2312,6 +2312,7 @@ margin: 0;
 .footer__copyright a:hover{
   color: #000000;
 }
+
 /*media query*/
 @media (max-width: 1320px) {
 }
