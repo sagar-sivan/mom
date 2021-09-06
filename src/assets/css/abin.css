@@ -2308,6 +2308,7 @@ margin: 0;
 }
 .footer__copyright a{
   color: #29b047;
+  font-size: 18px;
 }
 .footer__copyright a:hover{
   color: #000000;
