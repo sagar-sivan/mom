@@ -2329,6 +2329,8 @@ p {
 }
 .about-five__slider .slick-next {
   margin-left: 60px;
+  -webkit-transform: scalex(-1);
+          transform: scalex(-1);
 }
 .about-five__slider .slick-list {
   overflow: visible;
