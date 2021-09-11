@@ -1815,6 +1815,7 @@ margin: 0;
   -ms-user-select: none;
   user-select: none;
   border-radius: 0;
+  outline: none;
 }
 
 .input-number-group .input-number-decrement,
