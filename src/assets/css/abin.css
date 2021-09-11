@@ -2314,6 +2314,59 @@ margin: 0;
   color: #000000;
 }
 
+
+.choose-plan-date-navigation .new-btn-prev {
+  position: relative;
+  top: 0;
+  background: url(https://sagar-sivan.github.io/mom/src/assets/images/icons/profile-arrow2.png) no-repeat center center;
+  text-indent: -9999px;
+  border: 0;
+  width: 34px;
+  -webkit-filter: brightness(0);
+  filter: brightness(0);
+  left: 0;
+  opacity: 1;
+  z-index: 99!important;
+  outline:none;
+}
+.choose-plan-date-navigation .new-btn-next {
+  position: absolute;
+  top: 0px;
+  outline:none;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDA2IDc5LjE2NDc1MywgMjAyMS8wMi8xNS0xMTo1MjoxMyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjkxMTJGMkI1RkEwODExRUI5M0EwREExQjQ3QjBGMTEwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjkxMTJGMkI2RkEwODExRUI5M0EwREExQjQ3QjBGMTEwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTExMkYyQjNGQTA4MTFFQjkzQTBEQTFCNDdCMEYxMTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTExMkYyQjRGQTA4MTFFQjkzQTBEQTFCNDdCMEYxMTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz78XNOGAAABL0lEQVR42sSWyypFYRiGv6VNBnIBRi7BJWhPZGBmZobEREgOySmSQ0gpSmSgPZGJDHZ7JjJyCUYGhi7AhOfLu2slhz1Y/+etp95aq/6n/7D+ldWsoVShE8rwYgWm1MA719Cj3lG0QNMfzy+hT30JHq3g/CZwAf3q67BmCfKTwCkMqO/CoiXKdwJHMKh+ANOWMF8F9mFU/QQmLHHyAlu5AX0JRiwgdYFVmFH3zTZsQfHvwIKOmOcN2uAQWhOOm8E7PGS1z/JvKWntZ3MzcA7t0BIw/p0LzGmwSWiGJ9iJmoH6JpyCY63NtmYlVMAzBmfqfiI2owU8Q1BR932xHC1gugOu1FdgPlrAdAveqG9og4YKmP4Dqup7MB4t4OmF29zN2BUt4OmGe3iG16IFPgQYAGKpL6kxWbV/AAAAAElFTkSuQmCC) no-repeat center center;
+  text-indent: -9999px;
+  border: 0;
+  width: 34px;
+  filter: brightness(0);
+  right: 32px;transform: scaleX(-1);
+}
+.choose-plan-date-navigation .new-btn-next {
+    position: absolute;
+    top: 0px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDA2IDc5LjE2NDc1MywgMjAyMS8wMi8xNS0xMTo1MjoxMyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjkxMTJGMkI1RkEwODExRUI5M0EwREExQjQ3QjBGMTEwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjkxMTJGMkI2RkEwODExRUI5M0EwREExQjQ3QjBGMTEwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTExMkYyQjNGQTA4MTFFQjkzQTBEQTFCNDdCMEYxMTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTExMkYyQjRGQTA4MTFFQjkzQTBEQTFCNDdCMEYxMTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz78XNOGAAABL0lEQVR42sSWyypFYRiGv6VNBnIBRi7BJWhPZGBmZobEREgOySmSQ0gpSmSgPZGJDHZ7JjJyCUYGhi7AhOfLu2slhz1Y/+etp95aq/6n/7D+ldWsoVShE8rwYgWm1MA719Cj3lG0QNMfzy+hT30JHq3g/CZwAf3q67BmCfKTwCkMqO/CoiXKdwJHMKh+ANOWMF8F9mFU/QQmLHHyAlu5AX0JRiwgdYFVmFH3zTZsQfHvwIKOmOcN2uAQWhOOm8E7PGS1z/JvKWntZ3MzcA7t0BIw/p0LzGmwSWiGJ9iJmoH6JpyCY63NtmYlVMAzBmfqfiI2owU8Q1BR932xHC1gugOu1FdgPlrAdAveqG9og4YKmP4Dqup7MB4t4OmF29zN2BUt4OmGe3iG16IFPgQYAGKpL6kxWbV/AAAAAElFTkSuQmCC) no-repeat center center;
+    text-indent: -9999px;
+    border: 0;
+    width: 34px;
+    filter: brightness(0);
+    right: 0;
+    transform: scaleX(-1);
+}
+.choose-plan-date-navigation  button.new-btn-next{
+  opacity: 1;
+  outline:none;
+}
+.choose-plan-date-navigation  button.new-btn-prev{
+  opacity: 1;
+  outline:none;
+}
+.choose-plan-data button.new-btn-next{
+  opacity: 0!important;
+}
+.choose-plan-data button.new-btn-prev{
+  opacity: 0!important;
+}
+
+
 /*media query*/
 @media (max-width: 1320px) {
 }
