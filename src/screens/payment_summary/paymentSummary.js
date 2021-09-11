@@ -121,7 +121,7 @@ const EditProfile = () => {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary btnsm btn__shadow-red py-1" data-toggle="modal" data-target=".chooseplan">Select menu</button>
+                            <button type="button" class="btn btn-primary btnsm btn__shadow-red py-1">Select menu</button>
 
                         </div>
                     </div>
