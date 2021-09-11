@@ -305,7 +305,7 @@ const SelectMenu = () => {
                                                                     <img src={item.image} />{item.name}
                                                                 </div>
                                                             </div>
-                                                            <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} >
+                                                            <Slider className="pack-slider col-10 float-left pt-4 choose-plan-data" {...pack_slider_settings} >
                                                                 {
                                                                     [...menuList, ...menuList].map((menuItem, menuIndex) => {
                                                                         return (
