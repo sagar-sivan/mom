@@ -128,6 +128,7 @@ const SelectMenu = () => {
     const { menu_component, settings } = useSelector(state => state.commonReducer);
 
 
+    console.log(":menu_component", menu_component);
     const [planName, setPlanName] = useState("")
     const [planId, setPlanId] = useState("")
     const [menuList, setMenuList] = useState([])
@@ -137,7 +138,6 @@ const SelectMenu = () => {
         if (menu_component)
             getMenuList()
     }, [menu_component])
-    console.log(":menu_component", menu_component);
     const getMenuList = async () => {
         try {
             dispatch(LoaderAction.showLoader())
@@ -284,7 +284,7 @@ const SelectMenu = () => {
                                             {/* <a href="javascript:void(0);"  id="prev_slider" className="new-btn-prev">((((((</a>
                                         <a href="javascript:void(0);"  id="next_slider" className="new-btn-next">))))))</a> */}
 
-                                            <Slider className="pack-slider col-10 offset-md-2  pt-5r" {...pack_slider_settings}>
+                                            <Slider className="pack-slider col-10 offset-md-2  pt-5r choose-plan-date-navigation" {...pack_slider_settings}>
                                                 {
                                                     [...menuList, ...menuList].map(item => {
                                                         return (<div>
