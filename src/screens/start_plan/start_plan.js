@@ -36,6 +36,7 @@ const StartPlan = () => {
     const { plan_component, calorie_plan, settings } = useSelector(state => state.commonReducer);
     const planImageLocation = settings.find(item => item.pName == "Plan Image Location")?.pValue
     const dishImageLocation = settings.find(item => item.pName == "Dish Image Location")?.pValue
+    const cuisineImageLocation = settings.find(item => item.pName == "Cuisine Image Location")?.pValue
     const vatPercentage = settings.find(item => item.pName == "vatPercentage")?.pValue
     const [activeStep, setActiveStep] = useState(0)
     const [planData, setPlanData] = useState([])
@@ -203,15 +204,20 @@ const StartPlan = () => {
     const handleSaveOrder = async () => {
         // return setActiveStep(3)
         try {
-            dispatch(LoaderAction.showLoader())
+            // dispatch(LoaderAction.showLoader())
+            const OrderDays = scheduleData.find(item => item.scheduleId == formData.schedule).numberOfDays
+            const OrderQuantity = OrderDays * formData.duration * formData.noOfMeals
             const data = {
                 "PlanIdTemp": formData.plan,
                 "CuisineIdTemp": formData.cuisine,
                 "NoOfMealsIdTemp": formData.noOfMeals,
                 "ScheduleIdTemp": formData.schedule,
                 "DurationIdTemp": formData.duration,
+                OrderDays,
+                OrderQuantity,
                 "DeliveryStartingDate": moment(formData.startDate).format("DD/MM/yyyy"),
-                "DeliveryEndingDate": "30/09/2021"
+                "DeliveryEndingDate": moment(formData.startDate).add(OrderDays, 'd').format("DD/MM/yyyy")
+                // "DeliveryEndingDate": moment(formData.startDate, "DD/MM/yyyy").add(OrderDays, 'days')
             }
             // return console.log("data", data);
             const url = `${api_url}${urlConfig.saveOrderData}`;
@@ -262,9 +268,13 @@ const StartPlan = () => {
     }
     const handleAllergyChange = (value, field) => {
         console.log(field, value);
-        selectedAllergies[field] = value;
-        setSelectedAllergies({ ...selectedAllergies })
+        if (value) {
+            selectedAllergies[field] = value;
+        } else {
+            delete selectedAllergies[field];
+        }
 
+        setSelectedAllergies({ ...selectedAllergies })
     }
     const handleCLose = () => {
         console.log("close");
@@ -304,7 +314,7 @@ const StartPlan = () => {
             dispatch(LoaderAction.showLoader())
             const data = {
                 OrderIdTemp: formData.orderId,
-                CustomerIdTemp: localStorage.getItem("customerIdTemp"),
+                CustomerIdTemp: localStorage.getItem("customerId") == 0 ? localStorage.getItem("customerIdTemp") : localStorage.getItem("customerId"),
                 PaymentStatus: "P",
                 OrderAmount: 400,
                 OrderAmountVat: vatPercentage,
@@ -312,12 +322,39 @@ const StartPlan = () => {
             }
             const url = `${api_url}${urlConfig.initiatePayment}`;
             const result = await networkRequest({ url, method: "POST", data })
+            if (result.responseCode == 0) {
+                if (type == "cod") {
+                    UpdatePaymentStatus(result)
+                } else {
+
+                }
+
+            } else {
+                dispatch(LoaderAction.hideLoader())
+            }
+        } catch (error) {
+            dispatch(LoaderAction.hideLoader())
+            console.log(error);
+        }
+    }
+    const ProcessPayment = async ({ }) => {
+        try {
+            const data = {
+                "OrderId": "50000000",
+                "amount": 445555,
+                "currencyCode": "AED",
+                "action": "SALE",
+                "emailAddress": "test@gmail.com"
+            }
+            const url = `${api_url}${urlConfig.processPayment}`;
+            const result = await networkRequest({ url, method: "POST", data })
             // if (result.responseCode == 0) {
             //     setCouponData(result)
             // } else {
             //     error.coupon = "Invalid coupon";
             //     setError({ ...error })
             // }
+            dispatch(LoaderAction.hideLoader())
         } catch (error) {
             dispatch(LoaderAction.hideLoader())
             console.log(error);
@@ -354,22 +391,22 @@ const StartPlan = () => {
             overlayClassName=" after-payment-modal"
         // contentLabel="Example Modal"
         >
-            <div class="modal1 show fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" onClick={() => handleCLose()} class="close" data-dismiss="modal" aria-label="Close">
+            <div className="modal1 show fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-xl">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <button type="button" onClick={() => handleCLose()} className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
 
-                        <div class="container-fluid" id="grad1">
-                            <div class="justify-content-center mt-0">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center p-0 mt-3 mb-2">
-                                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                        <div className="container-fluid" id="grad1">
+                            <div className="justify-content-center mt-0">
+                                <div className="col-12 col-sm-12 col-md-12 col-lg-12 text-center p-0 mt-3 mb-2">
+                                    <div className="card px-0 pt-4 pb-0 mt-3 mb-3">
 
-                                        <div class="row">
-                                            <div class="col-md-12 mx-0">
+                                        <div className="row">
+                                            <div className="col-md-12 mx-0">
                                                 <div id="step-form-modal" >
                                                     <Stepper activeStep={activeStep} hideConnectors>
                                                         <Step label="Step 1" />
@@ -382,19 +419,19 @@ const StartPlan = () => {
                                                         activeStep == 0 && <fieldset>
 
 
-                                                            <div class="form-card form-check-step">
-                                                                <h2 class="fs-title">Select your Lunch & Dinner Plan</h2>
+                                                            <div className="form-card form-check-step">
+                                                                <h2 className="fs-title">Select your Lunch & Dinner Plan</h2>
                                                                 {!isEmpty(error.plan) && <p className="validation-error">{error.plan}</p>}
                                                                 <div className="col-12">
                                                                     {
                                                                         planData.filter(item => item.isSpecialPlan == calorie_plan).map(item => {
                                                                             return (
-                                                                                <div class="col-md-4 float-left">
-                                                                                    <div class="plan-image-step">
-                                                                                        <div class="step-1choose">
-                                                                                            <div class="form-check">
-                                                                                                <input class="form-check-input" type="radio" name="exampleRadios" id={`plan_${item.planId}`} value={formData.plan} onChange={(e) => handleChange(item.planId, "plan")} />
-                                                                                                <label class="form-check-label" for={`plan_${item.planId}`}>
+                                                                                <div className="col-md-4 float-left">
+                                                                                    <div className="plan-image-step">
+                                                                                        <div className="step-1choose">
+                                                                                            <div className="form-check">
+                                                                                                <input className="form-check-input" type="radio" name="exampleRadios" id={`plan_${item.planId}`} value={formData.plan} onChange={(e) => handleChange(item.planId, "plan")} />
+                                                                                                <label className="form-check-label" for={`plan_${item.planId}`}>
                                                                                                     <h3>{item.planName}</h3>
                                                                                                 </label>
                                                                                             </div>
@@ -410,23 +447,23 @@ const StartPlan = () => {
                                                             </div>
 
 
-                                                            <input type="button" name="make_payment" onClick={() => handleNext(0)} class="next action-button" value="Next Step" id="next_button" />
+                                                            <input type="button" name="make_payment" onClick={() => handleNext(0)} className="next action-button" value="Next Step" id="next_button" />
                                                         </fieldset>
                                                     }
                                                     {
                                                         activeStep == 1 && <fieldset>
-                                                            <div class="col-md-12 py-3">
-                                                                <div class="fs-title">Select from a wide variety of Cusines</div>
+                                                            <div className="col-md-12 py-3">
+                                                                <div className="fs-title">Select from a wide variety of Cusines</div>
                                                                 {!isEmpty(error.cuisine) && <p className="validation-error">{error.cuisine}</p>}
                                                             </div>
-                                                            <div class="row mx-lg-2 justify-content-center">
+                                                            <div className="row mx-lg-2 justify-content-center">
                                                                 {
                                                                     cuisineData.map(item => {
                                                                         return (
-                                                                            <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4">
-                                                                                <div class="food__select small bg-gray check-input-popp">
-                                                                                    <figure><img src={`${dishImageLocation}${item.cuisineFileName}`} alt="Meals On Me" /></figure>
-                                                                                    <input class="form-check-input" type="radio" name="In-1" id={`cuisine_${item.cuisineId}`} value={formData.cuisine} onChange={(e) => handleChange(item.cuisineId, "cuisine")} />
+                                                                            <div className="col-12 col-sm-8 col-md-6 col-lg-4 mb-4">
+                                                                                <div className="food__select small bg-gray check-input-popp">
+                                                                                    <figure><img src={`${cuisineImageLocation}${item.cuisineFileName}`} alt="Meals On Me" /></figure>
+                                                                                    <input className="form-check-input" type="radio" name="In-1" id={`cuisine_${item.cuisineId}`} value={formData.cuisine} onChange={(e) => handleChange(item.cuisineId, "cuisine")} />
                                                                                     <label for={`cuisine_${item.cuisineId}`} >{item.cuisineName}</label>
                                                                                 </div>
                                                                             </div>
@@ -435,52 +472,52 @@ const StartPlan = () => {
                                                                 }
                                                             </div>
 
-                                                            <input type="button" name="previous" class="previous action-button-previous" value="Back" onClick={() => handlePrevious(0)} />
-                                                            <input type="button" name="make_payment" class="next action-button" value="Next Step" onClick={() => handleNext(1)} />
+                                                            <input type="button" name="previous" className="previous action-button-previous" value="Back" onClick={() => handlePrevious(0)} />
+                                                            <input type="button" name="make_payment" className="next action-button" value="Next Step" onClick={() => handleNext(1)} />
                                                         </fieldset>
                                                     }
                                                     {
                                                         activeStep == 2 && <fieldset>
-                                                            <div class="col-md-12 py-3">
-                                                                <div class="fs-title">Shedule your Plan</div>
+                                                            <div className="col-md-12 py-3">
+                                                                <div className="fs-title">Shedule your Plan</div>
                                                             </div>
-                                                            <div class="col-md-12 col-12">
-                                                                <div class="flex-box-modal">
-                                                                    <div class="col-md-5  pb-5">
-                                                                        <div class="modal-left-img">
+                                                            <div className="col-md-12 col-12">
+                                                                <div className="flex-box-modal">
+                                                                    <div className="col-md-5  pb-5">
+                                                                        <div className="modal-left-img">
                                                                             <h1>{cuisineData.find(item => item.cuisineId == formData.cuisine)?.cuisineName}</h1>
                                                                             <img src={TEST_IMAGE} />
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-7 text-left form-shedule-popup  pb-5">
-                                                                        <div class="col-md-12">
+                                                                    <div className="col-md-7 text-left form-shedule-popup  pb-5">
+                                                                        <div className="col-md-12">
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-4 col-form-label">Meal Plan Selected</label>
-                                                                                <div class="col-sm-8">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-4 col-form-label">Meal Plan Selected</label>
+                                                                                <div className="col-sm-8">
                                                                                     <h4>{planData.find(item => item.planId == formData.plan)?.planName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-4 col-form-label">Cusine Selected</label>
-                                                                                <div class="col-sm-8">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-4 col-form-label">Cusine Selected</label>
+                                                                                <div className="col-sm-8">
                                                                                     <h4>{cuisineData.find(item => item.cuisineId == formData.cuisine)?.cuisineName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-4 col-form-label">No Of Meals/Quantity</label>
-                                                                                <div class="col-sm-8">
-                                                                                    <div class="row d-flex">
-                                                                                        <div class="col-md-12">
-                                                                                            <ul class="radio-ul-modal">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-4 col-form-label">No Of Meals/Quantity</label>
+                                                                                <div className="col-sm-8">
+                                                                                    <div className="row d-flex">
+                                                                                        <div className="col-md-12">
+                                                                                            <ul className="radio-ul-modal">
                                                                                                 {
                                                                                                     noOfMealsData.map(item => {
                                                                                                         return (
                                                                                                             <li>
-                                                                                                                <input class="form-check-input" type="radio" name="gridRadios" id={`no_of_meals_${item.noOfMealsId}`} value={formData.noOfMeals} onChange={(e) => handleChange(item.noOfMealsId.toString(), "noOfMeals")} />
-                                                                                                                <label class="form-check-label" for={`no_of_meals_${item.noOfMealsId}`}>{item.noOfMeal}</label>
+                                                                                                                <input className="form-check-input" type="radio" name="gridRadios" id={`no_of_meals_${item.noOfMealsId}`} value={formData.noOfMeals} onChange={(e) => handleChange(item.noOfMealsId.toString(), "noOfMeals")} />
+                                                                                                                <label className="form-check-label" for={`no_of_meals_${item.noOfMealsId}`}>{item.noOfMeal}</label>
                                                                                                             </li>
                                                                                                         )
                                                                                                     })
@@ -492,10 +529,10 @@ const StartPlan = () => {
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-4 col-form-label">Schedule</label>
-                                                                                <div class="col-sm-8">
-                                                                                    <select class="custom-select col-md-12 " value={formData.schedule} onChange={(e) => handleChange(e.target.value, "schedule")} id="inlineFormCustomSelect">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-4 col-form-label">Schedule</label>
+                                                                                <div className="col-sm-8">
+                                                                                    <select className="custom-select col-md-12 " value={formData.schedule} onChange={(e) => handleChange(e.target.value, "schedule")} id="inlineFormCustomSelect">
                                                                                         <option selected value="">Choose schedule</option>
                                                                                         {
                                                                                             scheduleData.map(item => <option value={item.scheduleId}>{item.scheduleName}</option>)
@@ -504,10 +541,10 @@ const StartPlan = () => {
                                                                                     {!isEmpty(error.schedule) && <p className="validation-error">{error.schedule}</p>}
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-4 col-form-label">Duration</label>
-                                                                                <div class="col-sm-8">
-                                                                                    <select class="custom-select col-md-12 " value={formData.duration} onChange={(e) => handleChange(e.target.value, "duration")} id="inlineFormCustomSelect">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-4 col-form-label">Duration</label>
+                                                                                <div className="col-sm-8">
+                                                                                    <select className="custom-select col-md-12 " value={formData.duration} onChange={(e) => handleChange(e.target.value, "duration")} id="inlineFormCustomSelect">
                                                                                         <option value="" selected>Choose duration</option>
                                                                                         {
                                                                                             durationData.map(item => <option value={item.durationId}>{item.durationName}</option>)
@@ -517,11 +554,11 @@ const StartPlan = () => {
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-4 col-form-label">Start Date</label>
-                                                                                <div class="col-sm-8">
-                                                                                    {/* <h4>08 / 02 / 2021 <span class="icon-date"></span></h4> */}
-                                                                                    <DatePicker dateFormat="dd/MM/yyyy" selected={formData.startDate} onChange={(date) => handleChange(date, "startDate")} />
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-4 col-form-label">Start Date</label>
+                                                                                <div className="col-sm-8">
+                                                                                    {/* <h4>08 / 02 / 2021 <span className="icon-date"></span></h4> */}
+                                                                                    <DatePicker dateFormat="dd/MM/yyyy" selected={formData.startDate} onChange={(date) => handleChange(date, "startDate")} minDate={new Date()} />
                                                                                     {!isEmpty(error.startDate) && <p className="validation-error">{error.startDate}</p>}
                                                                                 </div>
                                                                             </div>
@@ -531,8 +568,8 @@ const StartPlan = () => {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input type="button" name="previous" class="previous action-button-previous" value="Back" onClick={() => handlePrevious(1)} />
-                                                            <input type="button" name="make_payment" class="next action-button" value="Next Step" onClick={() => handleNext(2)} />
+                                                            <input type="button" name="previous" className="previous action-button-previous" value="Back" onClick={() => handlePrevious(1)} />
+                                                            <input type="button" name="make_payment" className="next action-button" value="Next Step" onClick={() => handleNext(2)} />
 
 
 
@@ -541,59 +578,59 @@ const StartPlan = () => {
                                                     {
                                                         activeStep == 3 && <fieldset>
 
-                                                            <div class="col-md-12 py-3">
-                                                                <div class="fs-title">Do you have allergies?</div>
+                                                            <div className="col-md-12 py-3">
+                                                                <div className="fs-title">Do you have allergies?</div>
                                                             </div>
-                                                            <div class="col-md-12 col-12">
-                                                                <div class="flex-box-modal">
-                                                                    <div class="col-md-6  pb-5">
-                                                                        <div class="modal-left-img">
+                                                            <div className="col-md-12 col-12">
+                                                                <div className="flex-box-modal">
+                                                                    <div className="col-md-6  pb-5">
+                                                                        <div className="modal-left-img">
                                                                             <h1>{cuisineData.find(item => item.cuisineId == formData.cuisine)?.cuisineName}</h1>
                                                                             <img src={TEST_IMAGE} />
                                                                         </div>
-                                                                        <div class="col-md-12 text-left form-shedule-popup">
+                                                                        <div className="col-md-12 text-left form-shedule-popup">
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Meal Plan Selected</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Meal Plan Selected</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{planData.find(item => item.planId == formData.plan)?.planName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Cuisine Selected</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Cuisine Selected</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{cuisineData.find(item => item.cuisineId == formData.cuisine)?.cuisineName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">No Of Meals/Quantity</label>
-                                                                                <div class="col-sm-6">
-                                                                                    <div class="row d-flex">
-                                                                                        <div class="col-md-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">No Of Meals/Quantity</label>
+                                                                                <div className="col-sm-6">
+                                                                                    <div className="row d-flex">
+                                                                                        <div className="col-md-6">
                                                                                             <h4>{noOfMealsData.find(item => item.noOfMealsId == formData.noOfMeals)?.noOfMeal}</h4>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Schedule</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Schedule</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{scheduleData.find(item => item.scheduleId == formData.schedule)?.scheduleName}</h4>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Duration</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Duration</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{durationData.find(item => item.durationId == formData.duration)?.durationName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Start Date</label>
-                                                                                <div class="col-sm-6">
-                                                                                    <h4>{moment(formData.startDate).format('MM/DD/YYYY')} <span class="icon-date"></span></h4>
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Start Date</label>
+                                                                                <div className="col-sm-6">
+                                                                                    <h4>{moment(formData.startDate).format('MM/DD/YYYY')} <span className="icon-date"></span></h4>
                                                                                 </div>
                                                                             </div>
 
@@ -601,35 +638,29 @@ const StartPlan = () => {
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-6 modal-allergies-tab text-left pb-5">
-                                                                        <div class="col-12">
+                                                                    <div className="col-md-6 modal-allergies-tab text-left pb-5">
+                                                                        <div className="col-12">
 
-                                                                            <div class="allergies__tab-menu">
-                                                                                <nav class="nav tab__menu__1" id="pills-tab" role="tablist">
-                                                                                    <a class="nav-link active" id="nav-upcoming-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
+                                                                            <div className="allergies__tab-menu">
+                                                                                <nav className="nav tab__menu__1" id="pills-tab" role="tablist">
+                                                                                    <a className="nav-link active" id="nav-upcoming-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
                                                                                         Allergies
                                                                                     </a>
                                                                                 </nav>
                                                                             </div>
 
-                                                                            <div class="tab-content tab__content__1 text-left">
-                                                                                <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                                                                            <div className="tab-content tab__content__1 text-left">
+                                                                                <div className="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
 
                                                                                     {
                                                                                         allergiesList.map(item => {
-                                                                                            return (<label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.milk} onChange={(e) => handleAllergyChange(e.target.checked, item.allergyId)} /> {item.allergyName} </label>)
+                                                                                            return (<label className="select__style__1"> <input type="checkbox" className="select__input" checked={selectedAllergies.milk} onChange={(e) => handleAllergyChange(e.target.checked, item.allergyId)} /> {item.allergyName} </label>)
                                                                                         })
                                                                                     }
-                                                                                    {/* <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.milk} onChange={(e) => handleAllergyChange(e.target.checked, "milk")} /> Milk </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.milk_products} onChange={(e) => handleAllergyChange(e.target.checked, "milk_products")} /> Milk products </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.nuts} onChange={(e) => handleAllergyChange(e.target.checked, "nuts")} /> Nuts </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.fish} onChange={(e) => handleAllergyChange(e.target.checked, "fish")} /> Fish & Shellfish </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.wheat} onChange={(e) => handleAllergyChange(e.target.checked, "wheat")} /> Wheat & gluten </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked={selectedAllergies.soya} onChange={(e) => handleAllergyChange(e.target.checked, "soya")} /> Soya </label> */}
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="textarea__style__1 mt-4">
+                                                                            <div className="textarea__style__1 mt-4">
                                                                                 <textarea placeholder="Comments & Specific Allergies" value={formData.comments} onChange={(e) => handleChange(e.target.value, "comments")} />
                                                                             </div>
 
@@ -639,8 +670,8 @@ const StartPlan = () => {
 
                                                                 </div>
                                                             </div>
-                                                            <input type="button" name="previous" class="previous action-button-previous" value="Back" onClick={() => handlePrevious(2)} />
-                                                            <input type="button" name="make_payment" class="next action-button" value="Next Step" onClick={() => handleNext(3)} />
+                                                            <input type="button" name="previous" className="previous action-button-previous" value="Back" onClick={() => handlePrevious(2)} />
+                                                            <input type="button" name="make_payment" className="next action-button" value="Next Step" onClick={() => handleNext(3)} />
 
 
 
@@ -652,150 +683,153 @@ const StartPlan = () => {
                                                     {
                                                         activeStep == 4 && <fieldset>
 
-                                                            <div class="col-md-12 py-3">
-                                                                <div class="fs-title">Pricing</div>
+                                                            <div className="col-md-12 py-3">
+                                                                <div className="fs-title">Pricing</div>
                                                             </div>
-                                                            <div class="col-md-12 col-12">
-                                                                <div class="flex-box-modal">
-                                                                    <div class="col-md-6  pb-5">
-                                                                        <div class="modal-left-img">
+                                                            <div className="col-md-12 col-12">
+                                                                <div className="flex-box-modal">
+                                                                    <div className="col-md-6  pb-5">
+                                                                        <div className="modal-left-img">
                                                                             <h1>{cuisineData.find(item => item.cuisineId == formData.cuisine)?.cuisineName}</h1>
                                                                             <img src={TEST_IMAGE} />
                                                                         </div>
-                                                                        <div class="col-md-12 text-left form-shedule-popup">
+                                                                        <div className="col-md-12 text-left form-shedule-popup">
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Meal Plan Selected</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Meal Plan Selected</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{planData.find(item => item.planId == formData.plan)?.planName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Cuisine Selected</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Cuisine Selected</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{cuisineData.find(item => item.cuisineId == formData.cuisine)?.cuisineName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">No Of Meals/Quantity</label>
-                                                                                <div class="col-sm-6">
-                                                                                    <div class="row d-flex">
-                                                                                        <div class="col-md-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">No Of Meals/Quantity</label>
+                                                                                <div className="col-sm-6">
+                                                                                    <div className="row d-flex">
+                                                                                        <div className="col-md-6">
                                                                                             <h4>{noOfMealsData.find(item => item.noOfMealsId == formData.noOfMeals)?.noOfMeal}</h4>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Schedule</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Schedule</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{scheduleData.find(item => item.scheduleId == formData.schedule)?.scheduleName}</h4>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Duration</label>
-                                                                                <div class="col-sm-6">
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Duration</label>
+                                                                                <div className="col-sm-6">
                                                                                     <h4>{durationData.find(item => item.durationId == formData.duration)?.durationName}</h4>
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Start Date</label>
-                                                                                <div class="col-sm-6">
-                                                                                    <h4>{moment(formData.startDate).format('MM/DD/YYYY')} <span class="icon-date"></span></h4>
+                                                                            <div className="row-item">
+                                                                                <label className="col-sm-6 col-form-label">Start Date</label>
+                                                                                <div className="col-sm-6">
+                                                                                    <h4>{moment(formData.startDate).format('MM/DD/YYYY')} <span className="icon-date"></span></h4>
                                                                                 </div>
                                                                             </div>
 
 
                                                                         </div>
-                                                                        <div class="col-12">
-                                                                            <div class="allergies__tab-menu">
-                                                                                <nav class="nav tab__menu__1" id="pills-tab" role="tablist">
-                                                                                    <a class="nav-link active" id="nav-upcoming-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
+                                                                        <div className="col-12">
+                                                                            <div className="allergies__tab-menu">
+                                                                                <nav className="nav tab__menu__1" id="pills-tab" role="tablist">
+                                                                                    <a className="nav-link active" id="nav-upcoming-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
                                                                                         Allergies
                                                                                     </a>
                                                                                 </nav>
                                                                             </div>
-                                                                            <div class="tab-content tab__content__1 text-left">
-                                                                                <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                                                                            <div className="tab-content tab__content__1 text-left">
+                                                                                <div className="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
                                                                                     {
-                                                                                        Object.keys(selectedAllergies).map(item => <label class="select__style__1"> <input type="checkbox" class="select__input" checked /> {item} </label>)
+                                                                                        Object.keys(selectedAllergies).map(item => <label className="select__style__1"> <input type="checkbox" className="select__input" checked /> {allergiesList.find(item1 => item1.allergyId == item)?.allergyName} </label>)
                                                                                     }
 
-                                                                                    {/* <label class="select__style__1"> <input type="checkbox" class="select__input" checked /> Milk </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked /> Milk products </label>
-                                                                                    <label class="select__style__1"> <input type="checkbox" class="select__input" checked /> Nuts </label> */}
+                                                                                    {/* <label className="select__style__1"> <input type="checkbox" className="select__input" checked /> Milk </label>
+                                                                                    <label className="select__style__1"> <input type="checkbox" className="select__input" checked /> Milk products </label>
+                                                                                    <label className="select__style__1"> <input type="checkbox" className="select__input" checked /> Nuts </label> */}
 
                                                                                 </div>
                                                                             </div>
 
                                                                         </div>
-                                                                        <div class="col-md-12 text-left form-shedule-popup">
+                                                                        {
+                                                                            !isEmpty(formData.comments) && <div className="col-md-12 text-left form-shedule-popup">
 
-                                                                            <div class="row-item">
-                                                                                <label class="col-sm-6 col-form-label">Comment</label>
-                                                                                <div class="col-sm-6">
-                                                                                    <h4>{formData.comments}</h4>
+                                                                                <div className="row-item">
+                                                                                    <label className="col-sm-6 col-form-label">Comment</label>
+                                                                                    <div className="col-sm-6">
+                                                                                        <h4>{formData.comments}</h4>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
+                                                                        }
+
 
 
 
                                                                     </div>
                                                                     {console.log("loginData", loginData)}
-                                                                    <div class="col-md-6 modal-allergies-tab text-left pb-5">
+                                                                    <div className="col-md-6 modal-allergies-tab text-left pb-5">
                                                                         {
                                                                             isEmpty(loginData) ? <>
                                                                                 <LoginRegister />
-                                                                                <div class="col-md-12 py-3 text-center">
+                                                                                <div className="col-md-12 py-3 text-center">
 
-                                                                                    <div class="alert alert alert-danger" role="alert">
+                                                                                    <div className="alert alert alert-danger" role="alert">
                                                                                         Please login / Register to get the price
                                                                                     </div>
 
                                                                                 </div>
                                                                             </> :
-                                                                                <div class="col-md-12 d-block py-4">
-                                                                                    <div class="col-md-6 float-left">
+                                                                                <div className="col-md-12 d-block py-4">
+                                                                                    <div className="col-md-6 float-left">
                                                                                         <h4>Cost in AED</h4>
 
-                                                                                        <button type="button" class="btn btn-primary btn__shadow-red" data-toggle="modal" data-target=".view-summary">Pay</button>
+                                                                                        <button type="button" className="btn btn-primary btn__shadow-red" onClick={() => initiatePayment("online")} >Pay</button>
                                                                                     </div>
 
-                                                                                    <div class="col-md-6 float-left">
+                                                                                    <div className="col-md-6 float-left">
                                                                                         <h4>1200 AED</h4>
-                                                                                        <button type="submit" class="btn btn-primary">Cash On Delivery</button>
+                                                                                        <button type="submit" className="btn btn-primary" onClick={() => initiatePayment("cod")}>Cash On Delivery</button>
                                                                                     </div>
                                                                                 </div>
                                                                         }
 
 
-                                                                        <div class="row pt-5">
-                                                                            <div class="coupon-code m-3" style={{ justifyContent: "space-around" }}>
-                                                                                <div class="form-group">
-                                                                                    <input type="text" class="form-control" placeholder="Coupon code" value={formData.coupon} onChange={(e) => handleChange(e.target.value, "coupon")} />
+                                                                        <div className="row pt-5">
+                                                                            <div className="coupon-code m-3" style={{ justifyContent: "space-around" }}>
+                                                                                <div className="form-group">
+                                                                                    <input type="text" className="form-control" placeholder="Coupon code" value={formData.coupon} onChange={(e) => handleChange(e.target.value, "coupon")} />
                                                                                     {!isEmpty(error.coupon) && <p className="validation-error">{error.coupon}</p>}
                                                                                 </div>
-                                                                                <div class="form-group">
-                                                                                    <a class="submit-coupon" href="#" onClick={(e) => handleApplyCoupon(e)}>Add</a>
+                                                                                <div className="form-group">
+                                                                                    <a className="submit-coupon" href="#" onClick={(e) => handleApplyCoupon(e)}>Add</a>
                                                                                 </div>
-                                                                                {/* <div class="col-2 color-bg1">
-                                                                                    <i class="bi bi-gift"></i>
+                                                                                {/* <div className="col-2 color-bg1">
+                                                                                    <i className="bi bi-gift"></i>
                                                                                 </div>
-                                                                                <div class="col-10 color-bg2">
-                                                                                    <div class="head-coupon">
-                                                                                        <span class="logo-c"><img src="../images/logo/logo_color.png" /></span>
+                                                                                <div className="col-10 color-bg2">
+                                                                                    <div className="head-coupon">
+                                                                                        <span className="logo-c"><img src="../images/logo/logo_color.png" /></span>
                                                                                         <h3>Thank You for Being Our Customer</h3>
                                                                                     </div>
-                                                                                    <div class="body-coupon">
+                                                                                    <div className="body-coupon">
 
                                                                                         <h2><b>GET 20% OFF</b></h2>
 
-                                                                                        <p>Use Promo Code: <span class="promo">MOM00821</span></p>
-                                                                                        <a class="submit-coupon" href="#">Add</a>
+                                                                                        <p>Use Promo Code: <span className="promo">MOM00821</span></p>
+                                                                                        <a className="submit-coupon" href="#">Add</a>
                                                                                     </div>
                                                                                 </div> */}
 
@@ -808,7 +842,7 @@ const StartPlan = () => {
 
                                                                 </div>
                                                             </div>
-                                                            <input type="button" name="previous" class="previous action-button-previous" value="Back" onClick={() => handlePrevious(3)} />
+                                                            <input type="button" name="previous" className="previous action-button-previous" value="Back" onClick={() => handlePrevious(3)} />
                                                         </fieldset>
                                                     }
 

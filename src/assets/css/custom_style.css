@@ -64,6 +64,8 @@
     inset: 0 !important;
     border: none !important;
     background: transparent !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
     /* overflow: auto; */
     /* border-radius: 4px; */
     /* outline: none; */
@@ -91,4 +93,16 @@
 
 body.ReactModal__Body--open {
     overflow: hidden;
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open.add__address_modal {
+    z-index: 101;
+}
+
+button.new-btn-prev {
+    z-index: 1;
+}
+
+.footer__form form .btn__footer-form {
+    border: none;
 }

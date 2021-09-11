@@ -10,6 +10,8 @@ import ProfileTodayDishes from './profile_today_dishes'
 import ProfileHealthStatus from './profile_health_status'
 import ProfileAction from '../../action/profile_action'
 import LoaderAction from '../../action/loader_action'
+import AddAddress from '../add_address/addAddress'
+import EditProfile from '../edit_profile/editProfile'
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -18,6 +20,7 @@ const Profile = () => {
         if (customerId) {
             dispatch(LoaderAction.showLoader())
             dispatch(ProfileAction.getAllProfileData(customerId))
+            dispatch(ProfileAction.getCustomerAddress(customerId))
         }
     }, [])
 
@@ -30,8 +33,10 @@ const Profile = () => {
                 <MonthlyPlan />
                 <ProfilePackages />
                 {/* <ProfileTodayDishes /> */}
-                <ProfileHealthStatus />
+                {/* <ProfileHealthStatus /> */}
             </div>
+            <AddAddress />
+            <EditProfile />
             <Footer />
         </>
     )

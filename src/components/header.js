@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import { isEmpty } from "lodash"
 
 import { logo_color } from "./../assets/images"
@@ -8,7 +8,7 @@ import Authentication from './../screens/authentication/authenticationScreen'
 import CommonAction from '../action/common_action'
 import UserAction from '../action/user_action'
 
-const Header = () => {
+const Header = (props) => {
     const dispatch = useDispatch()
     const { loginData } = useSelector(state => state.userReducer);
     useEffect(() => {
@@ -44,6 +44,8 @@ const Header = () => {
         dispatch(UserAction.setUserData({}))
         localStorage.removeItem("customerId")
         localStorage.removeItem("customerIdTemp")
+        localStorage.removeItem("email")
+        props.history.replace("/")
     }
 
     return (
@@ -65,10 +67,17 @@ const Header = () => {
                                     <li><a href="javascript:void(0);">Our Story</a></li>
                                     <li><Link to="/how-it-works">How it Works</Link></li>
                                     <li><Link to="/contact">Contact Us</Link></li>
+                                    {
+                                        !isEmpty(loginData) && <li><Link to="/profile">Profile</Link></li>
+                                    }
+
                                 </ul>
                             </nav>
                             {
-                                isEmpty(loginData) ? <a href="" class="btn btn__login " onClick={(e) => handleLogin(e)} /*  data-toggle="modal" data-target=".login-form" */><i class="far fa-user"></i>Login</a> : <a href="" class="btn btn__login " onClick={(e) => handleLogout(e)} /*  data-toggle="modal" data-target=".login-form" */><i class="far fa-user"></i>Logout</a>
+                                isEmpty(loginData) ? <a href="" className="btn btn__login " onClick={(e) => handleLogin(e)} ><i className="far fa-user"></i>Login</a> : <>
+                                    {/* <Link to="/profile" className="btn btn__login ">Profile</Link> */}
+                                    <a href="" className="btn btn__login " onClick={(e) => handleLogout(e)} ><i className="far fa-user"></i>Logout</a>
+                                </>
                             }
 
 
@@ -89,4 +98,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default withRouter(Header)

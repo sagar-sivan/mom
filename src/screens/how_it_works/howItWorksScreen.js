@@ -10,11 +10,11 @@ const HowItWorks = () => {
     return (
         <>
             <Header />
-            <div class="main__content about">
-                <div class="banner__holder" data-aos="fade-up">
-                    <div class="banner__inner">
+            <div className="main__content about">
+                <div className="banner__holder" data-aos="fade-up">
+                    <div className="banner__inner">
                         <h2>How it Works</h2>
-                        <img src={howit_banner} class="img-fluid" alt="Meals On Me" />
+                        <img src={howit_banner} className="img-fluid" alt="Meals On Me" />
                     </div>
                 </div>
                 <KnowMore />

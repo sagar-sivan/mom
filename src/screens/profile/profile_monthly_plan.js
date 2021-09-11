@@ -10,36 +10,68 @@ const MonthlyPlan = () => {
             <div className="container">
                 {
                     userData.customerPlanList.map(item => {
-                        return (<div className="month-plan">
-                            <div className="row align-items-center">
-                                <div className="col-12 col-lg-3 month-plan__name">
-                                    <h4>{item.planDuration}</h4>
-                                    <h5>{item.planName}</h5>
-                                </div>
+                        return (
+                            <div className="month-plan">
+                                <div className="row">
+                                    <div className="col-12 col-sm-7 col-md-6 col-lg-3 month-plan__name">
+                                        <h4>{item.planDuration}</h4>
+                                        <h5>{item.planName}</h5>
+                                        <p>order No: {item.orderId}</p>
+                                    </div>
 
-                                <div className="col-lg month-plan__plan line-left">
-                                    <p>
-                                        {item.cusineName}
-                                        <span>Quantity : {item.quantity}</span>
-                                    </p>
-                                    <a href="javascript:void(0);" className="btn__add-plan">Add Plan</a>
-                                </div>
+                                    <div className="col col-lg month-plan__plan line-left">
+                                        <p>
+                                            {item.cusineName}
+                                            <span>Quantity :  {item.quantity}</span>
+                                        </p>
+                                    </div>
 
-                                <div className="col-12 col-lg-5 month-plan__day line-left">
-                                    <p>
-                                        <strong>25</strong>
-                                        <span>
-                                            Days left
-                                            <a href="javascript:void(0);" className="btn__add-plan">Add more Days</a>
-                                        </span>
-                                    </p>
-                                    <ul>
-                                        <li><span className="icon-date">Start date</span> {moment(item.startDate, 'DD/MM/YYYY').format('DD MMMM YYYY')}</li>
-                                        <li><span className="icon-date">Expiry date</span> {moment(item.expiryDate, 'DD/MM/YYYY').format('DD MMMM YYYY')}</li>
-                                    </ul>
+                                    <div className="col-12  col-md-12 col-lg-5 month-plan__day line-left">
+                                        <p>
+                                            <strong>{item.remainingDays}</strong>
+                                            <span>
+                                                Days left
+                                            </span>
+                                        </p>
+                                        <ul>
+                                            <li><span className="icon-date">Start date</span> {moment(item.startDate, 'DD/MM/YYYY').format('DD MMMM YYYY')}</li>
+                                            <li><span className="icon-date">Expiry date</span> {moment(item.expiryDate, 'DD/MM/YYYY').format('DD MMMM YYYY')}</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>)
+                            // <div className="month-plan">
+                            //     <div className="row align-items-center">
+                            //         <div className="col-12 col-lg-3 month-plan__name">
+                            //             <h4>{item.planDuration}</h4>
+                            //             <h5>{item.planName}</h5>
+                            //         </div>
+
+                            //         <div className="col-lg month-plan__plan line-left">
+                            //             <p>
+                            //                 {item.cusineName}
+                            //                 <span>Quantity : {item.quantity}</span>
+                            //             </p>
+                            //             <a href="javascript:void(0);" className="btn__add-plan">Add Plan</a>
+                            //         </div>
+
+                            //         <div className="col-12 col-lg-5 month-plan__day line-left">
+                            //             <p>
+                            //                 <strong>25</strong>
+                            //                 <span>
+                            //                     Days left
+                            //                     <a href="javascript:void(0);" className="btn__add-plan">Add more Days</a>
+                            //                 </span>
+                            //             </p>
+                            //             <ul>
+                            //                 <li><span className="icon-date">Start date</span> {moment(item.startDate, 'DD/MM/YYYY').format('DD MMMM YYYY')}</li>
+                            //                 <li><span className="icon-date">Expiry date</span> {moment(item.expiryDate, 'DD/MM/YYYY').format('DD MMMM YYYY')}</li>
+                            //             </ul>
+                            //         </div>
+                            //     </div>
+                            // </div>
+
+                        )
                     })
                 }
                 {/* <div className="month-plan">

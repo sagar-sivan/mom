@@ -1,4 +1,4 @@
-import { LOGIN_COMPONENT, PLAN_COMPONENT, SET_CALORIE_PLAN, MENU_COMPONENT, GET_SETTINGS } from "./../constant/constants"
+import { LOGIN_COMPONENT, PLAN_COMPONENT, SET_CALORIE_PLAN, MENU_COMPONENT, GET_SETTINGS, COMMON_ALERT, PAYMENT_SUMMARY } from "./../constant/constants"
 import { networkRequest } from "../http/api"
 import { api_url, urlConfig } from "../http/apiConfig"
 
@@ -30,6 +30,20 @@ const setCaloriePlan = (plan) => {
         })
     }
 }
+const openCommonAlert = (data) => {
+    return dispatch => {
+        dispatch({
+            type: COMMON_ALERT, payload: data
+        })
+    }
+}
+const paymentSummaryModal = (data) => {
+    return dispatch => {
+        dispatch({
+            type: PAYMENT_SUMMARY, payload: data
+        })
+    }
+}
 const getSettings = () => {
     return async dispatch => {
         try {
@@ -47,5 +61,5 @@ const getSettings = () => {
 }
 
 export default {
-    handleLoginComponent, handlePlanComponent, setCaloriePlan, handleMenuComponent, getSettings
+    handleLoginComponent, handlePlanComponent, setCaloriePlan, handleMenuComponent, getSettings, openCommonAlert
 }

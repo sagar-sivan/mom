@@ -9,6 +9,8 @@ import WeeklyMenu from "../screens/weekly_menu/weeklyMenuScreen"
 import ContactScreen from "../screens/contact/contactScreen"
 import HowItWorks from "../screens/how_it_works/howItWorksScreen"
 import OurPlanScreen from "../screens/our_plan/ourPlanScreen"
+import PageNotFound from "../screens/page_not_found/page_notFound"
+import AboutUs from "../screens/about_us/aboutUs"
 import Loader from "../components/loader"
 import PrivateRoute from "./privateRoute"
 import UserAction from "../action/user_action"
@@ -22,6 +24,8 @@ import "./../assets/css/main.css"
 import "./../assets/css/abin.css"
 import "./../assets/css/laxmi.css"
 import "./../assets/css/custom_style.css"
+import FaqScreen from "../screens/faq/faq"
+import TermsAndCondition from "../screens/terms_and_condition/termsAndCondition"
 
 const Routes = () => {
   const dispatch = useDispatch()
@@ -50,6 +54,10 @@ const Routes = () => {
         <Route exact path="/contact" component={ContactScreen} />
         <Route exact path="/how-it-works" component={HowItWorks} />
         <Route exact path="/our-plan" component={OurPlanScreen} />
+        <Route exact path="/about" component={AboutUs} />
+        <Route exact path="/faq" component={FaqScreen} />
+        <Route exact path="/terms-and-condition" component={TermsAndCondition} />
+        <Route component={PageNotFound} />
 
       </Switch>
     </Router>

@@ -4,19 +4,19 @@ import { absolute_choose1, absolute_choose2, absolute_choose3, chooseplan_alert 
 
 const StartTodayPlan = () => {
     return (
-        <div class="chooseplan-alert">
+        <div className="chooseplan-alert">
 
-            <div class="container">
+            <div className="container">
 
-                <div class="skew-bg__grey__top skew-bg__grey__top-red" data-aos="fade-up">
-                    <div class="row chooseplan-alert-inner">
-                        <span class="image-effect1" data-aos="fade-up-right"><img src={absolute_choose1} /></span>
-                        <span class="image-effect2" data-aos="fade-up-right"><img src={absolute_choose2} /></span>
-                        <span class="image-effect3" data-aos="fade-up-right"><img src={absolute_choose3} /></span>
-                        <div class="col-md-12 col-12 classimage-absolute">
+                <div className="skew-bg__grey__top skew-bg__grey__top-red" data-aos="fade-up">
+                    <div className="row chooseplan-alert-inner">
+                        <span className="image-effect1" data-aos="fade-up-right"><img src={absolute_choose1} /></span>
+                        <span className="image-effect2" data-aos="fade-up-right"><img src={absolute_choose2} /></span>
+                        <span className="image-effect3" data-aos="fade-up-right"><img src={absolute_choose3} /></span>
+                        <div className="col-md-12 col-12 classimage-absolute">
 
-                            <div class="col-md-6 float-left">
-                                <div class="heading-choosplan-alert">
+                            <div className="col-md-6 float-left">
+                                <div className="heading-choosplan-alert">
                                     <h1 data-aos="fade-down-right">Start today Choose Your  Plan</h1>
                                     <p data-aos="fade-down-right">
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
@@ -25,8 +25,8 @@ const StartTodayPlan = () => {
                                     <a data-aos="fade-down-right" href="#">Start Now</a>
                                 </div>
                             </div>
-                            <div class="col-md-6 float-left">
-                                <div class="chooseplan-vector">
+                            <div className="col-md-6 float-left">
+                                <div className="chooseplan-vector">
                                     <img data-aos="fade-up-right" src={chooseplan_alert} />
                                 </div>
 

@@ -20,6 +20,14 @@ const urlConfig = {
     initiatePayment: "MealsData/InitiatePayment",
     getLocation: "MealsData/GetAllactiveLocation",
     updatePaymentStatus: "MealsData/UpdatePaymentStatus",
+    getWeeklyPlanByCustomerPlanAndCuisineId: "MealsData/GetWeeklyPlanByCustomerPlanandCuisineId",
+    createLeed: "MealsData/CreateLeed",
+    getCustomerAddress: "MealsData/GetCustomerAddress",
+    processPayment: "Payment/ProcessPayment",
+    createCustomerAddress: "MealsData/CreateCustomerAddress",
+    updateProfile: "MealsData/UpdateProfile",
+    sendEmail: "MealsData/SendEmail",
+    updateCustomerMenu: "MealsData/UpdateCustomerMenu",
 }
 
 export {

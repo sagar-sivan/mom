@@ -1,8 +1,10 @@
-import { GET_ALL_PROFILE_DATA, GET_AUTH_TOKEN } from "./../constant/constants"
+import { GET_ALL_PROFILE_DATA, GET_AUTH_TOKEN, EDIT_PROFILE, SET_CUSTOMER_ADDRESS } from "./../constant/constants"
 
 const initialState = {
     userData: {},
-    authData: {}
+    authData: {},
+    editProfileModal: false,
+    customerAddress: []
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -16,6 +18,16 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 authData: action.payload
+            };
+        case EDIT_PROFILE:
+            return {
+                ...state,
+                editProfileModal: action.payload
+            };
+        case SET_CUSTOMER_ADDRESS:
+            return {
+                ...state,
+                customerAddress: action.payload
             };
         default:
             return { ...state };

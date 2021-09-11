@@ -64,7 +64,26 @@ import tree2 from "./how-it-works/tree2.png"
 import lady_nots from "./how-it-works/lady-nots.png"
 import motor_cyle from "./how-it-works/motor-cyle.png"
 import our_plan_header_banner from "./placeholder/our-plan-header-banner.jpg"
+import profile_Icon_1 from "./icons/profile-1.png"
+import profile_2 from "./icons/profile-2.png"
+import profile_3 from "./icons/profile-3.png"
+import profile_4 from "./icons/profile-4.png"
+import men_404 from "./error-page/men-404.png"
+import motor from "./error-page/motor.png"
+import spark_1 from "./error-page/spark-1.png"
+import error_404 from "./error-page/404.jpg"
+import about_banner from "./banner/about_banner.jpg"
+import about_1 from "./placeholder/about-1.png"
+import about_2 from "./placeholder/about-2.png"
+import chef_1 from "./placeholder/chef-1.png"
+import chef_2 from "./placeholder/chef-2.png"
+import chef_3 from "./placeholder/chef-3.png"
+import kitchen_1 from "./placeholder/kitchen-1.png"
+import kitchen_2 from "./placeholder/kitchen-2.png"
+import faq_banner from "./faq/faq-banner.jpg"
+import faqimg_1 from "./faq/faqimg-1.png"
+import t_and_c from "./faq/T&C.jpg"
 
 export {
-    logo_color, banner_1, banner_bg_1, story_1, story_2, story_3, story_4, story_1_placeholder, story_2_placeholder, story_3_placeholder, plan_1, plan_2, plan_3, cusines_1, cusines_2, cusines_3, cusines_4, cusines_5, cusines_6, work_1, work_2, work_3, work_4, count_1, count_2, count_3, testimonial_img_1, testimonial_1, testimonial_2, profile_1, profile_img_2, profile_pack_1, profile_pack_2, profile_pack_3, weekly, weekly_item1, weekly_item2, weekly_item3, weekly_item4, weekly_item5, weekly_item6, weekly_item7, brakefast, AMsnack, lunch, dinner, absolute_choose1, absolute_choose2, absolute_choose3, chooseplan_alert, contact_banner, ab_red_box_absolute3, ab_red_box_absolute4, ab_red_box_absolute2, ab_red_box_absolute1, howit_banner, ab_1, ab_2, ab_3, ab_4, Ellipse_b, tree1, tree2, lady_nots, motor_cyle, our_plan_header_banner
+    logo_color, banner_1, banner_bg_1, story_1, story_2, story_3, story_4, story_1_placeholder, story_2_placeholder, story_3_placeholder, plan_1, plan_2, plan_3, cusines_1, cusines_2, cusines_3, cusines_4, cusines_5, cusines_6, work_1, work_2, work_3, work_4, count_1, count_2, count_3, testimonial_img_1, testimonial_1, testimonial_2, profile_1, profile_img_2, profile_pack_1, profile_pack_2, profile_pack_3, weekly, weekly_item1, weekly_item2, weekly_item3, weekly_item4, weekly_item5, weekly_item6, weekly_item7, brakefast, AMsnack, lunch, dinner, absolute_choose1, absolute_choose2, absolute_choose3, chooseplan_alert, contact_banner, ab_red_box_absolute3, ab_red_box_absolute4, ab_red_box_absolute2, ab_red_box_absolute1, howit_banner, ab_1, ab_2, ab_3, ab_4, Ellipse_b, tree1, tree2, lady_nots, motor_cyle, our_plan_header_banner, profile_2, men_404, motor, spark_1, error_404, about_banner, about_1, about_2, chef_1, chef_2, chef_3, kitchen_1, kitchen_2, faq_banner, faqimg_1, t_and_c, profile_Icon_1, profile_3, profile_4
 }

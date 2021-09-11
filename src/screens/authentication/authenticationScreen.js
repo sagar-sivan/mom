@@ -38,16 +38,16 @@ const LoginComponent = () => {
         // contentLabel="Example Modal"
         >
 
-            <div class="modal1 show fade" >
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" onClick={() => handleLoginCLose()}>
+            <div className="modal1 show fade" >
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <button type="button" className="close" onClick={() => handleLoginCLose()}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body login-form-content">
-                            <div class="col-12 modal-allergies-tab text-left pb-5">
+                        <div className="modal-body login-form-content">
+                            <div className="col-12 modal-allergies-tab text-left pb-5">
                                 <LoginRegister />
                             </div>
                         </div>

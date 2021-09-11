@@ -11,6 +11,8 @@ import HomeCaloriesPlan from './home_calories_plan'
 import HomeTestimonial from './home_testimonial'
 import StartPlan from '../../screens/start_plan/start_plan'
 import SelectMenu from './../select_menu/select_menu'
+import AddAddress from '../add_address/addAddress'
+
 
 const HomeScreen = () => {
     return (
@@ -28,6 +30,7 @@ const HomeScreen = () => {
             <StartPlan />
             <SelectMenu />
             <Footer />
+            <AddAddress />
         </>
     )
 }

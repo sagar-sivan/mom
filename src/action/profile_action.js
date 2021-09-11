@@ -1,4 +1,4 @@
-import { GET_ALL_PROFILE_DATA, GET_AUTH_TOKEN, LOADER } from "./../constant/constants"
+import { GET_ALL_PROFILE_DATA, GET_AUTH_TOKEN, LOADER, EDIT_PROFILE, SET_CUSTOMER_ADDRESS } from "./../constant/constants"
 import { networkRequest } from "../http/api"
 import { api_url, urlConfig } from "../http/apiConfig"
 
@@ -45,7 +45,37 @@ const getAuthToken = () => {
         }
     }
 }
+const getCustomerAddress = (CustomerId, hideLoader) => {
+    return async dispatch => {
+        try {
+            const data = {
+                CustomerId
+            }
+            const url = `${api_url}${urlConfig.getCustomerAddress}`;
+            const result = await networkRequest({ url, method: "POST", data })
+            // if (result.user) {
+            dispatch({
+                type: SET_CUSTOMER_ADDRESS, payload: result
+            })
+            if (hideLoader) {
+                dispatch({
+                    type: LOADER, payload: false
+                })
+            }
+            // }
+        } catch (error) {
+            console.warn("error", error);
+        }
+    }
+}
+const openEditProfile = (data) => {
+    return dispatch => {
+        dispatch({
+            type: EDIT_PROFILE, payload: data
+        })
+    }
+}
 
 export default {
-    getAllProfileData, getAuthToken
+    getAllProfileData, getAuthToken, openEditProfile, getCustomerAddress
 }

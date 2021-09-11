@@ -30,7 +30,6 @@ function Login() {
     }
     const onLoginSubmit = async (e) => {
         e.preventDefault()
-        alert("LOGIN")
         let loginError = await handleLoginValidate();
         console.log("loginError", loginError);
         if (isEmpty(loginError)) {
@@ -46,6 +45,7 @@ function Login() {
             if (result.responseCode == 0) {
                 localStorage.setItem("customerId", result.customerId)
                 localStorage.setItem("customerIdTemp", result.customerIdTemp)
+                localStorage.setItem("email", result.email)
                 dispatch(UserAction.setUserData(result))
                 dispatch(CommonAction.handleLoginComponent(false))
             } else {
@@ -60,22 +60,23 @@ function Login() {
     }
     console.log("loginFormDataloginFormData", loginFormData);
     return (
-        <div class="tab-pane fade show active" id="log-modaltab1" role="tabpanel" aria-labelledby="log-modaltab1">
+        <div className="tab-pane fade show active" id="log-modaltab1" role="tabpanel" aria-labelledby="log-modaltab1">
             <form onSubmit={onLoginSubmit}>
-                <div class="form-group">
-                    <i class="bi bi-person-fill user-stepmodal"></i>
-                    <input type="text" class="form-control" placeholder="Email" onChange={(e) => handleChange(e.target.value, "username")} value={loginFormData.username} />
+                {!isEmpty(loginError.common) && <span className="validation-error">{loginError.common}</span>}
+                <div className="form-group">
+                    <i className="bi bi-person-fill user-stepmodal"></i>
+                    <input type="text" className="form-control" placeholder="Email" onChange={(e) => handleChange(e.target.value, "username")} value={loginFormData.username} />
                     {!isEmpty(loginError.username) && <span className="validation-error">{loginError.username}</span>}
                 </div>
-                <div class="form-group">
-                    <i class="bi bi-shield-fill-check  user-stepmodal"></i>
-                    <input type="password" class="form-control" placeholder="Password" onChange={(e) => handleChange(e.target.value, "password")} value={loginFormData.password} />
+                <div className="form-group">
+                    <i className="bi bi-shield-fill-check  user-stepmodal"></i>
+                    <input type="password" className="form-control" placeholder="Password" onChange={(e) => handleChange(e.target.value, "password")} value={loginFormData.password} />
                     {!isEmpty(loginError.password) && <span className="validation-error">{loginError.password}</span>}
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">Login</button>
 
-                <div class="col-12 ptb-5">
-                    <a href="javascript:void(0);" class="btn  link-gray" data-toggle="modal" data-target=".resetpassword">Forgot Password</a>
+                <div className="col-12 ptb-5">
+                    <a href="javascript:void(0);" className="btn  link-gray" data-toggle="modal" data-target=".resetpassword">Forgot Password</a>
                 </div>
             </form>
 

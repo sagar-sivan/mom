@@ -19,12 +19,12 @@ const WeeklyMenu = () => {
     return (
         <>
             <Header />
-            <div class="main__content about">
+            <div className="main__content about">
 
-                <div class="banner__holder" data-aos="fade-up">
-                    <div class="banner__inner">
+                <div className="banner__holder" data-aos="fade-up">
+                    <div className="banner__inner">
                         <h2>Weekly menu</h2>
-                        <img src={weekly} class="img-fluid" alt="Meals On Me" />
+                        <img src={weekly} className="img-fluid" alt="Meals On Me" />
                     </div>
                 </div>
                 <TopMenu />

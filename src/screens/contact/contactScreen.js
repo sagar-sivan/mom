@@ -10,15 +10,15 @@ const ContactScreen = () => {
     return (
         <>
             <Header />
-            <div class="main__content about">
+            <div className="main__content about">
 
-                <div class="banner__holder" data-aos="fade-up">
-                    <div class="banner__inner">
+                <div className="banner__holder" data-aos="fade-up">
+                    <div className="banner__inner">
                         <h2>Contact Us</h2>
-                        <img src={contact_banner} class="img-fluid" alt="Meals On Me" />
+                        <img src={contact_banner} className="img-fluid" alt="Meals On Me" />
                     </div>
                 </div>
-                <div class="container" data-aos="fade-up">
+                <div className="container" data-aos="fade-up">
                     <ContactForm />
                     <Map />
                 </div>
