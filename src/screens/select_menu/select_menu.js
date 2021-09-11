@@ -286,7 +286,7 @@ const SelectMenu = () => {
 
                                             <Slider className="pack-slider col-10 offset-md-2  pt-5r" {...pack_slider_settings}>
                                                 {
-                                                    menuList.map(item => {
+                                                    [...menuList, ...menuList].map(item => {
                                                         return (<div>
                                                             <div className="profile__pack__item">
                                                                 <p className="item__date">{moment(item.menuDate).format("DD/MM/YYY")}</p>
@@ -307,7 +307,7 @@ const SelectMenu = () => {
                                                             </div>
                                                             <Slider className="pack-slider col-10 float-left pt-4" {...pack_slider_settings} >
                                                                 {
-                                                                    menuList.map((menuItem, menuIndex) => {
+                                                                    [...menuList, ...menuList].map((menuItem, menuIndex) => {
                                                                         return (
                                                                             <div>
                                                                                 <div className="col plan_modal-item_box">
