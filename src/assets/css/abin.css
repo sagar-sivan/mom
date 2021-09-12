@@ -2879,5 +2879,36 @@ font-size: 14px;
      .pack-slider .slick-dots{
       display: none;
       }
+      /*tick style modal*/
+      .RFS-StepButton.active:after {
+        content: '';
+        background-image: url(../images/weeklymenu/check.svg);
+        position: absolute;
+        width: 27px;
+        height: 26px;
+        display: block;
+        margin: 3px auto;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        z-index: 99;
+        background-color: #db0000;
+        top: 0;
+        left: 44%;
+      }
+      .RFS-StepButton.active:after {
+        content: '';
+        background-image: url(../images/weeklymenu/check.svg);
+        position: absolute;
+        width: 27px;
+        height: 26px;
+        display: block;
+        margin: 3px auto;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        z-index: 99;
+        background-color: #db0000;
+        top: 0;
+        left: 22%;
+      }
 
 }
