@@ -2414,7 +2414,9 @@ border-radius:50%
   top: 0;
   left: 42%;
 }
-
+.RFS-Label {
+  font-weight: 600;
+}
 /*media query*/
 @media (max-width: 1320px) {
 }
