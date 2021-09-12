@@ -2417,6 +2417,9 @@ border-radius:50%
 .RFS-Label {
   font-weight: 600!important;
 }
+button.btn.btn__started {
+  padding: 10px 15px;
+} 
 /*media query*/
 @media (max-width: 1320px) {
 }
