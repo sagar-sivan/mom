@@ -2384,7 +2384,7 @@ border-radius:50%
 }
 .RFS-StepButton.active:after {
   content: '';
-  background-image: url(..images/weeklymenu/check.svg);
+  background-image: url(../images/weeklymenu/check.svg);
   position: absolute;
   width: 27px;
   height: 26px;
@@ -2399,7 +2399,7 @@ border-radius:50%
 }
 .RFS-StepButton:after {
   content: '';
-  background-image: url(..images/weeklymenu/check.svg);
+  background-image: url(../images/weeklymenu/check.svg);
   position: absolute;
   width: 26px;
   height: 26px;
