@@ -2366,7 +2366,17 @@ margin: 0;
 .choose-plan-data button.new-btn-prev{
   opacity: 0!important;
 }
-
+.check-input-popp figure{
+  background-color:transparent;
+  marging:0 auto;
+  top:0;
+}
+.check-input-popp figure img{
+width:50%;
+margin:0 auto;
+position:relative;
+border-radius:50%
+}
 
 /*media query*/
 @media (max-width: 1320px) {
