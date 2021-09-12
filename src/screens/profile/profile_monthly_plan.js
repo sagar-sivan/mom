@@ -1,17 +1,31 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { isEmpty } from "lodash"
 import moment from "moment"
 
+import CommonAction from "./../../action/common_action"
+
 const MonthlyPlan = () => {
+    const dispatch = useDispatch()
     const { userData } = useSelector(state => state.profileReducer);
+
+    const handleMenuOpen = (OrderId, planId, CuisineId) => {
+        dispatch(CommonAction.handleMenuComponent({
+            isVisible: true,
+            OrderId,
+            planId,
+            CuisineId
+        }))
+    }
+
+
     if (!isEmpty(userData) && userData.customerPlanList && userData.customerPlanList.length > 0) {
         return (
             <div className="container">
                 {
                     userData.customerPlanList.map(item => {
                         return (
-                            <div className="month-plan">
+                            <div className="month-plan" onClick={() => handleMenuOpen(item.orderId, item.planId, item.cuisineId)}>
                                 <div className="row">
                                     <div className="col-12 col-sm-7 col-md-6 col-lg-3 month-plan__name">
                                         <h4>{item.planDuration}</h4>

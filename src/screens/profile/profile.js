@@ -12,6 +12,7 @@ import ProfileAction from '../../action/profile_action'
 import LoaderAction from '../../action/loader_action'
 import AddAddress from '../add_address/addAddress'
 import EditProfile from '../edit_profile/editProfile'
+import SelectMenu from '../select_menu/select_menu'
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -22,6 +23,7 @@ const Profile = () => {
             dispatch(ProfileAction.getAllProfileData(customerId))
             dispatch(ProfileAction.getCustomerAddress(customerId))
         }
+
     }, [])
 
     return (
@@ -37,6 +39,8 @@ const Profile = () => {
             </div>
             <AddAddress />
             <EditProfile />
+            <SelectMenu />
+
             <Footer />
         </>
     )

@@ -10,10 +10,11 @@ function HomePlan() {
     const handleStartPlan = (e) => {
         e.preventDefault()
         console.log("asdasasd", e);
+        dispatch(CommonAction.setCaloriePlan(false))
         dispatch(CommonAction.handlePlanComponent(true))
     }
     return (
-        <div className="container home__plans">
+        <div className="container home__plans" data-aos="fade-up">
             <div className="row">
                 <div className="col-12 col-xl-5">
                     <div className="home__plans__text">
@@ -26,32 +27,32 @@ function HomePlan() {
                     </div>
                 </div>
 
-                <div className="col-12 col-xl-7">
-                    <div className="row home__plans__select">
-                        <div className="col-12 col-md-4">
-                            <div className="food__select">
-                                <figure className="with-shadow"><img src={plan_1} alt="Meals On Me" /></figure>
+                <div class="col-12 col-xl-7">
+                    <div class="row home__plans__select justify-content-center">
+                        <div class="col-6 col-md-4">
+                            <div class="food__select">
+                                <figure class="with-shadow"><img src={plan_1} alt="Meals On Me" /></figure>
                                 <label for="checkbox1">Lunch Only</label>
                             </div>
                         </div>
 
-                        <div className="col-12 col-md-4">
-                            <div className="food__select">
-                                <figure className="with-shadow"><img src={plan_2} alt="Meals On Me" /></figure>
+                        <div class="col-6 col-md-4">
+                            <div class="food__select">
+                                <figure class="with-shadow"><img src={plan_2} alt="Meals On Me" /></figure>
                                 <label for="checkbox2">Dinner Only</label>
                             </div>
                         </div>
 
-                        <div className="col-12 col-md-4">
-                            <div className="food__select">
-                                <figure className="with-shadow"><img src={plan_3} alt="Meals On Me" /></figure>
+                        <div class="col-6 col-md-4">
+                            <div class="food__select">
+                                <figure class="with-shadow"><img src={plan_3} alt="Meals On Me" /></figure>
                                 <label for="checkbox3">Lunch and Dinner</label>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="col-12 text-center my-5">
+                <div class="col-12 text-center mt-3 my-md-3 my-lg-5">
                     <a className="btn btn-primary btn-lg btn__shadow-red" onClick={e => handleStartPlan(e)} href="#" role="button">Start your plan now</a>
                 </div>
             </div>

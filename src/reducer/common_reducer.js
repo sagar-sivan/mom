@@ -3,7 +3,9 @@ import { LOGIN_COMPONENT, PLAN_COMPONENT, SET_CALORIE_PLAN, MENU_COMPONENT, GET_
 const initialState = {
     login_component: false,
     plan_component: false,
-    menu_component: false,
+    menu_component: {
+        isVisible: false
+    },
     calorie_plan: false,
     settings: [],
     commonAlert: {
@@ -16,6 +18,7 @@ const initialState = {
 };
 
 const commonReducer = (state = initialState, action) => {
+    console.log(action, state);
     switch (action.type) {
         case LOGIN_COMPONENT:
             return {

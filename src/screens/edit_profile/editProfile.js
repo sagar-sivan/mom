@@ -88,6 +88,15 @@ const EditProfile = () => {
                     handleCloseEditProfile()
 
                     dispatch(ProfileAction.getAllProfileData(localStorage.getItem("customerId")))
+                    dispatch(CommonAction.openCommonAlert({
+                        isVisible: true,
+                        title: "Profile updated successfully",
+                        buttons: [
+                            {
+                                title: "Ok", action: () => { dispatch(CommonAction.openCommonAlert({ isVisible: false })); }
+                            }
+                        ]
+                    }))
                 } else {
                     error.common = result.responseName
                     setError({ ...error })

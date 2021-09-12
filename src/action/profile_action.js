@@ -10,11 +10,11 @@ const getAllProfileData = (CustomerId) => {
             }
             const url = `${api_url}${urlConfig.getAllProfileInfo}`;
             const result = await networkRequest({ url, method: "POST", data })
-            if (result.responseCode == 0) {
-                dispatch({
-                    type: GET_ALL_PROFILE_DATA, payload: result
-                })
-            }
+            // if (result.responseCode == 0) {
+            dispatch({
+                type: GET_ALL_PROFILE_DATA, payload: result
+            })
+            // }
             dispatch({
                 type: LOADER, payload: false
             })

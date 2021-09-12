@@ -35,13 +35,13 @@ const CommonAlert = () => {
                         <div class="modal-body login-form-content">
                             <div class="col-12 modal-allergies-tab text-left py-3">
                                 {
-                                    !isEmpty(commonAlert.title) && <h2 class="fs-title mb-4">Are you sure you want to Cancel the Meal</h2>
+                                    !isEmpty(commonAlert.title) && <h2 class="fs-title mb-4">{commonAlert.title}</h2>
                                 }
 
 
                                 <div class="text-center">
                                     {
-                                        commonAlert.buttons.map((item, index) => <button key={index} type="button" class="btn btn-primary d-inline-block" onClick={() => item.action()} >{item.title}</button>)
+                                        commonAlert.buttons && commonAlert.buttons.map((item, index) => <button key={index} type="button" class="btn btn-primary d-inline-block" onClick={() => item.action()} >{item.title}</button>)
                                     }
                                     {/* <button type="submit" class="btn btn-primary d-inline-block" >No</button>
                                     <button type="submit" class="btn btn-primary d-inline-block" >Yes</button> */}

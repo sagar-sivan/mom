@@ -17,17 +17,17 @@ function HomeBanner() {
 
     }, [])
     return (
-        <div className="banner__holder" >
+        <div className="banner__holder" data-aos="fade-up" >
             <Slider className="homebanner" {...settings}>
                 <div>
                     <div className="banner__item">
                         <div className="container banner__content">
-                            <div className="row no-gutters justify-content-center">
-                                <div className="col col-md-4 col-lg-6 col-xl-7 banner__img">
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-12 col-lg-6 col-xl-7 banner__img">
                                     <img src={banner_1} alt="Invest Qatar" />
                                 </div>
 
-                                <div className="col col-sm-10 col-md-8 col-lg-6 col-xl-5 banner__form__holder">
+                                <div class="col-12 col-lg-6 col-xl-5 banner__form__holder">
                                     <h2>Offering Freshly, Healthy Nutritious <strong>daily meals at your door-steps</strong></h2>
 
                                     <BannerForm />
@@ -41,12 +41,12 @@ function HomeBanner() {
                 <div>
                     <div className="banner__item">
                         <div className="container banner__content">
-                            <div className="row no-gutters justify-content-center">
-                                <div className="col col-md-4 col-lg-6 col-xl-7 banner__img">
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-12 col-lg-6 col-xl-7 banner__img">
                                     <img src={banner_1} alt="Invest Qatar" />
                                 </div>
 
-                                <div className="col col-sm-10 col-md-8 col-lg-6 col-xl-5 banner__form__holder">
+                                <div class="col-12 col-lg-6 col-xl-5 banner__form__holder">
                                     <h2>Offering Freshly, Healthy Nutritious <strong>daily meals at your door-steps</strong></h2>
 
                                     <BannerForm />
@@ -60,12 +60,12 @@ function HomeBanner() {
                 <div>
                     <div className="banner__item">
                         <div className="container banner__content">
-                            <div className="row no-gutters justify-content-center">
-                                <div className="col col-md-4 col-lg-6 col-xl-7 banner__img">
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-12 col-lg-6 col-xl-7 banner__img">
                                     <img src={banner_1} alt="Invest Qatar" />
                                 </div>
 
-                                <div className="col col-sm-10 col-md-8 col-lg-6 col-xl-5 banner__form__holder">
+                                <div class="col-12 col-lg-6 col-xl-5 banner__form__holder">
                                     <h2>Offering Freshly, Healthy Nutritious <strong>daily meals at your door-steps</strong></h2>
 
                                     <BannerForm />
