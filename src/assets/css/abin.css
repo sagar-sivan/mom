@@ -2612,7 +2612,7 @@ border-radius:50%
       z-index: 99;
       background-color: #db0000;
       top: 0;
-      left: 22%;
+      left: 33%;
     }
     .RFS-StepButton:after {
       content: '';
@@ -2627,7 +2627,7 @@ border-radius:50%
       z-index: 99;
       background-color: #e0e0e0;
       top: 0;
-      left: 20%;
+      left:33%;
     }
 }
 
