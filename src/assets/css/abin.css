@@ -2403,20 +2403,18 @@ border-radius:50%
   content: '';
   background-image: url(../images/weeklymenu/check.svg);
   position: absolute;
-  width: 26px;
-  height: 26px;
+  width: 34px;
+  height: 34px;
   display: block;
-  margin: 3px auto;
+  margin: 0px auto;
   border-radius: 50%;
   background-repeat: no-repeat;
   z-index: 99;
   background-color: #e0e0e0;
   top: 0;
-  left: 44%;
+  left: 42%;
 }
-.RFS-StepButton-d2.completed{
-    background-color: #e0e0e0;
-}
+
 /*media query*/
 @media (max-width: 1320px) {
 }
