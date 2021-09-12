@@ -32,10 +32,10 @@ function HomeTestimonial() {
         asNavFor: nav2
     }
     return (
-        <div className="container  skew-bg__grey__top home__testimonial">
-            <div className="row mx-4">
-                <div className="col col-md-5 px-4 d-flex align-items-center">
-                    <div className="home__testimonial__text">
+        <div class="container  skew-bg__grey__top home__testimonial" data-aos="fade-up">
+            <div class="row mx-lg-4">
+                <div class="col col-md-12 col-lg-5 px-4 d-flex align-items-center">
+                    <div class="home__testimonial__text">
                         <h2>
                             <span>Valuable comments</span>
                             Testimonial
@@ -43,7 +43,7 @@ function HomeTestimonial() {
                     </div>
                 </div>
 
-                <div className="col col-md-7 px-4 home__testimonial__content" >
+                <div class="col col-md-12 col-lg-7 px-4 home__testimonial__content">
                     <img src={testimonial_img_1} className="img-fluid" alt="Meals On Me" />
 
                     <Slider className="testimonial__content" {...testimonial__content_settings} ref={slider => (slider1 = slider)}>

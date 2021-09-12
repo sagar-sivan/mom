@@ -135,18 +135,21 @@ const SelectMenu = () => {
     const [dishCount, setDishCount] = useState({})
     const [confirmValidate, setConfirmValidate] = useState(false)
     useEffect(() => {
-        if (menu_component)
+        if (menu_component.isVisible)
             getMenuList()
-    }, [menu_component])
+    }, [menu_component.isVisible])
+    const handleCLoseMenu = () => {
+        dispatch(CommonAction.handleMenuComponent({ isVisible: false }))
+    }
     const getMenuList = async () => {
         try {
             dispatch(LoaderAction.showLoader())
             const url = `${api_url}${urlConfig.getWeeklyPlanByCustomerPlanAndCuisineId}`;
             const data = {
-                "OrderId": 3,
-                "CustomerId": 1,
-                "planId": 1,
-                "CuisineId": 1
+                "OrderId": menu_component.OrderId,
+                "CustomerId": localStorage.getItem("customerId") == 0 ? localStorage.getItem("customerIdTemp") : localStorage.getItem("customerId"),
+                "planId": menu_component.planId,
+                "CuisineId": menu_component.CuisineId
             }
             const result = await networkRequest({ url, method: "POST", data })
             console.log("RESULT====>0", result);
@@ -220,6 +223,7 @@ const SelectMenu = () => {
                     console.log("menuIndex", menuIndex);
                     console.log("dishIndex", dishIndex);
                     let obj = {
+                        OrderId: menu_component.OrderId,
                         MenuDtlId: menuList[menuIndex].weeklyMenuDishOutputList[dishIndex].menuDtlId,
                         DishId: menuList[menuIndex].weeklyMenuDishOutputList[dishIndex].dishId,
                         SnackId: menuList[menuIndex].weeklyMenuDishOutputList[dishIndex].snackId,
@@ -242,7 +246,20 @@ const SelectMenu = () => {
                 setMenuList([])
                 setDishCount({})
                 setConfirmValidate(false)
-                dispatch(CommonAction.handleMenuComponent(false))
+                // setTimeout(() => {
+                // dispatch(CommonAction.handleMenuComponent(false))
+                // }, 100);
+
+
+                dispatch(CommonAction.openCommonAlert({
+                    isVisible: true,
+                    title: "Menu saved successfully",
+                    buttons: [
+                        {
+                            title: "Ok", action: () => { dispatch(CommonAction.openCommonAlert({ isVisible: false })); dispatch(CommonAction.handleMenuComponent({ isVisible: false })) }
+                        }
+                    ]
+                }))
             }
             dispatch(LoaderAction.hideLoader())
         } catch (error) {
@@ -256,7 +273,7 @@ const SelectMenu = () => {
         return (
             <>
                 <Modal
-                    isOpen={menu_component}
+                    isOpen={menu_component.isVisible}
                     // onAfterOpen={afterOpenModal}
                     // onRequestClose={closeModal}
                     style={customStyles}
@@ -267,7 +284,7 @@ const SelectMenu = () => {
                         <div className="container-fluid modal-dialog modal-xl w-100">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <button type="button" className="close" data-dismiss="modal">&times;</button>
+                                    <button type="button" className="close" onClick={() => handleCLoseMenu()}>&times;</button>
                                 </div>
                                 <h5 className="modal-title text-center select_menu_1h">Please Select your menu</h5>
                                 <div className="modal-body">

@@ -49,13 +49,18 @@ const StartPlan = () => {
     const [formData, setFormData] = useState({})
     const [error, setError] = useState({})
     const [couponData, setCouponData] = useState({})
+    const [totalAmount, setTotalAmount] = useState(null)
     useEffect(() => {
-        getPlanData();
-        getNumberOfMealsData()
-        getScheduleData()
-        getDurationData()
-        getAllAllergiesList()
-    }, [])
+        if (plan_component) {
+            getPlanData();
+            getNumberOfMealsData()
+            getScheduleData()
+            getDurationData()
+            getAllAllergiesList()
+        }
+
+    }, [plan_component])
+
     const handleChange = (value, field) => {
         console.log(field, value);
         formData[field] = value;
@@ -204,9 +209,10 @@ const StartPlan = () => {
     const handleSaveOrder = async () => {
         // return setActiveStep(3)
         try {
-            // dispatch(LoaderAction.showLoader())
+            dispatch(LoaderAction.showLoader())
             const OrderDays = scheduleData.find(item => item.scheduleId == formData.schedule).numberOfDays
             const OrderQuantity = OrderDays * formData.duration * formData.noOfMeals
+            setTotalAmount(OrderQuantity * 25)
             const data = {
                 "PlanIdTemp": formData.plan,
                 "CuisineIdTemp": formData.cuisine,
@@ -224,6 +230,7 @@ const StartPlan = () => {
             const result = await networkRequest({ url, method: "POST", data })
             if (result.responseCode == 0) {
                 formData.orderId = result.orderIdTemp
+                localStorage.setItem("formData", JSON.stringify(data))
                 setFormData({ ...formData })
                 setActiveStep(3)
             }
@@ -249,6 +256,11 @@ const StartPlan = () => {
                 const url = `${api_url}${urlConfig.saveOrderAllergyData}`;
                 const result = await networkRequest({ url, method: "POST", data })
                 if (result.responseCode == 0) {
+                    let tempData = localStorage.getItem("formData")
+                    tempData = JSON.parse(tempData)
+                    tempData.selectedAllergies = selectedAllergies;
+                    tempData.totalAmount = totalAmount;
+                    localStorage.setItem("formData", JSON.stringify(tempData))
                     setActiveStep(4)
                 }
                 dispatch(LoaderAction.hideLoader())
@@ -312,11 +324,12 @@ const StartPlan = () => {
     const initiatePayment = async (type) => {
         try {
             dispatch(LoaderAction.showLoader())
+
             const data = {
                 OrderIdTemp: formData.orderId,
                 CustomerIdTemp: localStorage.getItem("customerId") == 0 ? localStorage.getItem("customerIdTemp") : localStorage.getItem("customerId"),
                 PaymentStatus: "P",
-                OrderAmount: 400,
+                OrderAmount: totalAmount,
                 OrderAmountVat: vatPercentage,
                 PaymentMode: type
             }
@@ -326,7 +339,7 @@ const StartPlan = () => {
                 if (type == "cod") {
                     UpdatePaymentStatus(result)
                 } else {
-
+                    ProcessPayment(result.orderIdTemp.toString(), result.orderAmount)
                 }
 
             } else {
@@ -337,17 +350,24 @@ const StartPlan = () => {
             console.log(error);
         }
     }
-    const ProcessPayment = async ({ }) => {
+    const ProcessPayment = async (OrderId, amount) => {
         try {
             const data = {
-                "OrderId": "50000000",
-                "amount": 445555,
+                OrderId,
+                amount,
                 "currencyCode": "AED",
                 "action": "SALE",
-                "emailAddress": "test@gmail.com"
+                "emailAddress": localStorage.getItem("email")
             }
             const url = `${api_url}${urlConfig.processPayment}`;
             const result = await networkRequest({ url, method: "POST", data })
+            console.log("RESULT", result);
+            console.log("paymentJson=>>", JSON.parse(result.paymentJson));
+            if (result.paymentJson) {
+
+                const testResult = JSON.parse(result.paymentJson)
+                window.location.replace(testResult?._links?.payment?.href)
+            }
             // if (result.responseCode == 0) {
             //     setCouponData(result)
             // } else {
@@ -422,7 +442,7 @@ const StartPlan = () => {
                                                             <div className="form-card form-check-step">
                                                                 <h2 className="fs-title">Select your Lunch & Dinner Plan</h2>
                                                                 {!isEmpty(error.plan) && <p className="validation-error">{error.plan}</p>}
-                                                                <div className="col-12">
+                                                                <div className="row  d-flex col-12">
                                                                     {
                                                                         planData.filter(item => item.isSpecialPlan == calorie_plan).map(item => {
                                                                             return (
@@ -800,7 +820,7 @@ const StartPlan = () => {
                                                                                     </div>
 
                                                                                     <div className="col-md-6 float-left">
-                                                                                        <h4>1200 AED</h4>
+                                                                                        <h4>{totalAmount} AED</h4>
                                                                                         <button type="submit" className="btn btn-primary" onClick={() => initiatePayment("cod")}>Cash On Delivery</button>
                                                                                     </div>
                                                                                 </div>

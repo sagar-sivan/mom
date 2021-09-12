@@ -103,6 +103,10 @@ button.new-btn-prev {
     z-index: 1;
 }
 
+.ReactModal__Overlay.ReactModal__Overlay--after-open.login-form4 {
+    z-index: 102;
+}
+
 .footer__form form .btn__footer-form {
     border: none;
 }

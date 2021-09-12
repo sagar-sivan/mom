@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Route, BrowserRouter as Router, Switch, withRouter } from "react-router-dom"
+import { Route, BrowserRouter as Router, Switch, withRouter, useHistory } from "react-router-dom"
 import AOS from "aos"
 import { useDispatch } from 'react-redux'
 
@@ -26,9 +26,13 @@ import "./../assets/css/laxmi.css"
 import "./../assets/css/custom_style.css"
 import FaqScreen from "../screens/faq/faq"
 import TermsAndCondition from "../screens/terms_and_condition/termsAndCondition"
+import PaymentStatus from "../screens/paymentStatus/paymentStatus"
+import CommonAlert from "../components/CommonAlert"
 
 const Routes = () => {
   const dispatch = useDispatch()
+  const history = useHistory();
+  console.log("HISTORY", history);
   useEffect(() => {
     AOS.init({
       easing: 'ease-out-sine',
@@ -47,6 +51,7 @@ const Routes = () => {
   return (
     <Router basename={"/"}>
       <Loader />
+      <CommonAlert />
       <Switch>
         <Route exact path="/" component={HomeScreen} />
         <PrivateRoute exact path="/profile" component={Profile} />
@@ -57,6 +62,7 @@ const Routes = () => {
         <Route exact path="/about" component={AboutUs} />
         <Route exact path="/faq" component={FaqScreen} />
         <Route exact path="/terms-and-condition" component={TermsAndCondition} />
+        <Route path="/payment-status" component={PaymentStatus} />
         <Route component={PageNotFound} />
 
       </Switch>

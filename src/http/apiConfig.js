@@ -1,4 +1,5 @@
-const base_url = "http://webotix102-001-site1.gtempurl.com"
+// const base_url = "http://webotix102-001-site1.gtempurl.com"
+const base_url = "http://webotix2021-001-site10.itempurl.com"
 const api_url = `${base_url}/api/`
 
 const urlConfig = {

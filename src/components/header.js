@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, withRouter } from "react-router-dom"
+import { Link, withRouter, useHistory } from "react-router-dom"
 import { isEmpty } from "lodash"
 
 import { logo_color } from "./../assets/images"
@@ -10,6 +10,7 @@ import UserAction from '../action/user_action'
 
 const Header = (props) => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const { loginData } = useSelector(state => state.userReducer);
     useEffect(() => {
         const header = document.querySelectorAll('header');
@@ -47,6 +48,12 @@ const Header = (props) => {
         localStorage.removeItem("email")
         props.history.replace("/")
     }
+    const handleMenuClick = () => {
+        document.body.classList.toggle('nav-open');
+    }
+    const handleCloseMenu = () => {
+        document.body.classList.remove('nav-open');
+    }
 
     return (
 
@@ -62,11 +69,11 @@ const Header = (props) => {
                         <div className="col-auto header__right">
                             <nav className="header__nav">
                                 <ul role="menu">
-                                    <li><Link to="/our-plan">Our Plan</Link></li>
-                                    <li><Link to="/weekly-menu">Weekly Menu</Link></li>
-                                    <li><a href="javascript:void(0);">Our Story</a></li>
-                                    <li><Link to="/how-it-works">How it Works</Link></li>
-                                    <li><Link to="/contact">Contact Us</Link></li>
+                                    <li><Link to="/our-plan" onClick={() => handleCloseMenu()}>Our Plan</Link></li>
+                                    <li><Link to="/weekly-menu" onClick={() => handleCloseMenu()}>Weekly Menu</Link></li>
+                                    <li><a href="javascript:void(0);" onClick={() => handleCloseMenu()}>Our Story</a></li>
+                                    <li><Link to="/how-it-works" onClick={() => handleCloseMenu()}>How it Works</Link></li>
+                                    <li><Link to="/contact" onClick={() => handleCloseMenu()}>Contact Us</Link></li>
                                     {
                                         !isEmpty(loginData) && <li><Link to="/profile">Profile</Link></li>
                                     }
@@ -83,7 +90,7 @@ const Header = (props) => {
 
                             <a href="javascript:void(0);" className="btn btn__alert">Login</a>
 
-                            <span className="nav__btn" role="button">
+                            <span className="nav__btn" role="button" onClick={() => handleMenuClick()}>
                                 <span className="bar1"></span>
                                 <span className="bar2"></span>
                                 <span className="bar3"></span>

@@ -16,10 +16,11 @@ const handlePlanComponent = (status) => {
         })
     }
 }
-const handleMenuComponent = (status) => {
+const handleMenuComponent = (data) => {
+    console.log(data);
     return dispatch => {
         dispatch({
-            type: MENU_COMPONENT, payload: status
+            type: MENU_COMPONENT, payload: data
         })
     }
 }
@@ -61,5 +62,5 @@ const getSettings = () => {
 }
 
 export default {
-    handleLoginComponent, handlePlanComponent, setCaloriePlan, handleMenuComponent, getSettings, openCommonAlert
+    handleLoginComponent, handlePlanComponent, setCaloriePlan, handleMenuComponent, getSettings, openCommonAlert, paymentSummaryModal
 }
