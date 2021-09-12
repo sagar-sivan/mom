@@ -2378,6 +2378,10 @@ position:relative;
 border-radius:50%
 }
 
+.validation-error {
+  color: red;
+  padding: 0;
+}
 /*media query*/
 @media (max-width: 1320px) {
 }
