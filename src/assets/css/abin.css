@@ -2924,7 +2924,7 @@ font-size: 14px;
         z-index: 99;
         background-color: #db0000;
         top: 0;
-        left: 22%;
+        left: 27%;
       }
       .RFS-StepButton:after {
         content: '';
@@ -2939,7 +2939,15 @@ font-size: 14px;
         z-index: 99;
         background-color: #e0e0e0;
         top: 0;
-        left: 20%;
+        left: 27%;
       }
+      .RFS-StepperContainer{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+      }
+
 
 }
