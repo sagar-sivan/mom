@@ -2465,11 +2465,8 @@ transform: translate3d(0, 0, 0);
 backface-visibility: hidden;
 perspective: 1000px;
 }
-#step-form-modal .flex-box-modal .col-md-6 {
-  width:100%;
-  min-width:100%;
 
-}
+
 /*media query*/
 @media (max-width: 1320px) {
 }
@@ -2928,6 +2925,11 @@ perspective: 1000px;
     }
     #step-form-modal fieldset .form-card .plan-image-step img{
         border-radius: 11px;
+    }
+    #step-form-modal .flex-box-modal .col-md-6 {
+      width:100%;
+      min-width:100%;
+    
     }
     /*step3*/
     .flex-box-modal .radio-ul-modal li{
