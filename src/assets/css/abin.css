@@ -2818,6 +2818,46 @@ button.btn.btn__started {
       .item-grid-step1 .col-md-4:nth-child(3){
           width:100%;
       }
+      
+      .item-grid-step1 .col-md-6:nth-child(1){
+        width:50%;
+        max-width: 50%;
+      }
+      .item-grid-step1 .col-md-6:nth-child(2){
+        width:50%;
+        max-width: 50%;
+      }
+      .item-grid-step1 .col-md-6:nth-child(3){
+        width:50%;
+        max-width: 50%;
+      }
+      .item-grid-step1 .col-md-6:nth-child(4){
+        width:50%;
+        max-width: 50%;
+      }.item-grid-step1 .col-md-6:nth-child(5){
+        width:50%;
+        max-width: 50%;;
+      }.item-grid-step1 .col-md-6:nth-child(6){
+        width:50%;
+        max-width: 50%;
+      }
+      .item-grid-step1 .col-md-6:nth-child(7){
+        width:100%;
+        max-width: 100%;
+      }
+      .item-grid-step1 .food__select.small{min-height: 100px;margin: 5px 0 0 0;}
+    .item-grid-step1 .check-input-popp figure img{
+        width:30%;
+        margin:0 auto;
+        top:0;
+    }
+    .item-grid-step1 .food__select.small figure{
+        top:0
+    }
+    .item-grid-step1 .food__select label{
+        font-size:11px;
+    }
+
     #step-form-modal .step-1choose [type="radio"]:checked + label:before, .step-1choose [type="radio"]:not(:checked) + label:before{
         width: 15px;
         height: 15px;
