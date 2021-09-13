@@ -2509,6 +2509,18 @@ perspective: 1000px;
 }
 
 @media (max-width: 991px) {
+  .profile__pack__item__holder .col-2{
+    width:100%;
+    min-width:100%;
+    flex: 100%;
+    text-align: center;
+    margin: 0 auto;
+    }
+   .profile__pack__item__holder .col-2 .foodtime-icon{
+      text-align:center;
+      float: none;
+      display: block;
+    }
     /*FAQ*/
     .absolute-img{
     position: absolute;
