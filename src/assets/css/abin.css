@@ -2469,9 +2469,15 @@ perspective: 1000px;
 
 /*media query*/
 @media (max-width: 1320px) {
+  .chooseplan .modal-xl {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 1199px) {
+  .chooseplan .modal-xl {
+    max-width: 100%;
+  }
     /*FAQ*/
     .absolute-img{
     position: absolute;
@@ -2509,6 +2515,9 @@ perspective: 1000px;
 }
 
 @media (max-width: 991px) {
+  .chooseplan .modal-xl {
+    max-width: 100%;
+  }
   .profile__pack__item__holder .col-2{
     width:100%;
     min-width:100%;
