@@ -2615,7 +2615,7 @@ button.btn.btn__started {
       z-index: 99;
       background-color: #db0000;
       top: 0;
-      left: 33%;
+      left: auto;
     }
     .RFS-StepButton:after {
       content: '';
@@ -2630,7 +2630,7 @@ button.btn.btn__started {
       z-index: 99;
       background-color: #e0e0e0;
       top: 0;
-      left:33%;
+      left:auto;
     }
     
 }
@@ -2928,7 +2928,7 @@ font-size: 14px;
         z-index: 99;
         background-color: #db0000;
         top: 0;
-        left: 27%;
+        left: auto;
       }
       .RFS-StepButton:after {
         content: '';
@@ -2943,7 +2943,7 @@ font-size: 14px;
         z-index: 99;
         background-color: #e0e0e0;
         top: -4px;
-        left: 22%;
+        left: auto;
       }
       .RFS-StepperContainer{
         display: flex;
