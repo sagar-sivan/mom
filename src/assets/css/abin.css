@@ -2804,8 +2804,17 @@ button.btn.btn__started {
       padding: 10px 0;
     }
     #step-form-modal fieldset .form-card .col-md-4{
-      width: 100%;
+      /* width: 100%; */
     }
+    .item-grid-step1 .col-md-4:nth-child(1){
+      width:50%;
+      }
+      .item-grid-step1 .col-md-4:nth-child(2){
+          width:50%;
+      }
+      .item-grid-step1 .col-md-4:nth-child(3){
+          width:100%;
+      }
     #step-form-modal .step-1choose [type="radio"]:checked + label:before, .step-1choose [type="radio"]:not(:checked) + label:before{
         width: 15px;
         height: 15px;
