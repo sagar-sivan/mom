@@ -2420,7 +2420,9 @@ border-radius:50%
 button.btn.btn__started {
   padding: 10px 15px;
 } 
-
+#step-form-modal fieldset  .col-12{
+  margin:0 auto;
+}
 /*media query*/
 @media (max-width: 1320px) {
 }
