@@ -3075,6 +3075,10 @@ font-size: 14px;
       .flex-box-modal{
         flex-direction: column-reverse;
       }
+      .chooseplan .offset-col-md-4{
+        max-width:100%;
+        flex: 1;
+        }
 
 
 }
