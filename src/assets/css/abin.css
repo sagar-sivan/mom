@@ -2592,6 +2592,13 @@ perspective: 1000px;
 }
 
 @media (max-width: 767px) {
+  .chooseplan .slick-slider {
+    flex: 1;
+    max-width: 100%;
+    }
+    .chooseplan .modal-xl {
+      max-width: 100%;
+    }
     /*FAQ*/
     .absolute-img{
     position: absolute;
