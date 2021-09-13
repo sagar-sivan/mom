@@ -2518,6 +2518,7 @@ perspective: 1000px;
   .chooseplan .slick-slider {
     flex: 1;
     max-width: 100%;
+    margin: 0 auto;
 }
   .chooseplan .modal-xl {
     max-width: 100%;
@@ -2608,6 +2609,7 @@ perspective: 1000px;
   .chooseplan .slick-slider {
     flex: 1;
     max-width: 100%;
+    margin: 0 auto;
     }
     .chooseplan .modal-xl {
       max-width: 100%;
